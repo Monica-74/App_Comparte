@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    lo he separado porque ya empezaba a tener 8000... strings y era horroroso-->+
+    <!-- App -->
+    <string name="app_name">CompArte</string>
+    <string name="bienvenido_a_comparte">Bienvenido a CompArte</string>
+
+     Botones y acciones comunes
+    <string name="aceptar">Aceptar</string>
+    <string name="buscar">BUSCAR</string>
+    <string name="publicar">PUBLICAR</string>
+    <string name="editar">EDITAR</string>
+    <string name="valorar">VALORAR</string>
+    <string name="chatear">Chatear</string>
+    <string name="contactar">Contactar</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registro">Registro</string>
+    <string name="confirmar_reserva">Confirmar reserva</string>
+    <string name="cancelar_reserva">Cancelar reserva</string>
+    <string name="registrarse">Registrarse</string>
+
+     Navegación / Roles
+    <string name="home">Home</string>
+    <string name="habitaciones">Habitaciones</string>
+    <string name="inquilino">Inquilino</string>
+    <string name="admin">Admin</string>
+    <string name="propietario">Propietario</string>
+    <string name="login">Login</string>
+    <string name="chat">Chat</string>
+
+    <!-- Secciones por rol -->
+    <string name="comparte_inquilino">COMPARTE INQUILINO</string>
+    <string name="comparte_propietario">COMPARTE PROPIETARIO</string>
+    <string name="comparte_administrador">COMPARTE ADMINISTRADOR</string>
+    <string name="comparte_habitacion">COMPARTE HABITACIÓN</string>
+
+    <!-- Funciones específicas por rol -->
+    <string name="publicar_habitacion">Publicar Habitación</string>
+    <string name="editar_anuncio">Editar Anuncio</string>
+    <string name="gestionar_publicidad">Gestionar Publicidad</string>
+    <string name="gestionar_usuarios">Gestionar Usuarios</string>
+    <string name="editar_contenidos">Editar Contenidos</string>
+    <string name="gestionar_reservas">Gestionar Reservas</string>
+    <string name="ver_reserva">Ver Reserva</string>
+    <string name="valorar_propietario">Valorar Propietario</string>
+    <string name="valorar_inquilino">Valorar Inquilino</string>
+    <string name="chatear_propietario">Chatear Propietario</string>
+
+    <!-- Datos personales -->
+    <string name="nombre_y_apellidos">Nombre y apellidos</string>
+    <string name="edad">Edad</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="genero">Género</string>
+    <string name="telefono_de_contacto">Teléfono de Contacto</string>
+    <string name="telefono_del_inquilino">Teléfono de contacto</string>
+    <string name="email_del_inquilino">Email del inquilino</string>
+
+    <!-- Habitación / Reserva -->
+    <string name="se_alquila_habitacion_cerca_del_retiro_madrid">Se alquila habitación cerca del Retiro, Madrid</string>
+    <string name="calle_sirio_madrid">Calle Sirio, Madrid</string>
+    <string name="cama_individual">Cama individual</string>
+    <string name="bano_privado">Baño privado</string>
+    <string name="metros">10 m²</string>
+    <string name="precio">550.00 €</string>
+    <string name="descripcion">Hola, soy una mujer limpia y ordenada que quiere compartir una habitación…</string>
+    <string name="reserva_de_habitacion">Reserva de habitación</string>
+    <string name="nombre_del_inquilino">Nombre del inquilino</string>
+    <string name="descripcion_de_la_habitacion">Descripción de la habitación</string>
+    <string name="fecha_de_la_reserva">Fecha de la reserva</string>
+
+    <!-- Mensajes de ejemplo de chat -->
+    <string name="hola_cmo_estas_soy_lola_como_propietario_de_la_habitacion_podrias_decirme_si_es_soleada">Hola, ¿cómo estás? Soy Lola como posible inquilina de la habitación podrías decirme si es soleada?</string>
+    <string name="muy_bien_gracias_la_habitacion_da_a_un_patio_interior_pero_s_es_soleada">Hola Lola, encantada. La habitación da a un patio interior, pero sí es soleada.</string>
+    <string name="perfecto_es_que_necesito_sol_para_unos_peces_que_tengo_como_mascotas">Perfecto, es que necesito sol para unos peces que tengo como mascotas.</string>
+    <string name="seguro_que_se_van_a_encontrar_muy_agusto_porque_ademas_no_da_el_sol_directamente">Seguro que se van a encontrar muy agusto, porque además no da el sol directamente.</string>
+    <string name="entonces_voy_a_reservar_la_habitacion_creo_que_vamos_a_vivir_juntas_un_buen_tiempo">Entonces voy a reservar la habitación. Creo que vamos a vivir juntas un buen tiempo.</string>
+    <string name="genial_haz_la_reserva_y_si_quieres_seguimos_hablando_por_telefono_saludos">Genial, haz la reserva y si quieres seguimos hablando por teléfono. Saludos.</string>
+
+    <!-- Fechas de ejemplo de chat -->
+    <string name="_14_mayo_2025_10_45">14 mayo 2025 – 10:45</string>
+    <string name="_14_mayo_2025_10_46">14 mayo 2025 – 10:46</string>
+    <string name="_14_mayo_2025_10_50">14 mayo 2025 – 10:50</string>
+    <string name="_14_mayo_2025_15_06">14 mayo 2025 – 15:06</string>
+    <string name="_14_mayo_2025_20_30">14 mayo 2025 – 20:30</string>
+    <string name="_14_mayo_2025_20_46">14 mayo 2025 – 20:46</string>
+
+    <!-- Otros -->
+    <string name="logo">Logo</string>
+    <string name="fab">fab</string>
+    <string name="fab_desc">fab_descripcion</string>
+    <string name="buscar_ciudad">Buscar Ciudad</string>
+    <string name="todo">TODO</string>
+    <string name="Todo">TODO</string>"
+    <string name="tlf_902_666_999">TLF: 902 666 999</string>
+    <string name="politica_privacidad">Política Privacidad</string>
+    <string name="politica_cookies">Política Cookies</string>
+    <string name="email_contacto_hola_comparte_es">Email contacto: hola@comparte.es</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="inicio">Inicio</string>
+    <string name="busco_habitacion">Busco Habitación</string>
+    <string name="ofrezco_habitacion">Ofrezco Habitación</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="panel_admin">Panel Admin</string>
+    <string name="no_tienes_cuenta_registrate">¿No tienes cuenta? Regístrate</string>
+    <string name="action_settings">action settings</string>
+</resources>

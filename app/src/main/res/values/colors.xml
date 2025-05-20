@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#20a81d</color> <!-- color principal como el icono  en verde-->
+    <color name="colorPrimaryDark">#80cd7c</color> <!-- color secundario para botones -->
+    <color name="colorAccent">#0a5997</color> <!-- color principal como el icono en azul -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color> <!-- texto negro para ítems del menú -->
+    <color name="colorSecundario">#acdca4</color> <!-- color secundario para botones -->
+    <color name="color_text">#424344</color> <!-- color principal del texto -->
+    <color name="colorAccentSecundario">#5a92ba</color>  <!-- color secundario para texto -->
+
+
+</resources>
+
+<!--<color name="menu_background">#FFFFFF</color> &lt;!&ndash; fondo blanco para el menú &ndash;&gt;-->
+<!--<color name="menu_item_text">#000000</color> &lt;!&ndash; texto negro del menú &ndash;&gt;-->

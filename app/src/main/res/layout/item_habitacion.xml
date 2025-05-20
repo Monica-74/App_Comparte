@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/imageHabitacion"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/foto1" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tituloHabitacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/se_alquila_habitacion_cerca_del_retiro_madrid"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/color_text"
+            android:paddingTop="12dp" />
+
+        <TextView
+            android:id="@+id/direccionHabitacion"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/calle_sirio_madrid"
+            android:textSize="14sp"
+            android:textColor="@color/color_text"
+            android:paddingTop="4dp" />
+<!--        con el width y el height se ajusta el tamaño de la imagen dividimos en 1/3 para que cojan los tres TextView-->
+
+        <!-- Características -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/caracteristicaCama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cama_individual"
+                android:textColor="@color/color_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/caracteristicaBano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bano_privado"
+                android:textColor="@color/color_text"
+                android:textSize="14sp"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/caracteristicaTamano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/metros"
+                android:textSize="14sp"
+                android:textColor="@color/color_text"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <!-- Precio -->
+        <TextView
+            android:id="@+id/precioHabitacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/precio"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"
+            android:paddingTop="8dp" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/descripcionHabitacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion"
+            android:textSize="14sp"
+            android:textColor="@color/color_text"
+            android:paddingTop="8dp" />
+
+        <!-- Botón de contacto -->
+        <Button
+            android:id="@+id/btnContactar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactar"
+            android:textColor="@color/color_text"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+<!--    se utiliza cardview para que las imagenes  sean redondeadas-->
+</com.google.android.material.card.MaterialCardView>

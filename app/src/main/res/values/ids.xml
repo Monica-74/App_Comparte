@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="loginFragment" type="id"/>
+    <item name="actionLogout" type="id"/>
+    <item name="navHostFragmentContentMain" type="id"/>
+    <item name="homeFragment" type="id"/>
+    <item name="navView" type="id"/>
+    <item name="fab" type="id"/>
+    <item name="drawerLayout" type="id"/>
+    <item name="adminFragment" type="id"/>
+    <item name="propietarioFragment" type="id"/>
+    <item name="inquilinoFragment" type="id"/>
+    <item name="habitacionActivity" type="id"/>
+    <item name="nav_graph" type="id"/>
+    <item name="action_chatear" type="id"/>
+    <item name="nombre" type="id"/>
+    <item name="edad" type="id"/>
+    <item name="password" type="id"/>
+    <item name="btnPublicidad" type="id"/>
+    <item name="btnUsuarios" type="id"/>
+    <item name="btnContenido" type="id"/>
+    <item name="btnReservas" type="id"/>
+    <item name="btnChatear" type="id"/>
+    <item name="fragment_chat" type="id"/>
+    <item name="activity_login" type="id"/>
+    <item name="activity_main" type="id"/>
+    <item name="activity_main_drawer" type="id"/>
+    <item name="app_bar_main" type="id"/>
+    <item name="content_main" type="id"/>
+    <item name="fragment_home" type="id"/>
+    <item name="fragment_habitacion" type="id"/>
+    <item name="fragment_inquilino" type="id"/>
+    <item name="fragment_propietario" type="id"/>
+    <item name="fragment_registro" type="id"/>
+    <item name="layout_activity_login" type="id"/>
+    <item name="layout_activity_main" type="id"/>
+    <item name="layout_activity_main_drawer" type="id"/>
+    <item name="fragment_container" type="id"/>
+    <item name="nav_inicio" type="id"/>
+    <item name="nav_perfil" type="id"/>
+    <item name="nav_chat" type="id"/>
+    <item name="nav_ajustes" type="id"/>
+    <item name= "btnRegistro" type="id"/>
+
+</resources>

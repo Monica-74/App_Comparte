@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/loginFragment"
+        android:title="@string/inicio"
+        android:icon="@android:drawable/ic_menu_view" />
+    <item
+        android:id="@+id/habitacionActivity"
+        android:title="@string/busco_habitacion"
+        android:icon="@android:drawable/ic_menu_agenda" />
+    <item
+        android:id="@+id/inquilinoFragment"
+        android:title="@string/ofrezco_habitacion"
+        android:icon="@android:drawable/ic_menu_myplaces" />
+    <item
+        android:id="@+id/ChatearFragment"
+        android:title="@string/chatear"
+        android:icon="@android:drawable/ic_lock_power_off" />
+<!--    <item-->
+<!--        android:id="@+id/action_logout"-->
+<!--        android:title="@string/cerrar_sesion"-->
+<!--        android:icon="@android:drawable/ic_lock_power_off" />-->
+
+    <item
+        android:id="@+id/adminFragment"
+        android:title="@string/panel_admin"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:visible="false" /> <!-- Lo ocultamos por defecto -->
+</menu>

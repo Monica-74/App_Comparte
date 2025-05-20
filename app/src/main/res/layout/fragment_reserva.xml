@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#EEEEEE"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reserva_de_habitacion"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"
+            android:paddingBottom="18dp" />
+
+        <EditText
+            android:id="@+id/nombreReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:textSize="18sp"
+            android:hint="@string/nombre_del_inquilino"
+            android:textColor="@color/color_text"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/descripcionReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:hint="@string/descripcion_de_la_habitacion"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/fechaReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:hint="@string/fecha_de_la_reserva"
+            android:inputType="date"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/telefonoReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/telefono_del_inquilino"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/emailReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_del_inquilino"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnConfirmarReserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirmar_reserva"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorSecundario"
+            android:textColor="@color/color_text"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</ScrollView>
+
