@@ -1,4 +1,4 @@
-package com.example.comparte.controllers;
+package com.example.comparte.controller;
 
 
 import android.content.Context;
@@ -13,26 +13,24 @@ public class LoginController {
 
 
     private final DBComparte dbComparte;
-
+    private final Context context;
 
 
     public LoginController(Context context) {
         dbComparte = new DBComparte(context);
+        this.context = context;
 
 
     }
 
-
-    public boolean login(String email, String password) {
+    public boolean esAdministrador(String email, String password) {
+        return email.equals("admin@comparte.com") && password.equals("admin"); // Verificar credenciales de administrador, sólo ese.
+    }
+    public Usuario login(String email, String password) {
         Usuario usuario = dbComparte.obtenerUsuarioPorEmail(email);
-        return usuario != null && usuario.getpassword().equals(password);
-
-
-    }
-
-
-    public boolean esAdministrador(String email, String password){
-        Admin admin = new Admin();
-        return email.equals(admin.getEmail()) && password.equals(admin.getPassword());
+        if (usuario != null && usuario.getPassword().equals(password)) {
+            return usuario;
+        }
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.comparte.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -31,7 +32,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_usuario INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre_usuario TEXT," +
                 "password TEXT," +
-                "tipo_usuario TEXT," +
+                "rol TEXT," +
                 "telefono TEXT," +
                 "genero TEXT," +
                 "email TEXT," +
@@ -135,6 +136,46 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
     public Usuario obtenerUsuarioPorEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM usuarios WHERE email = ?", new String[]{email});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Usuario usuario = new Usuario();
+            usuario.setId_usuario(cursor.getInt(cursor.getColumnIndexOrThrow("id_usuario")));
+            usuario.setNombreUsuario(cursor.getString(cursor.getColumnIndexOrThrow("nombre_usuario")));
+            usuario.setEmail(cursor.getString(cursor.getColumnIndexOrThrow("email")));
+            usuario.setPassword(cursor.getString(cursor.getColumnIndexOrThrow("password")));
+            usuario.setRol(cursor.getString(cursor.getColumnIndexOrThrow("rol")));
+            // Agregá otros setters si es necesario
+            cursor.close();
+            return usuario;
+        }
+
+        if (cursor != null) cursor.close();
         return null;
     }
+
+    public boolean insertarUsuario(Usuario usuario) {
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            String sql = "INSERT INTO " + TABLE_USUARIOS + " (nombre_usuario, password, rol, telefono, genero, email, edad) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            db.execSQL(sql, new Object[]{
+                    usuario.getNombreUsuario(),
+                    usuario.getPassword(),
+                    usuario.getRol(),
+                    usuario.getTelefono(),
+                    usuario.getGenero(),
+                    usuario.getEmail(),
+                    usuario.getEdad()
+            });
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

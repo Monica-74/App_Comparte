@@ -1,30 +1,32 @@
 package com.example.comparte.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import com.example.comparte.controllers.LoginController;
 import com.example.comparte.R;
+import com.example.comparte.activities.MainActivity;
+import com.example.comparte.database.DBComparte;
+import com.example.comparte.models.Usuario;
+import com.example.comparte.utils.SessionManager;
 
 public class RegistroFragment extends Fragment {
 
-    private EditText nombre;
-    private EditText edad;
-    private EditText email;
-    private EditText password;
-    private EditText genero;
-    private EditText telefono;
+    private EditText nombre,edad,email, password,genero, telefono;
     private Button btnRegistro;
+    private RadioGroup radioGroupRol;
+    private DBComparte dbComparte;
 
     public RegistroFragment() {
     }
@@ -44,24 +46,10 @@ public class RegistroFragment extends Fragment {
         password = view.findViewById(R.id.password);
         genero = view.findViewById(R.id.genero);
         telefono = view.findViewById(R.id.telefono);
+        radioGroupRol = view.findViewById(R.id.radioGroupRol);
         btnRegistro = view.findViewById(R.id.btnRegistro);
 
-        if (nombre != null && edad != null && email != null && password != null && genero != null && telefono != null && btnRegistro != null) {
-            Toast.makeText(getContext(), "Error al inicializar las vistas", Toast.LENGTH_SHORT).show();
-            return view;
-        }
-
-        if (email == null || password == null || btnRegistro == null ) { // Añado la comprobación para textViewIrARegistro
-            Toast.makeText(getContext(), "Error al inicializar la interfaz de login.", Toast.LENGTH_LONG).show();
-            return view;
-        }
-
-//        FragmentActivity currentActivity = getActivity(); // Obtenemos la actividad actual
-//        if (currentActivity == null) {
-//            Toast.makeText(getContext(), "Error crítico: El fragmento no está asociado a una actividad.", Toast.LENGTH_LONG).show();
-//            return view;
-//        }
-        //registroController = new RegistroController(getContext(); //descomentar cdo exista
+        dbComparte = new DBComparte(getContext());
 
 
         btnRegistro.setOnClickListener(v -> {
@@ -71,10 +59,36 @@ public class RegistroFragment extends Fragment {
             String passwordText = password.getText().toString();
             String generoText = genero.getText().toString();
             String telefonoText = telefono.getText().toString();
+            int selectedRolId = radioGroupRol.getCheckedRadioButtonId();
+            String rol = (selectedRolId == R.id.radioPropietario) ? "propietario" : "inquilino";
 
+            // Crear usuario
+            Usuario usuario = new Usuario();
+            usuario.setNombreUsuario(nombreText);
+            usuario.setEdad(Integer.parseInt(edadText));
+            usuario.setEmail(emailText);
+            usuario.setPassword(passwordText);
+            usuario.setGenero(generoText);
+            usuario.setTelefono(Integer.parseInt(telefonoText));
+            usuario.setRol(rol);
+
+            // Guardar en base de datos
+            boolean exito = dbComparte.insertarUsuario(usuario);
+            if (exito) {
+                SessionManager sessionManager = new SessionManager(getContext());
+                sessionManager.setUserRol(rol);
+
+                Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getContext(), MainActivity.class));
+                requireActivity().finish();
+            } else {
+                Toast.makeText(getContext(), "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+            }
         });
+
         return view;
     }
+
 
 
 }

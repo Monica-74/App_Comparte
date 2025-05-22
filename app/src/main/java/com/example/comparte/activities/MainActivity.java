@@ -70,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.activity_main,R.id.loginFragment, R.id.habitacionActivity, R.id.inquilinoFragment,
-                R.id.adminFragment, R.id.propietarioFragment)
+                R.id.inquilinoFragment, R.id.adminFragment, R.id.propietarioFragment)
                 .setOpenableLayout(drawerLayout)
                 .build();
 
@@ -93,15 +92,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupNavigation() {
-        String role = sessionManager.getUserRole();
+        String rol = sessionManager.getUserRol();
         Menu menu = navView.getMenu();
 
-        if ("admin".equals(role)) {
+
+        if ("admin".equals(rol)) {
             menu.findItem(R.id.adminFragment).setVisible(true);
         }
 
         navView.post(() -> {
-            switch (role) {
+            switch (rol) {
                 case "admin":
                     navController.navigate(R.id.adminFragment);
                     break;
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     navController.navigate(R.id.inquilinoFragment);
                     break;
                 default:
-                    Toast.makeText(this, "Rol no reconocido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Rol no reconocido" +rol, Toast.LENGTH_SHORT).show();
                     break;
             }
         });
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         if (mostrarMenu) {
             getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
 
-            String role = sessionManager.getUserRole();
+            String role = sessionManager.getUserRol();
             MenuItem adminItem = menu.findItem(R.id.adminFragment);
             if (adminItem != null) {
                 adminItem.setVisible("admin".equals(role));

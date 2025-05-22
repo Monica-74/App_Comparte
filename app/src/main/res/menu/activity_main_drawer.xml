@@ -4,7 +4,7 @@
         android:title="@string/inicio"
         android:icon="@android:drawable/ic_menu_view" />
     <item
-        android:id="@+id/habitacionActivity"
+        android:id="@+id/habitacionFragment"
         android:title="@string/busco_habitacion"
         android:icon="@android:drawable/ic_menu_agenda" />
     <item
@@ -12,7 +12,7 @@
         android:title="@string/ofrezco_habitacion"
         android:icon="@android:drawable/ic_menu_myplaces" />
     <item
-        android:id="@+id/ChatearFragment"
+        android:id="@+id/chatFragment"
         android:title="@string/chatear"
         android:icon="@android:drawable/ic_lock_power_off" />
 <!--    <item-->

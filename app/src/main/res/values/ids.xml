@@ -35,11 +35,19 @@
     <item name="layout_activity_login" type="id"/>
     <item name="layout_activity_main" type="id"/>
     <item name="layout_activity_main_drawer" type="id"/>
-    <item name="fragment_container" type="id"/>
     <item name="nav_inicio" type="id"/>
     <item name="nav_perfil" type="id"/>
     <item name="nav_chat" type="id"/>
     <item name="nav_ajustes" type="id"/>
     <item name= "btnRegistro" type="id"/>
+    <item name="fragment_login" type="id"/>
+    <item name="nav_graph_login" type="id"/>
+    <item name="nav_graph_main" type="id"/>
+    <item name="habitacionFragment" type="id"/>
+    <item name="chatFragment" type="id"/>
+    <item name="nav_host_fragment_login" type="id" />
+    <item name="nav_host_fragment_content_main" type="id" />"
+    <item name="action_logout" type="id" />
+    <item name="action_loginFragment_to_registroFragment" type="id"/>
 
 </resources>

@@ -5,9 +5,6 @@ para guardar y accceder facilmente a datos del usuario en sesión
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import com.example.comparte.R;
 
 public class SessionManager {
 
@@ -16,7 +13,7 @@ public class SessionManager {
     private Context context;
 
     private static final String PREF_NAME = "userSession";
-    private static final String KEY_ROLE = "user_role";
+    private static final String KEY_ROL = "user_rol";
 
     public SessionManager(Context context) {
         this.context = context;
@@ -30,17 +27,20 @@ public class SessionManager {
         // Puedes dejar la navegación en MainActivity si es más sencillo.
     }
     public  void saveUserRole(String role) {
-        editor.putString(KEY_ROLE, role);
+        editor.putString(KEY_ROL, role);
         editor.apply();
 
     }
 
-    public String getUserRole() {
-        return prefs.getString(KEY_ROLE, null);
+    public String getUserRol() {
+        return prefs.getString(KEY_ROL, null);
     }
     public void clearSession() {
         editor.clear();
         editor.apply();
     }
 
+    public void setUserRol(String admin) {
+
+    }
 }

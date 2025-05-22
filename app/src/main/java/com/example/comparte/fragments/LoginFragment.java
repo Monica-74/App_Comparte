@@ -17,9 +17,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.comparte.R;
-import com.example.comparte.activities.AdminActivity;
 import com.example.comparte.activities.MainActivity;
-import com.example.comparte.controllers.LoginController;
+import com.example.comparte.controller.LoginController;
+import com.example.comparte.models.Usuario;
+import com.example.comparte.utils.SessionManager;
 
 public class LoginFragment extends Fragment {
 
@@ -27,6 +28,7 @@ public class LoginFragment extends Fragment {
     private EditText emailEditText, passwordEditText;
     private Button loginButton;
     private Button btnRegistroNuevo;
+    private SessionManager sessionManager;
 
     public LoginFragment() {
     }
@@ -51,40 +53,53 @@ public class LoginFragment extends Fragment {
         loginController = new LoginController(getContext());
 
         loginButton.setOnClickListener(v -> {
-            String email = emailEditText.getText().toString().trim();
-            String password = passwordEditText.getText().toString().trim();
+                    String email = emailEditText.getText().toString().trim();
+                    String password = passwordEditText.getText().toString().trim();
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(getContext(), "Por favor, introduce el correo electrónico y la contraseña", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                    if (email.isEmpty() || password.isEmpty()) {
+                        Toast.makeText(getContext(), "Por favor, introduce el correo electrónico y la contraseña", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            FragmentActivity activityForNavigation = getActivity();// Obtenemos la actividad actual
-            if (activityForNavigation == null) {
-                Toast.makeText(getContext(), "Error: La actividad no está disponible para la navegación.", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                    FragmentActivity activityForNavigation = getActivity();// Obtenemos la actividad actual
+                    if (activityForNavigation == null) {
+                        Toast.makeText(getContext(), "Error: La actividad no está disponible para la navegación.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            if (loginController.esAdministrador(email, password)) {
-                Toast.makeText(getContext(), "Bienvenido administrador a CompArte", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), AdminActivity.class));
-            } else if (loginController.login(email, password)) {
-                Toast.makeText(getContext(), "Inicio de sesión válido", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), MainActivity.class));
-            } else {
-                Toast.makeText(getContext(), "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-            }
+                    SessionManager sessionManager = new SessionManager(getContext());
+
+                    if (loginController.esAdministrador(email, password)) {
+                        sessionManager.setUserRol("admin");
+                        startActivity(new Intent(getContext(), MainActivity.class));
+                        requireActivity().finish();
+                    } else {
+                        Usuario usuario = loginController.login(email, password);
+                        if (usuario != null) {
+                            sessionManager.setUserRol(usuario.getRol());  // devolvera inquilino o propietario
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                            requireActivity().finish();
+                        } else {
+                            Toast.makeText(getContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                        }
+                    }
         });
 
-        btnRegistroNuevo.setOnClickListener(v -> { // Añadir un OnClickListener al botón de registro
-            try {
-                NavHostFragment.findNavController(LoginFragment.this)
-                        .navigate(R.id.action_loginFragment_to_registroFragment);
-            } catch (Exception e) {
-                Toast.makeText(getContext(), "Error al navegar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        return view;
+
+
+            btnRegistroNuevo.setOnClickListener(view1 -> { // Añadir un OnClickListener al botón de registro
+                try {
+                    NavHostFragment.findNavController(LoginFragment.this)
+                            .navigate(R.id.action_loginFragment_to_registroFragment);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Error al navegar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            return view;
+        }
     }
-}
+
+
+
+

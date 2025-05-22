@@ -9,12 +9,12 @@ public class Usuario {
     private String genero;
     private String email;
     private int edad;
-    private String tipo_usuario; // Puede ser "admin", "inquilino" o "propietario"
+    private String rol; // Puede ser "admin", "inquilino" o "propietario"
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String nombreUsuario, String password, int telefono, String genero, String email, int edad, String tipo_usuario) {
+    public Usuario(int id_usuario, String nombreUsuario, String password, int telefono, String genero, String email, int edad, String rol) {
         this.id_usuario = id_usuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
@@ -22,7 +22,7 @@ public class Usuario {
         this.genero = genero;
         this.email = email;
         this.edad = edad;
-        this.tipo_usuario = tipo_usuario;
+        this.rol = rol;
     }
 
     public int getId_usuario() {
@@ -40,7 +40,6 @@ public class Usuario {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
-
 
 
     public int getTelefono() {
@@ -83,15 +82,13 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getTipo_usuario() {
-        return tipo_usuario;
+    public String getRol() {
+        return rol;
     }
 
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getpassword() {
-        return "";
-    }
 }
+

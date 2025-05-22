@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/inquilinoFragment"> <!-- Puedes cambiar este según el rol -->
+
+    <fragment
+        android:id="@+id/habitacionFragment"
+        android:name="com.example.comparte.fragments.HabitacionFragment"
+        android:label="@string/habitaciones"
+        tools:layout="@layout/fragment_habitacion" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.comparte.fragments.ChatFragment"
+        android:label="@string/chat"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/inquilinoFragment"
+        android:name="com.example.comparte.fragments.InquilinoFragment"
+        android:label="@string/inquilino"
+        tools:layout="@layout/fragment_inquilino" />
+
+    <fragment
+        android:id="@+id/propietarioFragment"
+        android:name="com.example.comparte.fragments.PropietarioFragment"
+        android:label="@string/propietario"
+        tools:layout="@layout/fragment_propietario" />
+
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.comparte.fragments.AdminFragment"
+        android:label="@string/admin"
+        tools:layout="@layout/fragment_admin" />
+
+</navigation>

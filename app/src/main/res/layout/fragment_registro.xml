@@ -77,6 +77,28 @@
         android:inputType="textPassword"
         android:textColor="@color/colorAccent"
         android:textSize="20sp" />
+    <RadioGroup
+        android:id="@+id/radioGroupRol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioInquilino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inquilino"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioPropietario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/propietario"
+            android:layout_marginStart="32dp" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnRegistro"
