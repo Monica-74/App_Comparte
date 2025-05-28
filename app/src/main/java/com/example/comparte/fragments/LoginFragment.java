@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,19 +22,19 @@ import com.example.comparte.activities.MainActivity;
 import com.example.comparte.controller.LoginController;
 import com.example.comparte.models.Usuario;
 import com.example.comparte.utils.SessionManager;
+import com.google.android.material.button.MaterialButton;
 
 public class LoginFragment extends Fragment {
 
     private LoginController loginController;
     private EditText emailEditText, passwordEditText;
-    private Button loginButton;
-    private Button btnRegistroNuevo;
+   // private TextView btnRegistroNuevo;
     private SessionManager sessionManager;
+    private MaterialButton btnLoginIniciar;
 
     public LoginFragment() {
     }
-
-    @SuppressLint("WrongViewCast")
+    @SuppressLint({"WrongViewCast","MissingInflatedId", "LocalSuppress"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,13 +47,13 @@ public class LoginFragment extends Fragment {
         // Inicializar vistas desde la vista inflada
         emailEditText = view.findViewById(R.id.emailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);
-        loginButton = view.findViewById(R.id.loginButton);
-        btnRegistroNuevo = view.findViewById(R.id.btnRegistroNuevo);
+        btnLoginIniciar = view.findViewById(R.id.btnLoginIniciar);
+        TextView btnRegistroNuevo = view.findViewById(R.id.btnRegistroNuevo);
 
         // Inicializar el controlador
         loginController = new LoginController(getContext());
 
-        loginButton.setOnClickListener(v -> {
+        btnLoginIniciar.setOnClickListener(v -> {
                     String email = emailEditText.getText().toString().trim();
                     String password = passwordEditText.getText().toString().trim();
 

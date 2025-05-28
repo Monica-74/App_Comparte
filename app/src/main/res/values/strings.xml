@@ -89,7 +89,7 @@
     <string name="logo">Logo</string>
     <string name="fab">fab</string>
     <string name="fab_desc">fab_descripcion</string>
-    <string name="buscar_ciudad">Buscar Ciudad</string>
+    <string name="buscar_ciudad">Listado Habitaciones</string>
     <string name="todo">TODO</string>
     <string name="Todo">TODO</string>"
     <string name="tlf_902_666_999">TLF: 902 666 999</string>
@@ -104,4 +104,8 @@
     <string name="panel_admin">Panel Admin</string>
     <string name="no_tienes_cuenta_registrate">¿No tienes cuenta? Regístrate</string>
     <string name="action_settings">action settings</string>
+    <string name="modificarAnuncio">modificar anuncio</string>
+    <string name="eliminarAnuncio">Eliminar Anuncio</string>
+    <string name="crearAnuncio">crear anuncio</string>
+    <string name="comparte_listado">COMPARTE LISTADO</string>
 </resources>

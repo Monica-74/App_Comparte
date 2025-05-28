@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_login"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.comparte.fragments.LoginFragment"
-        android:label="@string/login"
-        tools:layout="@layout/fragment_login">
-<!--        <action-->
-<!--            android:id="@+id/action_loginFragment_to_registroFragment"-->
-<!--            app:destination="@id/registroFragment" />-->
-    </fragment>
+        android:label="Login" />
+
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.example.comparte.fragments.RegistroFragment"
+        android:label="Registro" />
+</navigation>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<navigation xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/nav_graph_login"-->
+<!--    app:startDestination="@id/loginFragment">-->
 
 <!--    <fragment-->
-<!--        android:id="@+id/registroFragment"-->
-<!--        android:name="com.example.comparte.fragments.RegistroFragment"-->
-<!--        android:label="@string/registro"-->
-<!--        tools:layout="@layout/fragment_registro">-->
-<!--        <action-->
-<!--            android:id="@+id/action_registroFragment_to_loginFragment"-->
-<!--            app:destination="@id/loginFragment" />-->
+<!--        android:id="@+id/loginFragment"-->
+<!--        android:name="com.example.comparte.fragments.LoginFragment"-->
+<!--        android:label="@string/login"-->
+<!--        tools:layout="@layout/fragment_login">-->
+<!--&lt;!&ndash;        <action&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/action_loginFragment_to_registroFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:destination="@id/registroFragment" />&ndash;&gt;-->
 <!--    </fragment>-->
 
-</navigation>
+<!--&lt;!&ndash;    <fragment&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/registroFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:name="com.example.comparte.fragments.RegistroFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:label="@string/registro"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:layout="@layout/fragment_registro">&ndash;&gt;-->
+<!--&lt;!&ndash;        <action&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/action_registroFragment_to_loginFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:destination="@id/loginFragment" />&ndash;&gt;-->
+<!--&lt;!&ndash;    </fragment>&ndash;&gt;-->
+
+<!--</navigation>-->

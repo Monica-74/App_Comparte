@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/comparte_habitacion"
+            android:text="@string/comparte_listado"
             android:textStyle="bold"
             android:textSize="20sp" />
     </LinearLayout>
@@ -42,14 +42,7 @@
         android:clipToPadding="false"
         tools:listitem="@layout/item_habitacion" />
 
-    <Button
-        android:id="@+id/btnCrearAnuncio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/crearAnuncio"
-        android:textColor="@color/color_text"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_marginTop="16dp" />
+
 
 
     <!-- FOOTER -->

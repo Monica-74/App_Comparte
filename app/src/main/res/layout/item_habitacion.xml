@@ -101,10 +101,18 @@
 
         <!-- Botón de contacto -->
         <Button
-            android:id="@+id/btnContactar"
+            android:id="@+id/btnModificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/contactar"
+            android:text="@string/modificarAnuncio"
+            android:textColor="@color/color_text"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="16dp" />
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminarAnuncio"
             android:textColor="@color/color_text"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="16dp" />
