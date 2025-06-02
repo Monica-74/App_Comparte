@@ -1,1 +1,4 @@
 /build
+# Ignorar archivos del daemon y perfiles de Kotlin
+/app/daemon/
+/app/kotlin-profile/

@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -23,7 +24,7 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@id/nombre"
+        android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nombre_y_apellidos"
@@ -47,8 +48,9 @@
         android:hint="@string/correo_electronico"
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp" />
+        android:inputType="text"
+        android:textSize="20sp"
+        tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/password"

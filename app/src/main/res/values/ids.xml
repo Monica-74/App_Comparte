@@ -1,61 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <item name="loginFragment" type="id"/>-->
-<!--    <item name="actionLogout" type="id"/>-->
-<!--    <item name="navHostFragmentContentMain" type="id"/>-->
-<!--    <item name="homeFragment" type="id"/>-->
-<!--    <item name="navView" type="id"/>-->
-<!--    <item name="fab" type="id"/>-->
-<!--    <item name="drawerLayout" type="id"/>-->
-<!--    <item name="adminFragment" type="id"/>-->
-<!--    <item name="propietarioFragment" type="id"/>-->
-<!--    <item name="inquilinoFragment" type="id"/>-->
-    <item name="habitacionActivity" type="id"/>
-<!--    <item name="nav_graph" type="id"/>-->
-    <item name="action_chatear" type="id"/>
-    <item name="nombre" type="id"/>
-    <item name="edad" type="id"/>
-    <item name="password" type="id"/>
-<!--    <item name="btnPublicidad" type="id"/>-->
-    <item name="btnUsuarios" type="id"/>
-    <item name="btnContenido" type="id"/>
-    <item name="btnReservas" type="id"/>
-<!--    <item name="btnChatear" type="id"/>-->
-    <item name="fragment_chat" type="id"/>
-    <item name="activity_login" type="id"/>
-    <item name="activity_main" type="id"/>
-    <item name="activity_main_drawer" type="id"/>
-    <item name="app_bar_main" type="id"/>
-<!--    <item name="content_main" type="id"/>-->
-    <item name="fragment_home" type="id"/>
-<!--    <item name="fragment_habitacion" type="id"/>-->
-<!--    <item name="fragment_inquilino" type="id"/>-->
-<!--    <item name="fragment_propietario" type="id"/>-->
-    <item name="fragment_registro" type="id"/>
-<!--    <item name="layout_activity_login" type="id"/>-->
-<!--    <item name="layout_activity_main" type="id"/>-->
-<!--    <item name="layout_activity_main_drawer" type="id"/>-->
-    <item name="nav_inicio" type="id"/>
-    <item name="nav_perfil" type="id"/>
-    <item name="nav_chat" type="id"/>
-    <item name="nav_ajustes" type="id"/>
-    <item name= "btnRegistro" type="id"/>
-    <item name="habitacionFragment" type="id"/>
-<!--    <item name="chatFragment" type="id"/>-->
-    <item name="nav_host_fragment" type="id" />
-<!--    <item name="nav_host_fragment_content_main" type="id" />"-->
-<!--    <item name="action_logout" type="id" />-->
-    <item name="action_loginFragment_to_registroFragment" type="id"/>
-    <item name="login_fragment" type="id"/>
-    <item name="chatFragment" type="id"/>
-    <item name="inquilinoFragment" type="id"/>
-    <item name="propietarioFragment" type="id"/>
-    <item name="adminFragment" type="id"/>
-<!--    <item name="emailEditText" type="id"/>-->
-<!--    <item name="passwordEditText" type="id"/>-->
-<!--    <item name="loginButton" type="id"/>-->
-<!--    <item name="btnRegistroNuevo" type="id"/>-->
-<!--    <item name= "toolbar" type="id"/>-->
+<!--&lt;!&ndash;    <item name="loginFragment" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="actionLogout" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="navHostFragmentContentMain" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="homeFragment" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="navView" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="fab" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="drawerLayout" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="adminFragment" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="propietarioFragment" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="inquilinoFragment" type="id"/>&ndash;&gt;-->
+<!--    <item name="habitacionActivity" type="id"/>-->
+<!--&lt;!&ndash;    <item name="nav_graph" type="id"/>&ndash;&gt;-->
+<!--    <item name="action_chatear" type="id"/>-->
+<!--    <item name="nombre" type="id"/>-->
+<!--    <item name="edad" type="id"/>-->
+<!--    <item name="password" type="id"/>-->
+<!--&lt;!&ndash;    <item name="btnPublicidad" type="id"/>&ndash;&gt;-->
+<!--    <item name="btnUsuarios" type="id"/>-->
+<!--    <item name="btnContenido" type="id"/>-->
+<!--    <item name="btnReservas" type="id"/>-->
+<!--&lt;!&ndash;    <item name="btnChatear" type="id"/>&ndash;&gt;-->
+<!--    <item name="fragment_chat" type="id"/>-->
+<!--    <item name="activity_login" type="id"/>-->
+<!--    <item name="activity_main" type="id"/>-->
+<!--    <item name="activity_main_drawer" type="id"/>-->
+<!--    <item name="app_bar_main" type="id"/>-->
+<!--&lt;!&ndash;    <item name="content_main" type="id"/>&ndash;&gt;-->
+<!--    <item name="fragment_home" type="id"/>-->
+<!--&lt;!&ndash;    <item name="fragment_habitacion" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="fragment_inquilino" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="fragment_propietario" type="id"/>&ndash;&gt;-->
+<!--    <item name="fragment_registro" type="id"/>-->
+<!--&lt;!&ndash;    <item name="layout_activity_login" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="layout_activity_main" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="layout_activity_main_drawer" type="id"/>&ndash;&gt;-->
+<!--    <item name="nav_inicio" type="id"/>-->
+<!--    <item name="nav_perfil" type="id"/>-->
+<!--    <item name="nav_chat" type="id"/>-->
+<!--    <item name="nav_ajustes" type="id"/>-->
+<!--    <item name= "btnRegistro" type="id"/>-->
+<!--    <item name="habitacionFragment" type="id"/>-->
+<!--&lt;!&ndash;    <item name="chatFragment" type="id"/>&ndash;&gt;-->
+<!--    <item name="nav_host_fragment" type="id" />-->
+<!--&lt;!&ndash;    <item name="nav_host_fragment_content_main" type="id" />"&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="action_logout" type="id" />&ndash;&gt;-->
+<!--    <item name="action_loginFragment_to_registroFragment" type="id"/>-->
+<!--    <item name="login_fragment" type="id"/>-->
+<!--&lt;!&ndash;    <item name="emailEditText" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="passwordEditText" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="loginButton" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name="btnRegistroNuevo" type="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <item name= "toolbar" type="id"/>&ndash;&gt;-->
 
 
 

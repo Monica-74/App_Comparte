@@ -10,7 +10,7 @@ import com.example.comparte.models.Usuario;
 public class DBComparte extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comparte.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 9;
 
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_HABITACIONES = "habitaciones";
@@ -47,8 +47,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_inquilino INTEGER ,"+
                 "id_propietario INTEGER ,"+
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilinos(id_inquilino)," +
-                "FOREIGN KEY(id_propietario) REFERENCES propietarios(id_propietario)," +
-                "FOREIGN KEY(id_habitacion) REFERENCES habitaciones (id_habitacion)" +
+                "FOREIGN KEY(id_propietario) REFERENCES propietarios(id_propietario)" +
                 ")");
 
         // Tabla inquilino (información extra)
@@ -59,7 +58,6 @@ public class DBComparte extends SQLiteOpenHelper {
                 "email TEXT," +
                 "telefono TEXT," +
                 "sexo TEXT," +
-                "telefono TEXT," +
                 "id_propietario INTEGER ,"+
                 "id_habitacion  INTEGER ,"+
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones (id_habitacion)," +
@@ -127,6 +125,7 @@ public class DBComparte extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HABITACIONES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
@@ -135,9 +134,10 @@ public class DBComparte extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     public Usuario obtenerUsuarioPorEmail(String email) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM usuarios WHERE email = ?", new String[]{email});
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM usuarios WHERE email = ?", new String[]{email.toLowerCase()});
 
         if (cursor != null && cursor.moveToFirst()) {
             Usuario usuario = new Usuario();
@@ -147,6 +147,11 @@ public class DBComparte extends SQLiteOpenHelper {
             usuario.setPassword(cursor.getString(cursor.getColumnIndexOrThrow("password")));
             usuario.setRol(cursor.getString(cursor.getColumnIndexOrThrow("rol")));
             // Agregá otros setters si es necesario
+
+
+            String rol = cursor.getString(cursor.getColumnIndexOrThrow("rol"));
+            usuario.setRol(rol != null ? rol.toLowerCase() : "");
+
             cursor.close();
             return usuario;
         }

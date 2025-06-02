@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        DatabaseManager.init(this);
-        SQLiteDatabase db = DatabaseManager.getDatabase();
+//        DatabaseManager.init(this);
+//        SQLiteDatabase db = DatabaseManager.getDatabase();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
@@ -93,12 +94,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavigation() {
         String rol = sessionManager.getUserRol();
+        Toast.makeText(this, "ROL: " + rol, Toast.LENGTH_LONG).show();
+        Log.d("SESION", "Rol recuperado: " + rol);
         Menu menu = navView.getMenu();
 
 
         if ("admin".equals(rol)) {
             menu.findItem(R.id.adminFragment).setVisible(true);
         }
+
+        Toast.makeText(this, "ROL CARGADO: " + rol, Toast.LENGTH_LONG).show();
+
 
         navView.post(() -> {
             switch (rol) {
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     navController.navigate(R.id.inquilinoFragment);
                     break;
                 default:
-                    Toast.makeText(this, "Rol no reconocido" +rol, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Rol no reconocido" + rol, Toast.LENGTH_SHORT).show();
                     break;
             }
         });

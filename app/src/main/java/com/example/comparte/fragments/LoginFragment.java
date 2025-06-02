@@ -3,6 +3,7 @@ package com.example.comparte.fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class LoginFragment extends Fragment {
 
         // Inflar el layout correspondiente al login
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+        btnLoginIniciar = view.findViewById(R.id.btnLoginIniciar);
 
         // Inicializar vistas desde la vista inflada
         emailEditText = view.findViewById(R.id.emailEditText);
@@ -52,10 +54,13 @@ public class LoginFragment extends Fragment {
 
         // Inicializar el controlador
         loginController = new LoginController(getContext());
+        sessionManager = new SessionManager(getContext());
 
         btnLoginIniciar.setOnClickListener(v -> {
                     String email = emailEditText.getText().toString().trim();
-                    String password = passwordEditText.getText().toString().trim();
+            Log.d("LoginDebug", "Botón iniciar sesión pulsado");
+
+            String password = passwordEditText.getText().toString().trim();
 
                     if (email.isEmpty() || password.isEmpty()) {
                         Toast.makeText(getContext(), "Por favor, introduce el correo electrónico y la contraseña", Toast.LENGTH_SHORT).show();
@@ -68,7 +73,7 @@ public class LoginFragment extends Fragment {
                         return;
                     }
 
-                    SessionManager sessionManager = new SessionManager(getContext());
+                    sessionManager = new SessionManager(getContext());
 
                     if (loginController.esAdministrador(email, password)) {
                         sessionManager.setUserRol("admin");
@@ -77,9 +82,12 @@ public class LoginFragment extends Fragment {
                     } else {
                         Usuario usuario = loginController.login(email, password);
                         if (usuario != null) {
-                            sessionManager.setUserRol(usuario.getRol());  // devolvera inquilino o propietario
-                            startActivity(new Intent(getContext(), MainActivity.class));
+                            String rol = usuario.getRol().toLowerCase();
+                            sessionManager.setUserRol(usuario.getRol().toLowerCase().trim());
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
                             requireActivity().finish();
+
                         } else {
                             Toast.makeText(getContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                         }

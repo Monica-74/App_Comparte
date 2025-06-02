@@ -33,6 +33,7 @@ public class SessionManager {
     }
 
     public String getUserRol() {
+
         return prefs.getString(KEY_ROL, null);
     }
     public void clearSession() {
@@ -40,7 +41,9 @@ public class SessionManager {
         editor.apply();
     }
 
-    public void setUserRol(String admin) {
-
+    public void setUserRol(String rol) {
+        editor.putString(KEY_ROL, rol);
+        editor.apply(); // o editor.commit();
     }
+
 }

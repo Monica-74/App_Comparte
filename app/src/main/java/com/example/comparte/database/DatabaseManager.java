@@ -11,13 +11,13 @@ la base de datos local que trae el entorno de android.
 y asi centralizo el acceso desde esta clase para evitar código duplicado, en otras clases.
  */
 public class DatabaseManager {
-    private static DBComparte dbHelper;
+    private static DBComparte db;
     private static SQLiteDatabase database;
 
     public static void init(Context context) {
-        if (dbHelper == null) {
-            dbHelper = new DBComparte(context.getApplicationContext());
-            database = dbHelper.getWritableDatabase(); // WritableDatabase me sirve para leer y escribir en la base de datos en modo escritura
+        if (db == null) {
+            db = new DBComparte(context.getApplicationContext());
+            database = db.getWritableDatabase(); // WritableDatabase me sirve para leer y escribir en la base de datos en modo escritura
         }
 
     }
@@ -35,7 +35,7 @@ public class DatabaseManager {
             database.close();
         }
         database = null;
-        dbHelper = null;
+        db = null;
     }
 
     public static boolean login(String email, String password) {
@@ -45,7 +45,7 @@ public class DatabaseManager {
         );
         boolean loginExitoso = cursor.getCount() >0;
         cursor.close();
-        database.close();
+        //database.close();
         return loginExitoso;
 
     }

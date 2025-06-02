@@ -51,18 +51,23 @@ public class RegistroFragment extends Fragment {
         radioGroupRol = view.findViewById(R.id.radioGroupRol);
         btnRegistro = view.findViewById(R.id.btnRegistro);
 
-        dbComparte = new DBComparte(getContext());
+        dbComparte = new DBComparte(requireContext());
 
 
         btnRegistro.setOnClickListener(v -> {
-            String nombreText = nombre.getText().toString();
-            String edadText = edad.getText().toString();
-            String emailText = email.getText().toString();
-            String passwordText = password.getText().toString();
-            String generoText = genero.getText().toString();
-            String telefonoText = telefono.getText().toString();
+            String nombreText = nombre.getText().toString().trim();
+            String edadText = edad.getText().toString().trim();
+            String emailText = email.getText().toString().trim().toLowerCase();
+            String passwordText = password.getText().toString().trim();
+            String generoText = genero.getText().toString().trim();
+            String telefonoText = telefono.getText().toString().trim();
             int selectedRolId = radioGroupRol.getCheckedRadioButtonId();
             String rol = (selectedRolId == R.id.radioPropietario) ? "propietario" : "inquilino";
+
+            if (nombreText.isEmpty() || edadText.isEmpty() || emailText.isEmpty() || passwordText.isEmpty() || generoText.isEmpty() || telefonoText.isEmpty()) { // Validar campos obligatorios
+                Toast.makeText(getContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             // Crear usuario
             Usuario usuario = new Usuario();
@@ -77,15 +82,13 @@ public class RegistroFragment extends Fragment {
             // Guardar en base de datos
             boolean exito = dbComparte.insertarUsuario(usuario);
             if (exito) {
-                SessionManager sessionManager = new SessionManager(getContext());
-                sessionManager.setUserRol(rol);
+//                SessionManager sessionManager = new SessionManager(getContext());
+//                sessionManager.setUserRol(rol);
 
                 Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
                 NavHostFragment.findNavController(RegistroFragment.this)
                         .navigate(R.id.action_registroFragment_to_loginFragment);
 
-//                startActivity(new Intent(getContext(), MainActivity.class));
-//                requireActivity().finish();
             } else {
                 Toast.makeText(getContext(), "Error al registrar usuario", Toast.LENGTH_SHORT).show();
             }

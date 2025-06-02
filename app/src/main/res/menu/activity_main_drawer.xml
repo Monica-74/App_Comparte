@@ -15,6 +15,11 @@
         android:id="@+id/chatFragment"
         android:title="@string/chatear"
         android:icon="@android:drawable/ic_lock_power_off" />
+    <item
+        android:id="@+id/propietarioFragment"
+        android:title="@string/ofrezco_habitacion"
+        android:icon="@android:drawable/ic_menu_manage"/>
+
 <!--    <item-->
 <!--        android:id="@+id/action_logout"-->
 <!--        android:title="@string/cerrar_sesion"-->

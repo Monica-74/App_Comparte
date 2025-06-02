@@ -47,19 +47,6 @@
             tools:ignore="Instantiatable">
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".activities.RegisterActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.CompArte">-->
-<!--        </activity>-->
-
-<!--        <activity-->
-<!--            android:name=".activities.ReservasActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.CompArte"-->
-<!--            tools:ignore="Instantiatable">-->
-<!--        </activity>-->
-
     </application>
 
 </manifest>
