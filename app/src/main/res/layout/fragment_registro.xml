@@ -29,7 +29,7 @@
         android:hint="@string/nombre_y_apellidos"
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textSize="20sp" />
     <EditText
         android:id="@+id/edad"
@@ -38,7 +38,7 @@
         android:hint="@string/edad"
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textSize="20sp" />
     <EditText
         android:id="@+id/emailEditText"
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/genero"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="@color/colorAccent"
         android:textSize="20sp" />
     <EditText
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/telefono_de_contacto"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="@color/colorAccent"
         android:textSize="20sp" />
     <RadioGroup

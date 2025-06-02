@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.comparte.R;
 import com.example.comparte.activities.MainActivity;
 import com.example.comparte.database.DBComparte;
@@ -79,8 +81,11 @@ public class RegistroFragment extends Fragment {
                 sessionManager.setUserRol(rol);
 
                 Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), MainActivity.class));
-                requireActivity().finish();
+                NavHostFragment.findNavController(RegistroFragment.this)
+                        .navigate(R.id.action_registroFragment_to_loginFragment);
+
+//                startActivity(new Intent(getContext(), MainActivity.class));
+//                requireActivity().finish();
             } else {
                 Toast.makeText(getContext(), "Error al registrar usuario", Toast.LENGTH_SHORT).show();
             }
