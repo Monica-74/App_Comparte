@@ -9,7 +9,11 @@
         android:id="@+id/habitacionFragment"
         android:name="com.example.comparte.fragments.HabitacionFragment"
         android:label="@string/habitaciones"
-        tools:layout="@layout/fragment_habitacion" />
+        tools:layout="@layout/fragment_habitacion" >
+        <action
+            android:id="@+id/action_habitacionFragment_to_propietarioFragment"
+            app:destination="@id/propietarioFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/chatFragment"
@@ -27,12 +31,50 @@
         android:id="@+id/propietarioFragment"
         android:name="com.example.comparte.fragments.PropietarioFragment"
         android:label="@string/propietario"
-        tools:layout="@layout/fragment_propietario" />
+        tools:layout="@layout/fragment_propietario" >
+        <action
+            android:id="@+id/action_propietarioFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment" />
+        <action
+            android:id="@+id/action_propietarioFragment_to_habitacionesPropietarioFragment"
+            app:destination="@id/habitacionesPropietarioFragment" />
+
+
+    </fragment>
+
 
     <fragment
         android:id="@+id/adminFragment"
         android:name="com.example.comparte.fragments.AdminFragment"
         android:label="@string/admin"
         tools:layout="@layout/fragment_admin" />
+
+    <fragment
+        android:id="@+id/formularioFragment"
+        android:name="com.example.comparte.fragments.FormularioFragment"
+        android:label="Crear Anuncio"/>
+
+
+    <fragment
+        android:id="@+id/habitacionesDisponiblesFragment"
+        android:name="com.example.comparte.fragments.HabitacionesDisponiblesFragment"
+        android:label="Habitaciones disponibles"
+        tools:layout="@layout/fragment_habitaciones_propietario" />
+
+    <fragment
+        android:id="@+id/habitacionesPropietarioFragment"
+        android:name="com.example.comparte.fragments.HabitacionesPropietarioFragment"
+        android:label="Mis Anuncios"
+        tools:layout="@layout/fragment_habitaciones_propietario" >
+        <action
+            android:id="@+id/action_habitacionesPropietarioFragment_to_propietarioFragment"
+            app:destination="@id/propietarioFragment" />
+    </fragment>
+
+
+
+
+
+
 
 </navigation>

@@ -44,14 +44,16 @@ Busca combatir la soledad, compartir recursos, abaratar el coste del alquiler al
 ---
 
 ## Arquitectura
-
+* **He seguido una estructura MVC donde tengo separada la lógica de negocio en el controlador (LoginController, DatabaseManager), 
+* la vista en los fragmentos y las entidades como modelo. Consideré que para esta primera versión no era necesario ViewModel, 
+* pero si el proyecto escalara o necesitara gestión de estado más avanzada, sí sería conveniente migrar a MVVM con ViewModel y LiveData.”
 El proyecto sigue un **patrón MVC modularizado**:
 
 
 
 | Capa                       | Paquetes                              | Descripción                                                               |
-|----------------------------| ------------------------------------- |---------------------------------------------------------------------------|
-| **Models**                 | `models`, `database`                  | Defino la la estructura de datos que usa la app y acceso a datos (SQLite) |
+|----------------------------|---------------------------------------|---------------------------------------------------------------------------|
+| **Models**                 | `entities`, `database`                | Defino la la estructura de datos que usa la app y acceso a datos (SQLite) |
 | **Vista**                  | `activities`, `fragments`, `adapters` | UI y binding de datos(para compilar el código y los recursos de al app.   |
 | **Controlador**            | `controllers`                         | Une vista‑modelo, para construir la lógica de presentación.               |
 | **Utilidades / Servicios** | `utils`, `services`                   | Helpers, validaciones, lógica de negocio transversal.                     |

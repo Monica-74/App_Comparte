@@ -1,111 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentHabitacion"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:gravity="center_horizontal"
-    android:padding="0dp">
+    android:layout_height="match_parent">
 
-    <!-- ENCABEZADO -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/logo"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/comparte_habitacion"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <!-- LISTA DE HABITACIONES -->
+    <!-- RecyclerView con la lista de habitaciones -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerHabitaciones"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        tools:listitem="@layout/item_habitacion" />
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:visibility="visible" />
 
-    <Button
-        android:id="@+id/btnCrearAnuncio"
+    <FrameLayout
+        android:id="@+id/layoutSinAnuncios"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/crearAnuncio"
-        android:textColor="@color/color_text"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_marginTop="16dp" />
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
+    <!-- Layout vacío, se mostrará si no hay anuncios -->
+    <include layout="@layout/fragment_sin_anuncios"/>
+        </FrameLayout>
 
-    <!-- FOOTER -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tlf_902_666_999"
-            android:textSize="12sp"
-            android:textColor="@color/color_text"
-            android:paddingBottom="4dp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/politica_privacidad"
-                android:textSize="12sp"
-                android:textColor="@color/color_text"
-                android:paddingEnd="12dp"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/politica_cookies"
-                android:textSize="12sp"
-                android:textColor="@color/color_text"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@drawable/logo"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/email_contacto_hola_comparte_es"
-            android:textSize="12sp"
-            android:textColor="@color/color_text"/>
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

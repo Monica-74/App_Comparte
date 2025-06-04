@@ -54,8 +54,11 @@
 <!--&lt;!&ndash;    <item name= "toolbar" type="id"/>&ndash;&gt;-->
 
 
+    <item name="habitacionesDisponiblesFragment" type="id"/>
+    <item name="action_propietarioFragment_to_formularioFragment" type="id"/>
+    <item name="recyclerViewPropietario" type="id"/>
+    <item name="action_propietarioFragment_to_habitacionesPropietarioFragment" type="id"/>
 
-
-
+    <item name="habitacionesPropietarioFragment" type="id"/>
 
 </resources>

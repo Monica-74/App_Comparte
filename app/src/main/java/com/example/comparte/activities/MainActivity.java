@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -63,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = binding.drawerLayout;
         navView = binding.navView;
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment_content_main);
+        navController = navHostFragment.getNavController();
+
 
         preferences = getSharedPreferences("compArtePrefs", MODE_PRIVATE);
         prefEditor = preferences.edit();
@@ -94,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavigation() {
         String rol = sessionManager.getUserRol();
-        Toast.makeText(this, "ROL: " + rol, Toast.LENGTH_LONG).show();
-        Log.d("SESION", "Rol recuperado: " + rol);
+        //String rol = getIntent().getStringExtra("rol");
+        Log.d("MainActivity", "Rol recibido: " + rol);
         Menu menu = navView.getMenu();
 
 
@@ -103,11 +108,12 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.adminFragment).setVisible(true);
         }
 
-        Toast.makeText(this, "ROL CARGADO: " + rol, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Usuario con éxito: " + rol, Toast.LENGTH_LONG).show();
 
-
-        navView.post(() -> {
+        new android.os.Handler().postDelayed(() -> {
+            //navView.post(() -> {
             switch (rol) {
+
                 case "admin":
                     navController.navigate(R.id.adminFragment);
                     break;
@@ -121,7 +127,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Rol no reconocido" + rol, Toast.LENGTH_SHORT).show();
                     break;
             }
-        });
+            Log.d("MainActivity", "Redirigiendo al fragmento según el rol: " + rol);
+
+        }, 200);
+
+
 
         navController.addOnDestinationChangedListener((controller, destination, args) -> {
             boolean isLogin = destination.getId() == R.id.loginFragment;

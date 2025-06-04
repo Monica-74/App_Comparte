@@ -14,6 +14,9 @@ public class SessionManager {
 
     private static final String PREF_NAME = "userSession";
     private static final String KEY_ROL = "user_rol";
+    private static final String KEY_USER_ID = "user_id";
+    private static final String KEY_PROPIETARIO_ID = "propietario_id";
+
 
     public SessionManager(Context context) {
         this.context = context;
@@ -23,8 +26,7 @@ public class SessionManager {
 
     public void logout() {
         prefs.edit().remove("token").apply();
-        // Nota: Navegación debe hacerse desde un NavController con contexto si quieres mover esta parte aquí.
-        // Puedes dejar la navegación en MainActivity si es más sencillo.
+
     }
     public  void saveUserRole(String role) {
         editor.putString(KEY_ROL, role);
@@ -46,4 +48,23 @@ public class SessionManager {
         editor.apply(); // o editor.commit();
     }
 
+    // Guardar ID del usuario
+    public void saveUserId(int userId) {
+        editor.putInt(KEY_USER_ID, userId);
+        editor.apply();
+    }
+
+    public int getUserId() {
+        return prefs.getInt(KEY_USER_ID, -1); // -1 si no existe
+    }
+
+    // Guardar ID del propietario
+    public void savePropietarioId(int propietarioId) {
+        editor.putInt(KEY_PROPIETARIO_ID, propietarioId);
+        editor.apply();
+    }
+
+    public int getPropietarioId() {
+        return prefs.getInt(KEY_PROPIETARIO_ID, -1); // -1 si no existe
+    }
 }

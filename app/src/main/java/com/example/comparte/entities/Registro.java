@@ -1,4 +1,4 @@
-package com.example.comparte.models;
+package com.example.comparte.entities;
 
 public class Registro {
     private String nombre;

@@ -1,12 +1,15 @@
-package com.example.comparte.models;
+package com.example.comparte.entities;
+
+import java.io.Serializable;
+
 /*
 atributos de la vivienda o habitación compartida
  */
-public class Habitacion {
+public class Habitacion implements Serializable {
     private int id;
     private String titulo;
     private String descripcion;
-    private CharSequence precio;
+    private String precio;
     private String direccion;
     private String caracteristicaCama;
     private String caracteristicaBano;
@@ -14,10 +17,11 @@ public class Habitacion {
 
     private String tipo; // tipo de vivienda o habitación femenino o masculino
     private byte[] imagen;
+    private int idPropietario;
 
-    public Habitacion(int id, String descripcion, String titulo, CharSequence precio, String direccion, String caracteristicaCama, String caracteristicaBano, String caracteristicaTamano, String tipo, byte[] imagen) {
-        this.id = id;
+    public Habitacion(String descripcion, int id, String titulo, String precio, String direccion, String caracteristicaCama, String caracteristicaBano, String caracteristicaTamano, String tipo, byte[] imagen, int idPropietario) {
         this.descripcion = descripcion;
+        this.id = id;
         this.titulo = titulo;
         this.precio = precio;
         this.direccion = direccion;
@@ -26,7 +30,10 @@ public class Habitacion {
         this.caracteristicaTamano = caracteristicaTamano;
         this.tipo = tipo;
         this.imagen = imagen;
+        this.idPropietario = idPropietario;
     }
+
+
 
     public Habitacion() {
     }
@@ -63,11 +70,11 @@ public class Habitacion {
         this.descripcion = descripcion;
     }
 
-    public CharSequence getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(CharSequence precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
@@ -92,14 +99,38 @@ public class Habitacion {
     }
 
     public String getCaracteristicaBano() {
+
         return "";
     }
 
     public String getCaracteristicaTamano() {
-        return " ";
+
+         return  caracteristicaTamano;
     }
 
     public byte [] getImage() {
         return imagen;
     }
+
+    public void setCaracteristicaCama(String cama) {
+        this.caracteristicaCama = cama;
+    }
+
+    public void setCaracteristicaBano(String bano) {
+        this.caracteristicaBano = bano;
+    }
+
+    public int getIdPropietario() {
+        return idPropietario;
+    }
+
+    public void setIdPropietario(int idPropietario) {
+        this.idPropietario = idPropietario;
+    }
+
+    public void setCaracteristicaTamano(String tamano) {
+        this.caracteristicaTamano = tamano;
+    }
+
+
 }

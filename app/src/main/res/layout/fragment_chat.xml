@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/hola_cmo_estas_soy_lola_como_propietario_de_la_habitacion_podrias_decirme_si_es_soleada"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_text" />
 
             <TextView
@@ -56,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/muy_bien_gracias_la_habitacion_da_a_un_patio_interior_pero_s_es_soleada"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/white" />
 
             <TextView
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/perfecto_es_que_necesito_sol_para_unos_peces_que_tengo_como_mascotas"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_text" />
 
             <TextView
@@ -115,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/seguro_que_se_van_a_encontrar_muy_agusto_porque_ademas_no_da_el_sol_directamente"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/white" />
 
             <TextView
@@ -143,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/entonces_voy_a_reservar_la_habitacion_creo_que_vamos_a_vivir_juntas_un_buen_tiempo"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_text" />
 
             <TextView
@@ -172,6 +177,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/genial_haz_la_reserva_y_si_quieres_seguimos_hablando_por_telefono_saludos"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/white" />
 
             <TextView

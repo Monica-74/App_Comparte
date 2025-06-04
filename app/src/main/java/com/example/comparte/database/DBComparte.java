@@ -1,16 +1,22 @@
 package com.example.comparte.database;
 
+
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.comparte.models.Usuario;
+import com.example.comparte.entities.Habitacion;
+import com.example.comparte.entities.Usuario;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBComparte extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comparte.db";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 16;
 
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_HABITACIONES = "habitaciones";
@@ -74,6 +80,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "sexo TEXT," +
                 "id_inquilino INTEGER ,"+
                 "id_habitacion  INTEGER ,"+
+                "id_usuario INTEGER ,"+
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilinos(id_inquilino)," +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones(id_habitacion)" +
                 ")");
@@ -87,6 +94,9 @@ public class DBComparte extends SQLiteOpenHelper {
                 "direccion TEXT," +
                 "imagen BLOB," +
                 "tipo TEXT," +
+                "caracteristica_cama TEXT," +
+                "caracteristica_bano TEXT," +
+                "caracteristica_tamano TEXT," +
                 "id_propietario INTEGER," +
                 "id_inquilino INTEGER ,"+
                 "FOREIGN KEY(id_propietario) REFERENCES propietario(id_propietario)," +
@@ -124,14 +134,14 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HABITACIONES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_INQUILINO);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROPIETARIO);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_HABITACIONES);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_INQUILINO);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_PROPIETARIO);
+        onCreate(database);
     }
 
 
@@ -161,26 +171,188 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
     public boolean insertarUsuario(Usuario usuario) {
+        SQLiteDatabase db = null;
         try {
-            SQLiteDatabase db = this.getWritableDatabase();
-            String sql = "INSERT INTO " + TABLE_USUARIOS + " (nombre_usuario, password, rol, telefono, genero, email, edad) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            db = this.getWritableDatabase();
+            if (db != null) {
+                db.beginTransaction();
 
-            db.execSQL(sql, new Object[]{
-                    usuario.getNombreUsuario(),
-                    usuario.getPassword(),
-                    usuario.getRol(),
-                    usuario.getTelefono(),
-                    usuario.getGenero(),
-                    usuario.getEmail(),
-                    usuario.getEdad()
-            });
+                String sql = "INSERT INTO " + TABLE_USUARIOS + " (nombre_usuario, password, rol, telefono, genero, email, edad) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            return true;
+                db.execSQL(sql, new Object[]{
+                        usuario.getNombreUsuario(),
+                        usuario.getPassword(),
+                        usuario.getRol(),
+                        usuario.getTelefono(),
+                        usuario.getGenero(),
+                        usuario.getEmail(),
+                        usuario.getEdad()
+                });
+
+                String rol = usuario.getRol().toLowerCase();
+                if (rol.equals("propietario")) {
+                    sql = "INSERT INTO " + TABLE_PROPIETARIO + " (nombre_apellidos, email, edad, telefono, sexo) VALUES (?, ?, ?, ?, ?)";
+                    db.execSQL(sql, new Object[]{
+                            usuario.getNombreUsuario(), usuario.getEmail(), usuario.getEdad(), usuario.getTelefono(), usuario.getGenero()
+                    });
+                } else if (rol.equals("inquilino")) {
+                    sql = "INSERT INTO " + TABLE_INQUILINO + " (nombre_apellidos, edad, email, telefono, sexo) VALUES (?, ?, ?, ?, ?)";
+                    db.execSQL(sql, new Object[]{
+                            usuario.getNombreUsuario(), usuario.getEdad(), usuario.getEmail(), usuario.getTelefono(), usuario.getGenero()
+                    });
+                } else if (rol.equals("admin")) {
+                    sql = "INSERT INTO " + TABLE_ADMIN + " (nombre_apellidos, email) VALUES (?, ?)";
+                    db.execSQL(sql, new Object[]{
+                            usuario.getNombreUsuario(), usuario.getEmail()
+                    });
+                }
+
+                db.setTransactionSuccessful();
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        } finally {
+            if (db != null) {
+                db.endTransaction();
+            }
         }
     }
+
+
+    public int obtenerIdPropietarioPorUsuario(int idUsuario) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        int idPropietario = -1;
+
+        try {
+            db = this.getReadableDatabase();
+            cursor = db.rawQuery(
+                    "SELECT id_propietario FROM propietario WHERE id_usuario = ?",
+                    new String[]{String.valueOf(idUsuario)}
+            );
+
+            if (cursor.moveToFirst()) {
+                idPropietario = cursor.getInt(cursor.getColumnIndexOrThrow("id_propietario"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace(); // para ver el error si ocurre
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
+
+        return idPropietario;
+    }
+
+
+
+    public List<Habitacion> getHabitacionesPorPropietario(int idPropietario) {
+        List<Habitacion> lista = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM habitaciones WHERE id_propietario = ?", new String[]{String.valueOf(idPropietario)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                Habitacion h = new Habitacion();
+                h.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id_habitacion")));
+                h.setTitulo(cursor.getString(cursor.getColumnIndexOrThrow("titulo")));
+                h.setDescripcion(cursor.getString(cursor.getColumnIndexOrThrow("descripcion")));
+                h.setPrecio(cursor.getString(cursor.getColumnIndexOrThrow("precio")));
+                h.setDireccion(cursor.getString(cursor.getColumnIndexOrThrow("direccion")));
+                h.setTipo(cursor.getString(cursor.getColumnIndexOrThrow("tipo")));
+                h.setCaracteristicaCama(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_cama")));
+                h.setCaracteristicaBano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_bano")));
+                h.setCaracteristicaTamano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_tamano")));
+                h.setImagen(cursor.getBlob(cursor.getColumnIndexOrThrow("imagen")));
+                // Puedes cargar otras características si las tienes en columnas separadas
+                lista.add(h);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return lista;
+    }
+
+    public void eliminarHabitacion(int idHabitacion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("habitaciones", "id_habitacion = ?", new String[]{String.valueOf(idHabitacion)});
+    }
+
+    public void actualizarHabitacion(Habitacion h) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("titulo", h.getTitulo());
+        values.put("descripcion", h.getDescripcion());
+        values.put("precio", h.getPrecio());
+        values.put("direccion", h.getDireccion());
+        values.put("imagen", h.getImagen());
+        values.put("tipo", h.getTipo());
+        values.put("caracteristica_cama", h.getCaracteristicaCama());
+        values.put("caracteristica_bano", h.getCaracteristicaBano());
+        values.put("caracteristica_tamano", h.getCaracteristicaTamano());
+
+        db.update("habitaciones", values, "id_habitacion = ?", new String[]{String.valueOf(h.getId())});
+    }
+
+
+
+
+    public void insertarHabitacion(Habitacion h) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sql = "INSERT INTO habitaciones (titulo, descripcion, precio, direccion, imagen, tipo, " +
+                "caracteristica_cama, caracteristica_bano, caracteristica_tamano, id_propietario, id_inquilino) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)";
+
+        db.execSQL(sql, new Object[]{
+                h.getTitulo(),
+                h.getDescripcion(),
+                h.getPrecio(),
+                h.getDireccion(),
+                h.getImagen(),
+                h.getTipo(),
+                h.getCaracteristicaCama(),
+                h.getCaracteristicaBano(),
+                h.getCaracteristicaTamano(),
+                h.getIdPropietario()
+        });
+    }
+
+    public List<Habitacion> getHabitacionesDisponibles() {
+        List<Habitacion> lista = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM habitaciones WHERE id_inquilino IS NULL", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Habitacion h = new Habitacion();
+                h.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id_habitacion")));
+                h.setTitulo(cursor.getString(cursor.getColumnIndexOrThrow("titulo")));
+                h.setDescripcion(cursor.getString(cursor.getColumnIndexOrThrow("descripcion")));
+                h.setPrecio(cursor.getString(cursor.getColumnIndexOrThrow("precio")));
+                h.setDireccion(cursor.getString(cursor.getColumnIndexOrThrow("direccion")));
+                h.setTipo(cursor.getString(cursor.getColumnIndexOrThrow("tipo")));
+                h.setCaracteristicaCama(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_cama")));
+                h.setCaracteristicaBano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_bano")));
+                h.setCaracteristicaTamano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_tamano")));
+                h.setImagen(cursor.getBlob(cursor.getColumnIndexOrThrow("imagen")));
+                lista.add(h);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return lista;
+    }
+
 
 }

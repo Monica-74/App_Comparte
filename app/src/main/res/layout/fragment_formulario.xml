@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#EEEEEE"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@null"
-        android:padding="16dp">
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,8 +21,8 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
                 android:src="@drawable/logo_principal"
                 android:contentDescription="@string/logo"
                 android:layout_marginEnd="16dp" />
@@ -30,95 +30,112 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reserva_de_habitacion"
+                android:text="@string/comparte_propietario"
                 android:textStyle="bold"
-                android:textColor="@color/color_text"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
-
-
         <EditText
-            android:id="@+id/nombreReserva"
+            android:id="@+id/etTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:hint="@string/nombre_del_inquilino"
-            android:textColor="@color/color_text"
-            android:inputType="textPersonName" />
+            android:hint="@string/titulo"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
 
         <EditText
-            android:id="@+id/descripcionReserva"
+            android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:hint="@string/descripcion_de_la_habitacion"
-            android:inputType="textMultiLine"
-            android:minLines="3"
-            android:gravity="top"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/color_text"
-            android:layout_marginTop="8dp" />
+            android:hint="@string/descripcionGeneral" />
 
         <EditText
-            android:id="@+id/fechaReserva"
+            android:id="@+id/etDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:hint="@string/fecha_de_la_reserva"
-            android:inputType="date"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/color_text"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-
-            android:layout_marginTop="8dp" />
+            android:hint="@string/direccion" />
 
         <EditText
-            android:id="@+id/telefonoReserva"
+            android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/telefono_del_inquilino"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp" />
+            android:hint="@string/precio"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
 
         <EditText
-            android:id="@+id/emailReserva"
+            android:id="@+id/etCaracteristicaCama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email_del_inquilino"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/color_text"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="@string/tipo_cama" />
 
-            android:layout_marginTop="8dp" />
+        <EditText
+            android:id="@+id/etCaracteristicaBano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="@string/tipo_de_bano" />
+
+        <EditText
+            android:id="@+id/etCaracteristicaTamano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="@string/tamano_habitacion"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/etTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="@string/tipo_habitacion_genero" />
 
         <Button
-            android:id="@+id/btnConfirmarReserva"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnSeleccionarImagen"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/confirmar_reserva"
-            android:layout_marginTop="16dp"
             android:backgroundTint="@color/colorSecundario"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="20dp"
+            android:text="@string/seleccionar_imagen" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/ivImagenSeleccionada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSecundario"
+            android:textColor="@color/colorAccent"
+            android:text="@string/guardar"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,7 +151,7 @@
                 android:textSize="12sp"
                 android:textColor="@color/color_text"
                 android:textStyle="bold"
-                android:paddingBottom="4dp"/>
+                android:paddingBottom="4dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -158,7 +175,7 @@
                     android:text="@string/politica_cookies"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:textColor="@color/color_text"/>
+                    android:textColor="@color/color_text" />
             </LinearLayout>
 
             <ImageView
@@ -175,8 +192,17 @@
                 android:text="@string/email_contacto_hola_comparte_es"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:textColor="@color/color_text"/>
+                android:textColor="@color/color_text" />
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:indeterminate="true"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 </ScrollView>
-

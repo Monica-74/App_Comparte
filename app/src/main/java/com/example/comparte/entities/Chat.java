@@ -1,4 +1,4 @@
-package com.example.comparte.models;
+package com.example.comparte.entities;
 
 import java.text.DateFormat;
 

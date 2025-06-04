@@ -12,7 +12,7 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:text="@string/bienvenido_a_comparte"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary" />
 
@@ -21,7 +21,7 @@
         android:layout_height="150dp"
         android:contentDescription="@string/todo"
         android:gravity="center"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo_principal" />
 
     <EditText
         android:id="@+id/nombre"
@@ -31,7 +31,7 @@
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
         android:inputType="text"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/edad"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
         android:inputType="text"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         android:importantForAutofill="no"
         android:textColor="@color/colorAccent"
         android:inputType="text"
-        android:textSize="20sp"
+        android:textSize="24sp"
         tools:ignore="TextFields" />
 
     <EditText
@@ -60,7 +60,7 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:textColor="@color/colorAccent"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/genero"
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:textColor="@color/colorAccent"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/telefono"
         android:layout_width="match_parent"
@@ -78,13 +78,13 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:textColor="@color/colorAccent"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
     <RadioGroup
         android:id="@+id/radioGroupRol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
+        android:paddingTop="18dp"
         android:gravity="center">
 
         <RadioButton
@@ -92,6 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/inquilino"
+            android:textSize="20sp"
+            android:textColor="@color/color_text"
             android:checked="true" />
 
         <RadioButton
@@ -99,6 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/propietario"
+            android:textSize="20sp"
+            android:textColor="@color/color_text"
             android:layout_marginStart="32dp" />
     </RadioGroup>
 
@@ -108,5 +112,5 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/registrarse"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 </LinearLayout>

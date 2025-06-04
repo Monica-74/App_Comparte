@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/logo_principal"
             android:contentDescription="@string/logo"
             android:layout_marginEnd="16dp" />
 
@@ -65,15 +65,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gestionar_publicidad"
                 android:textColor="@color/color_text"
-                android:textSize="16sp" />
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorSecundario"
-                android:textColor="@color/color_text"
+                android:textColor="@color/colorAccent"
                 android:id="@+id/btnPublicidad"
-                android:text="@string/aceptar" />
+                android:text="@string/gestionar"
+                android:textStyle="bold"/>
         </LinearLayout>
 
 
@@ -99,16 +101,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gestionar_usuarios"
+                android:textStyle="bold"
                 android:textColor="@color/color_text"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_text"
+                android:textColor="@color/colorAccent"
                 android:backgroundTint="@color/colorSecundario"
                 android:id="@+id/btnUsuarios"
-                android:text="@string/aceptar" />
+                android:text="@string/gestionar"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Opción 3 -->
@@ -134,16 +138,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/editar_contenidos"
+                android:textStyle="bold"
                 android:textColor="@color/color_text"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_text"
+                android:textColor="@color/colorAccent"
                 android:backgroundTint="@color/colorSecundario"
                 android:id="@+id/btnContenido"
-                android:text="@string/aceptar" />
+                android:text="@string/gestionar"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -169,15 +175,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gestionar_reservas"
                 android:textColor="@color/color_text"
-                android:textSize="16sp" />
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_text"
+                android:textColor="@color/colorAccent"
                 android:backgroundTint="@color/colorSecundario"
                 android:id="@+id/btnReservas"
-                android:text="@string/aceptar" />
+                android:text="@string/gestionar"
+                android:textStyle="bold"/>
         </LinearLayout>
 
 
@@ -196,6 +204,7 @@
             android:text="@string/tlf_902_666_999"
             android:textSize="12sp"
             android:textColor="@color/color_text"
+            android:textStyle="bold"
             android:paddingBottom="4dp"/>
 
         <LinearLayout
@@ -210,6 +219,7 @@
                 android:text="@string/politica_privacidad"
                 android:textSize="12sp"
                 android:textColor="@color/color_text"
+                android:textStyle="bold"
                 android:paddingEnd="12dp"
                 tools:ignore="RtlSymmetry" />
 
@@ -218,15 +228,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/politica_cookies"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_text"/>
         </LinearLayout>
 
-
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@drawable/logo"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/logo_principal"
+            android:contentDescription="@drawable/logo_principal"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp" />
 
@@ -235,8 +245,8 @@
             android:layout_height="wrap_content"
             android:text="@string/email_contacto_hola_comparte_es"
             android:textSize="12sp"
+            android:textStyle="bold"
             android:textColor="@color/color_text"/>
     </LinearLayout>
-
 
 </LinearLayout>

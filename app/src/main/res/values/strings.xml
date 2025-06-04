@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    lo he separado porque ya empezaba a tener 8000... strings y era horroroso-->+
+<!--    lo he separado porque ya empezaba a tener 8000... strings y era horroroso-->
     <!-- App -->
     <string name="app_name">CompArte</string>
     <string name="bienvenido_a_comparte">Bienvenido a CompArte</string>
 
-     Botones y acciones comunes
+<!--     Botones y acciones comunes-->
     <string name="aceptar">Aceptar</string>
     <string name="buscar">BUSCAR</string>
     <string name="publicar">PUBLICAR</string>
@@ -19,7 +19,7 @@
     <string name="cancelar_reserva">Cancelar reserva</string>
     <string name="registrarse">Registrarse</string>
 
-     Navegación / Roles
+<!--     Navegación / Roles-->
     <string name="home">Home</string>
     <string name="habitaciones">Habitaciones</string>
     <string name="inquilino">Inquilino</string>
@@ -32,19 +32,19 @@
     <string name="comparte_inquilino">COMPARTE INQUILINO</string>
     <string name="comparte_propietario">COMPARTE PROPIETARIO</string>
     <string name="comparte_administrador">COMPARTE ADMINISTRADOR</string>
-    <string name="comparte_habitacion">COMPARTE HABITACIÓN</string>
+    <string name="comparte_habitacion">COMPARTE ANUNCIO</string>
 
     <!-- Funciones específicas por rol -->
-    <string name="publicar_habitacion">Publicar Habitación</string>
-    <string name="editar_anuncio">Editar Anuncio</string>
-    <string name="gestionar_publicidad">Gestionar Publicidad</string>
-    <string name="gestionar_usuarios">Gestionar Usuarios</string>
-    <string name="editar_contenidos">Editar Contenidos</string>
-    <string name="gestionar_reservas">Gestionar Reservas</string>
-    <string name="ver_reserva">Ver Reserva</string>
-    <string name="valorar_propietario">Valorar Propietario</string>
+    <string name="publicar_habitacion">Habitación</string>
+    <string name="editar_anuncio">Anuncio</string>
+    <string name="gestionar_publicidad">Publicidad</string>
+    <string name="gestionar_usuarios">Usuarios</string>
+    <string name="editar_contenidos">Contenidos</string>
+    <string name="gestionar_reservas">Reservas</string>
+    <string name="ver_reserva">Reserva</string>
+    <string name="valorar_experiencia">Experiencia</string>
     <string name="valorar_inquilino">Valorar Inquilino</string>
-    <string name="chatear_propietario">Chatear Propietario</string>
+    <string name="chatear_propietario">Inquilino</string>
 
     <!-- Datos personales -->
     <string name="nombre_y_apellidos">Nombre y apellidos</string>
@@ -54,7 +54,7 @@
     <string name="genero">Género</string>
     <string name="telefono_de_contacto">Teléfono de Contacto</string>
     <string name="telefono_del_inquilino">Teléfono de contacto</string>
-    <string name="email_del_inquilino">Email del inquilino</string>
+    <string name="email_del_inquilino">Email</string>
 
     <!-- Habitación / Reserva -->
     <string name="se_alquila_habitacion_cerca_del_retiro_madrid">Se alquila habitación cerca del Retiro, Madrid</string>
@@ -62,7 +62,7 @@
     <string name="cama_individual">Cama individual</string>
     <string name="bano_privado">Baño privado</string>
     <string name="metros">10 m²</string>
-    <string name="precio">550.00 €</string>
+    <string name="precio">200.00 €</string>
     <string name="descripcion">Hola, soy una mujer limpia y ordenada que quiere compartir una habitación…</string>
     <string name="reserva_de_habitacion">Reserva de habitación</string>
     <string name="nombre_del_inquilino">Nombre del inquilino</string>
@@ -89,9 +89,9 @@
     <string name="logo">Logo</string>
     <string name="fab">fab</string>
     <string name="fab_desc">fab_descripcion</string>
-    <string name="buscar_ciudad">Listado Habitaciones</string>
+    <string name="buscar_ciudad">Habitaciones</string>
     <string name="todo">TODO</string>
-    <string name="Todo">TODO</string>"
+<!--    <string name="Todo">TODO</string>"-->
     <string name="tlf_902_666_999">TLF: 902 666 999</string>
     <string name="politica_privacidad">Política Privacidad</string>
     <string name="politica_cookies">Política Cookies</string>
@@ -107,5 +107,18 @@
     <string name="modificarAnuncio">modificar anuncio</string>
     <string name="eliminarAnuncio">Eliminar Anuncio</string>
     <string name="crearAnuncio">crear anuncio</string>
-    <string name="comparte_listado">COMPARTE LISTADO</string>
+    <string name="comparte_listado">COMPARTE HABITACIONES DISPONIBLES</string>
+    <string name="titulo">Título</string>
+    <string name="descripcionGeneral">Descripción</string>
+    <string name="direccion">Dirección</string>
+    <string name="tipo_cama">Tipo de cama</string>
+    <string name="tipo_de_bano">Tipo de baño</string>
+    <string name="tamano_habitacion">Tamaño (m²)</string>
+    <string name="tipo_habitacion_genero">Tipo de habitación (femenina, masculina, mixta...)</string>
+    <string name="seleccionar_imagen">Seleccionar Imagen</string>
+    <string name="guardar">Guardar</string>
+    <string name="gestionar">GESTIONAR</string>
+    <string name="ver_anuncio">VER</string>
+    <string name="no_has_publicado_ningun_anuncio_todavia">NO HAS PUBLICADO NINGÚN ANUNCIO.</string>
+    <string name="crear_anuncio">Crear anuncio</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.comparte.models;
+package com.example.comparte.entities;
 
 public class Usuario {
     private int id_usuario;

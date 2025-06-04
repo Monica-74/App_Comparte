@@ -5,8 +5,7 @@ import android.content.Context;
 
 
 import com.example.comparte.database.DBComparte;
-import com.example.comparte.models.Admin;
-import com.example.comparte.models.Usuario;
+import com.example.comparte.entities.Usuario;
 
 
 public class LoginController {
@@ -41,4 +40,7 @@ public class LoginController {
         return null;
     }
 
+    public int obtenerIdPropietarioPorUsuario(int idUsuario) {
+        return dbComparte.obtenerIdPropietarioPorUsuario(idUsuario);
+    }
 }
