@@ -33,15 +33,18 @@ public class HabitacionesDisponiblesFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_habitaciones_propietario, container, false); // Reutiliza layout
+        View view = inflater.inflate(R.layout.fragment_habitaciones_disponibles, container, false); // Reutiliza layout
 
-        recyclerView = view.findViewById(R.id.recyclerHabitaciones);
+        recyclerView = view.findViewById(R.id.recyclerViewHabitaciones);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        recyclerView.post(() -> recyclerView.scrollToPosition(0));
+
 
         DBComparte db = new DBComparte(getContext());
         List<Habitacion> habitaciones = db.getHabitacionesDisponibles();
 
-        HabitacionAdapter adapter = new HabitacionAdapter(getContext(), habitaciones, null);
+        HabitacionAdapter adapter = new HabitacionAdapter(getContext(), habitaciones, null, false);
         recyclerView.setAdapter(adapter);
 
         return view;

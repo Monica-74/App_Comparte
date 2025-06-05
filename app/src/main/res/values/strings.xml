@@ -91,7 +91,6 @@
     <string name="fab_desc">fab_descripcion</string>
     <string name="buscar_ciudad">Habitaciones</string>
     <string name="todo">TODO</string>
-<!--    <string name="Todo">TODO</string>"-->
     <string name="tlf_902_666_999">TLF: 902 666 999</string>
     <string name="politica_privacidad">Política Privacidad</string>
     <string name="politica_cookies">Política Cookies</string>
@@ -106,7 +105,6 @@
     <string name="action_settings">action settings</string>
     <string name="modificarAnuncio">modificar anuncio</string>
     <string name="eliminarAnuncio">Eliminar Anuncio</string>
-    <string name="crearAnuncio">crear anuncio</string>
     <string name="comparte_listado">COMPARTE HABITACIONES DISPONIBLES</string>
     <string name="titulo">Título</string>
     <string name="descripcionGeneral">Descripción</string>
@@ -121,4 +119,5 @@
     <string name="ver_anuncio">VER</string>
     <string name="no_has_publicado_ningun_anuncio_todavia">NO HAS PUBLICADO NINGÚN ANUNCIO.</string>
     <string name="crear_anuncio">Crear anuncio</string>
+    <string name="volver">Volver</string>
 </resources>

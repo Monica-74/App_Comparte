@@ -15,17 +15,20 @@
             app:destination="@id/propietarioFragment" />
     </fragment>
 
+
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.comparte.fragments.ChatFragment"
         android:label="@string/chat"
         tools:layout="@layout/fragment_chat" />
 
+
     <fragment
         android:id="@+id/inquilinoFragment"
         android:name="com.example.comparte.fragments.InquilinoFragment"
         android:label="@string/inquilino"
         tools:layout="@layout/fragment_inquilino" />
+
 
     <fragment
         android:id="@+id/propietarioFragment"
@@ -38,8 +41,6 @@
         <action
             android:id="@+id/action_propietarioFragment_to_habitacionesPropietarioFragment"
             app:destination="@id/habitacionesPropietarioFragment" />
-
-
     </fragment>
 
 
@@ -49,10 +50,11 @@
         android:label="@string/admin"
         tools:layout="@layout/fragment_admin" />
 
+
     <fragment
         android:id="@+id/formularioFragment"
         android:name="com.example.comparte.fragments.FormularioFragment"
-        android:label="Crear Anuncio"/>
+        android:label="Formulario Anuncio" />
 
 
     <fragment
@@ -60,6 +62,7 @@
         android:name="com.example.comparte.fragments.HabitacionesDisponiblesFragment"
         android:label="Habitaciones disponibles"
         tools:layout="@layout/fragment_habitaciones_propietario" />
+
 
     <fragment
         android:id="@+id/habitacionesPropietarioFragment"
@@ -69,12 +72,22 @@
         <action
             android:id="@+id/action_habitacionesPropietarioFragment_to_propietarioFragment"
             app:destination="@id/propietarioFragment" />
+        <action
+            android:id="@+id/action_habitacionesPropietarioFragment_to_detalleHabitacionFragment"
+            app:destination="@id/detalleHabitacionFragment" />
     </fragment>
 
 
-
-
-
-
-
+    <fragment
+        android:id="@+id/detalleHabitacionFragment"
+        android:name="com.example.comparte.fragments.DetalleHabitacionFragment"
+        android:label="Detalle habitaciones"
+        tools:layout="@layout/fragment_detalle_habitacion" >
+        <action
+            android:id="@+id/action_habitacionesDisponiblesFragment_to_detalleHabitacionFragment"
+            app:destination="@id/detalleHabitacionFragment" />
+        <action
+            android:id="@+id/action_detalleHabitacionFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment" />
+    </fragment>
 </navigation>

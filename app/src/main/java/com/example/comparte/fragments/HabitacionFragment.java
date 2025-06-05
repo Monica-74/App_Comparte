@@ -48,6 +48,8 @@ public class HabitacionFragment extends Fragment {
         layoutSinAnuncios = view.findViewById(R.id.layoutSinAnuncios);
         recyclerHabitaciones.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
         dbComparte = new DBComparte(getContext());
         sessionManager = new SessionManager(getContext());
 
@@ -90,7 +92,7 @@ public class HabitacionFragment extends Fragment {
                             .setNegativeButton("Cancelar", null)
                             .show();
                 }
-            });
+            }, false);
 
             recyclerHabitaciones.setAdapter(adapter);
         }

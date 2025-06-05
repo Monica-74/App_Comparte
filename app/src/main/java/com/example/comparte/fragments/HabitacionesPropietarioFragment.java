@@ -3,7 +3,6 @@ package com.example.comparte.fragments;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -56,6 +55,7 @@ public class HabitacionesPropietarioFragment extends Fragment {
 
                 Navigation.findNavController(requireView())
                         .navigate(R.id.action_propietarioFragment_to_formularioFragment, bundle);
+
             }
 
             @Override
@@ -63,7 +63,7 @@ public class HabitacionesPropietarioFragment extends Fragment {
                 NavController navController = Navigation.findNavController(requireView());
                 navController.navigate(R.id.action_habitacionesPropietarioFragment_to_propietarioFragment);
             }
-        });
+        }, true);
         recyclerView.setAdapter(adapter);
 
         return view;

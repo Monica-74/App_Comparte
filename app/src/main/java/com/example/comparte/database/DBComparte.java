@@ -309,24 +309,23 @@ public class DBComparte extends SQLiteOpenHelper {
 
     public void insertarHabitacion(Habitacion h) {
         SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
-        String sql = "INSERT INTO habitaciones (titulo, descripcion, precio, direccion, imagen, tipo, " +
-                "caracteristica_cama, caracteristica_bano, caracteristica_tamano, id_propietario, id_inquilino) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)";
+        values.put("titulo", h.getTitulo());
+        values.put("descripcion", h.getDescripcion());
+        values.put("precio", h.getPrecio());
+        values.put("direccion", h.getDireccion());
+        values.put("imagen", h.getImagen()); // asegúrate de que no sea null o maneja el caso
+        values.put("tipo", h.getTipo());
+        values.put("caracteristica_cama", h.getCaracteristicaCama());
+        values.put("caracteristica_bano", h.getCaracteristicaBano());
+        values.put("caracteristica_tamano", h.getCaracteristicaTamano());
+        values.put("id_propietario", h.getIdPropietario());
+        // No añado id_inquilino, lo dejo fuera  para que se guarde en null automáticamente
 
-        db.execSQL(sql, new Object[]{
-                h.getTitulo(),
-                h.getDescripcion(),
-                h.getPrecio(),
-                h.getDireccion(),
-                h.getImagen(),
-                h.getTipo(),
-                h.getCaracteristicaCama(),
-                h.getCaracteristicaBano(),
-                h.getCaracteristicaTamano(),
-                h.getIdPropietario()
-        });
+        db.insert("habitaciones", null, values);
     }
+
 
     public List<Habitacion> getHabitacionesDisponibles() {
         List<Habitacion> lista = new ArrayList<>();

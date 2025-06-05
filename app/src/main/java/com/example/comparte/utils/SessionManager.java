@@ -67,4 +67,8 @@ public class SessionManager {
     public int getPropietarioId() {
         return prefs.getInt(KEY_PROPIETARIO_ID, -1); // -1 si no existe
     }
+
+    public String getRol() {
+        return prefs.getString(KEY_ROL, null);
+    }
 }

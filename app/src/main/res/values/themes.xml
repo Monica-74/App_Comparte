@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.CompArte" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorSecondary">@color/colorPrimary</item>
-    </style>
+<!--    <style name="Theme.Comparte" parent="Theme.AppCompat.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/colorAccent</item>-->
+<!--        <item name="colorSecondary">@color/colorPrimary</item>-->
+<!--    </style>-->
+
+
 </resources>

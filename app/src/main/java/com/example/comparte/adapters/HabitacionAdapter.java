@@ -1,6 +1,5 @@
 package com.example.comparte.adapters;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +18,9 @@ import com.example.comparte.R;
 import com.example.comparte.database.DBComparte;
 import com.example.comparte.entities.Habitacion;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.ViewHolder> {
@@ -27,16 +28,18 @@ public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.Vi
     private final List<Habitacion> lista;
     private final Context context;
     private final OnHabitacionActionListener listener;
+    private boolean mostrarBotones;
 
     public interface OnHabitacionActionListener {
         void modificarHabitacion(Habitacion habitacion);
         void eliminarHabitacion(Habitacion habitacion);
     }
 
-    public HabitacionAdapter(Context context, List<Habitacion> lista, OnHabitacionActionListener listener) {
+    public HabitacionAdapter(Context context, List<Habitacion> lista, OnHabitacionActionListener listener, boolean mostrarBotones) {
         this.context = context;
         this.lista = lista;
         this.listener = listener;
+        this.mostrarBotones = mostrarBotones;
     }
 
     @Override
@@ -57,8 +60,15 @@ public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.Vi
         holder.caracteristicaBano.setText(habitacion.getCaracteristicaBano());
         holder.caracteristicaTamano.setText(habitacion.getCaracteristicaTamano());
 
-        // Si tienes una librería como Glide o Picasso, puedes cargar la imagen desde byte[]
-        // holder.imagen.setImageBitmap(...);
+        if (mostrarBotones) {
+            holder.btnModificar.setVisibility(View.VISIBLE);
+            holder.btnEliminar.setVisibility(View.VISIBLE);
+        } else {
+            holder.btnModificar.setVisibility(View.GONE);
+            holder.btnEliminar.setVisibility(View.GONE);
+        }
+
+
 
         holder.btnModificar.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -82,13 +92,41 @@ public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.Vi
                         // Redirigir al propietarioFragment (si es necesario)
                         if (listener != null) {
                             listener.eliminarHabitacion(habitacion);
-//                            NavController navController = Navigation.findNavController((Activity) context, R.id.nav_host_fragment_content_main);
-//                            navController.navigate(R.id.action_habitacionesPropietarioFragment_to_propietarioFragment);
                         }
                     })
                     .setNegativeButton("Cancelar", null)
                     .show();
         });
+
+        holder.itemView.setOnClickListener(v -> {
+            File tempFile = new File(context.getCacheDir(), "habitacion_temp.jpg");
+            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                fos.write(habitacion.getImagen());
+                fos.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Bundle bundle = new Bundle();
+            bundle.putString("rutaImagen", tempFile.getAbsolutePath());
+            bundle.putString("titulo", habitacion.getTitulo());
+            bundle.putString("descripcion", habitacion.getDescripcion());
+            bundle.putString("direccion", habitacion.getDireccion());
+            bundle.putString("precio", habitacion.getPrecio());
+            bundle.putString("caracteristicaCama", habitacion.getCaracteristicaCama());
+            bundle.putString("caracteristicaBano", habitacion.getCaracteristicaBano());
+            bundle.putString("caracteristicaTamano", habitacion.getCaracteristicaTamano());
+            bundle.putString("tipo", habitacion.getTipo());
+
+            bundle.putSerializable("habitacion", habitacion); // AÑADE esta línea antes de navegar
+//            Navigation.findNavController(v).navigate(R.id.action_habitacionesPropietarioFragment_to_detalleHabitacionFragment, bundle);
+            Navigation.findNavController(v).navigate(R.id.detalleHabitacionFragment, bundle);
+
+
+
+            //Navigation.findNavController(v).navigate(R.id.detalleHabitacionFragment, bundle);
+        });
+
 
     }
 

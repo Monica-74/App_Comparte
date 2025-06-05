@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        setSupportActionBar(binding.toolbar);
-        binding.toolbar.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-        });
+//        setSupportActionBar(binding.toolbar);
+//        binding.toolbar.setOnClickListener(view -> {
+//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//        });
 
         drawerLayout = binding.drawerLayout;
         navView = binding.navView;
@@ -158,49 +158,49 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (mostrarMenu) {
-            getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
-
-            String role = sessionManager.getUserRol();
-            MenuItem adminItem = menu.findItem(R.id.adminFragment);
-            if (adminItem != null) {
-                adminItem.setVisible("admin".equals(role));
-            }
-
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        for (int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.getItem(i);
-            Drawable icon = item.getIcon();
-            if (icon != null) {
-                icon.mutate();
-                icon.setColorFilter(ContextCompat.getColor(this, R.color.colorSecundario), PorterDuff.Mode.SRC_IN);
-                item.setIcon(icon);
-            }
-
-            SpannableString spanString = new SpannableString(item.getTitle());
-            spanString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(this, R.color.color_text)),
-                    0, spanString.length(), 0);
-            item.setTitle(spanString);
-        }
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_logout) {
-            sessionManager.logout();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        if (mostrarMenu) {
+//            getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
+//
+//            String role = sessionManager.getUserRol();
+//            MenuItem adminItem = menu.findItem(R.id.adminFragment);
+//            if (adminItem != null) {
+//                adminItem.setVisible("admin".equals(role));
+//            }
+//
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        for (int i = 0; i < menu.size(); i++) {
+//            MenuItem item = menu.getItem(i);
+//            Drawable icon = item.getIcon();
+//            if (icon != null) {
+//                icon.mutate();
+//                icon.setColorFilter(ContextCompat.getColor(this, R.color.colorSecundario), PorterDuff.Mode.SRC_IN);
+//                item.setIcon(icon);
+//            }
+//
+//            SpannableString spanString = new SpannableString(item.getTitle());
+//            spanString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(this, R.color.color_text)),
+//                    0, spanString.length(), 0);
+//            item.setTitle(spanString);
+//        }
+//        return super.onPrepareOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.action_logout) {
+//            sessionManager.logout();
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

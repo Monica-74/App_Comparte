@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutHabitacionesDisponibles"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    tools:context=".fragments.HabitacionesDisponiblesFragment">
+
+    <!-- ENCABEZADO FIJO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/logo_principal"
+            android:contentDescription="Logo"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMPARTE HABITACIONES DISPONIBLES"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- CONTENIDO SCROLLABLE -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHabitaciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                tools:listitem="@layout/item_habitacion" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- PIE DE PÁGINA -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TLF: 902 666 999"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"
+            android:paddingBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Política Privacidad"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text"
+                android:paddingEnd="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Política Cookies"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/logo_principal"
+            android:contentDescription="Logo"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email contacto: hola@comparte.es"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"/>
+    </LinearLayout>
+
+</LinearLayout>

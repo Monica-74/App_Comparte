@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +45,20 @@ public class LoginFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         // Inflar el layout correspondiente al login
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    public void onViewCreated(@NonNull View view,
+                              @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Animacion del logo
+        ImageView logo = view.findViewById(R.id.logoComparte);
+        Animation animacionLogo = AnimationUtils.loadAnimation(getContext(), R.anim.logo_animado_lanzado);
+        logo.startAnimation(animacionLogo);
+
 
         // Inicializar vistas desde la vista inflada
         emailEditText = view.findViewById(R.id.emailEditText);
@@ -56,8 +72,6 @@ public class LoginFragment extends Fragment {
 
         btnLoginIniciar.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
-            Log.d("LoginDebug", "Botón iniciar sesión pulsado");
-
             String password = passwordEditText.getText().toString().trim();
 
             if (email.isEmpty() || password.isEmpty()) {
@@ -71,7 +85,7 @@ public class LoginFragment extends Fragment {
                 return;
             }
 
-            sessionManager = new SessionManager(getContext());
+            //sessionManager = new SessionManager(getContext());
 
             if (loginController.esAdministrador(email, password)) {
                 sessionManager.setUserRol("admin");
@@ -86,23 +100,20 @@ public class LoginFragment extends Fragment {
                 if (usuario != null) {
                     String rol = usuario.getRol().toLowerCase().trim();
                     sessionManager.setUserRol(rol);
-
-                    // Guardar id_usuario
                     sessionManager.saveUserId(usuario.getId_usuario());
 
                     // Si el usuario es propietario, guardar id_propietario
                     if ("propietario".equals(rol)) {
                         int idPropietario = loginController.obtenerIdPropietarioPorUsuario(usuario.getId_usuario());
                         sessionManager.savePropietarioId(idPropietario);
-                        Log.d("LoginDebug", "ID propietario guardado en sesión: " + idPropietario);
 
                         Intent intent = new Intent(getContext(), MainActivity.class);
                         intent.putExtra("rol", "propietario");
                         startActivity(intent);
                         requireActivity().finish();
 
-                    }else if ("inquilino".equals(rol)) {
-                        // Iniciar MainActivity con el rol
+                    } else if ("inquilino".equals(rol)) {
+
                         Intent intent = new Intent(getContext(), MainActivity.class);
                         intent.putExtra("rol", "inquilino");
                         startActivity(intent);
@@ -118,11 +129,6 @@ public class LoginFragment extends Fragment {
             }
         });
 
-
-
-
-
-
         btnRegistroNuevo.setOnClickListener(view1 -> { // Añadir un OnClickListener al botón de registro
             try {
                 NavHostFragment.findNavController(LoginFragment.this)
@@ -131,7 +137,6 @@ public class LoginFragment extends Fragment {
                 Toast.makeText(getContext(), "Error al navegar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        return view;
     }
 }
 
