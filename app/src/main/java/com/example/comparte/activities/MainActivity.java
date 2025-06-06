@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-//        setSupportActionBar(binding.toolbar);
 
         drawerLayout = binding.drawerLayout;
         navView = binding.navView;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         navController = navHostFragment.getNavController();
 
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.inquilinoFragment, R.id.adminFragment, R.id.propietarioFragment,R.id.loginFragment,R.id.registroFragment)
+                R.id.inquilinoFragment, R.id.adminFragment, R.id.propietarioFragment,R.id.loginFragment,R.id.registroFragment, R.id.reservaFragment)
                 .setOpenableLayout(drawerLayout)
                 .build();
 
@@ -79,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
         setupSession();
         setupNavigation();
         setupDrawerLogout();
+
+        String destino = getIntent().getStringExtra("fragmento_destino");
+        if ("reservas".equals(destino)) {
+            navController.navigate(R.id.reservaFragment);
+        }
     }
 
     @Override

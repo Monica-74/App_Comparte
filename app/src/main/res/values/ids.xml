@@ -12,5 +12,7 @@
     <item name="imageDetalleHabitacion" type="id"/>
     <item name="action_detalleHabitacionFragment_to_formularioFragment" type="id"/>
     <item name="logoComparte" type="id"/>
+    <item name="reservaFragment" type="id"/>
+    <item name="action_detalleHabitacionFragment_to_reservaFragment" type="id"/>
 
 </resources>

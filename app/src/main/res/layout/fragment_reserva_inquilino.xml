@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#EEEEEE"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="16dp"
+            android:padding="10dp"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
@@ -50,7 +50,9 @@
             android:textStyle="bold"
             android:hint="@string/nombre_del_inquilino"
             android:textColor="@color/color_text"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
         <EditText
             android:id="@+id/descripcionReserva"
@@ -59,11 +61,13 @@
             android:importantForAutofill="no"
             android:hint="@string/descripcion_de_la_habitacion"
             android:inputType="textMultiLine"
-            android:minLines="3"
+            android:minLines="2"
             android:gravity="top"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/color_text"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:layout_marginTop="8dp" />
 
         <EditText
@@ -76,9 +80,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/color_text"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:layout_marginTop="8dp" />
 
         <EditText
@@ -91,6 +94,8 @@
             android:textColor="@color/color_text"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:layout_marginTop="8dp" />
 
         <EditText
@@ -103,10 +108,36 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/color_text"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/fechaInicioReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/fecha_de_inicio"
+            android:inputType="date"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/fechaFinReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/fecha_de_fin"
+            android:inputType="date"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text"
+            android:layout_marginTop="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
+
 
         <Button
             android:id="@+id/btnConfirmarReserva"

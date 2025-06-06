@@ -130,4 +130,12 @@
     <string name="modificar">Modificar</string>
     <string name="eliminar">ELIMINAR</string>
     <string name="mensajes">Mensajes</string>
+    <string name="fecha_de_fin">Fecha de fin</string>
+    <string name="fecha_de_inicio">Fecha de inicio</string>
+    <string name="estado">Estado</string>
+    <string name="fecha">Fecha de la reserva</string>
+    <string name="confirmar">confirmar</string>
+    <string name="rechazar">rechazar</string>
+    <string name="reservar_esta_habitacion">Reservar esta habitación</string>
+    <string name="prueba">prueba</string>
 </resources>

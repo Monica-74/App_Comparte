@@ -128,6 +128,16 @@ public class DetalleHabitacionFragment extends Fragment {
         // Acción botón volver
         btnVolver.setOnClickListener(v -> Navigation.findNavController(v).popBackStack());
 
-        return view;
+        Button btnReservar = view.findViewById(R.id.btnReservar);
+
+        btnReservar.setOnClickListener(v -> {
+                if (habitacion != null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("idHabitacion", habitacion.getId());
+                    Navigation.findNavController(v).navigate(R.id.action_detalleHabitacionFragment_to_reservaFragment, bundle);
+                }
+            });
+
+            return view;
     }
 }

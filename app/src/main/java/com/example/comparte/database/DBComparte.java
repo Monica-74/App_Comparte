@@ -11,11 +11,11 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.comparte.entities.Habitacion;
+import com.example.comparte.entities.Reserva;
 import com.example.comparte.entities.Usuario;
 import com.example.comparte.utils.CifradoContrasena;
 
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 public class DBComparte extends SQLiteOpenHelper {
@@ -30,6 +30,7 @@ public class DBComparte extends SQLiteOpenHelper {
     public static final String TABLE_INQUILINO = "inquilino";
     public static final String TABLE_PROPIETARIO = "propietario";
     public static final String TABLE_RESERVA = "reserva";
+    private Reserva reserva;
 
     public DBComparte(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -135,6 +136,9 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_habitacion INTEGER," +
                 "fecha_inicio TEXT," +
                 "fecha_fin TEXT," +
+                "fecha_inicio TEXT," +
+                "fecha_fin TEXT," +
+                "estado TEXT DEFAULT 'pendiente'," +
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilino(id_inquilino)," +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones(id_habitacion)" +
                 ")");
@@ -386,5 +390,36 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
 
+    public boolean insertarReserva(Reserva reserva) {
+        SQLiteDatabase db = this.getWritableDatabase(); // Abre la base de datos en modo escritura
+        ContentValues values = new ContentValues();
+
+        values.put("nombre_inquilino", reserva.getNombreInquilino());
+        values.put("descripcion_habitacion", reserva.getDescripcionHabitacion());
+        values.put("fecha_reserva", reserva.getFechaReserva());
+        values.put("telefono_inquilino", reserva.getTelefonoInquilino());
+        values.put("email_inquilino", reserva.getEmailInquilino());
+        values.put("id_inquilino", reserva.getIdInquilino());
+        values.put("id_habitacion", reserva.getIdHabitacion());
+        values.put("fecha_inicio", reserva.getFechaInicio());
+        values.put("fecha_fin", reserva.getFechaFin());
+        values.put("estado", reserva.getEstado()); // Guarda "PENDIENTE", "CONFIRMADA", etc.
+
+        long resultado= db.insert("reserva", null, values);
+
+
+
+        db.close();
+        return resultado != -1; // Devuelve true si se insertó correctamente
+
+
+    }
+    public boolean actualizarEstadoReserva(int idReserva, int idHabitacion, String nuevoEstado) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("estado", nuevoEstado);
+        int rows = db.update("reserva", values, "id = ?", new String[]{String.valueOf(idReserva)});
+        return rows > 0;
+    }
 
 }

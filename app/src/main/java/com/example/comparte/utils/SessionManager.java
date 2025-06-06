@@ -14,7 +14,9 @@ public class SessionManager {
 
     private static final String PREF_NAME = "userSession";
     private static final String KEY_ROL = "user_rol";
-    private static final String KEY_USER_ID = "user_id";
+    //private static final String KEY_USER_ID = "user_id";
+    private static final String KEY_USER_ID = "idInquilino";
+
     private static final String KEY_PROPIETARIO_ID = "propietario_id";
 
 
@@ -70,5 +72,13 @@ public class SessionManager {
 
     public String getRol() {
         return prefs.getString(KEY_ROL, null);
+    }
+
+    public int getInquilinoId() {
+        return prefs.getInt(KEY_USER_ID, -1); // -1 si no existe
+    }
+
+    public int getHabitacionIdSeleccionada() {
+        return prefs.getInt("habitacion_id_seleccionada", -1);
     }
 }

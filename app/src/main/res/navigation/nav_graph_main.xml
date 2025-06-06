@@ -27,7 +27,11 @@
         android:id="@+id/inquilinoFragment"
         android:name="com.example.comparte.fragments.InquilinoFragment"
         android:label="@string/inquilino"
-        tools:layout="@layout/fragment_inquilino" />
+        tools:layout="@layout/fragment_inquilino" >
+        <action
+            android:id="@+id/action_inquilinoFragment_to_reservaFragment"
+            app:destination="@id/reservaFragment" />
+    </fragment>
 
 
     <fragment
@@ -55,6 +59,12 @@
         android:id="@+id/formularioFragment"
         android:name="com.example.comparte.fragments.FormularioFragment"
         android:label="Formulario Anuncio" />
+
+    <fragment
+        android:id="@+id/reservaFragment"
+        android:name="com.example.comparte.fragments.ReservaInquilinoFragment"
+        android:label="Reserva Anuncio" />
+
 
 
     <fragment
@@ -89,5 +99,9 @@
         <action
             android:id="@+id/action_detalleHabitacionFragment_to_formularioFragment"
             app:destination="@id/formularioFragment" />
+        <action
+            android:id="@+id/action_detalleHabitacionFragment_to_reservaFragment"
+            app:destination="@id/reservaFragment" />
+
     </fragment>
 </navigation>

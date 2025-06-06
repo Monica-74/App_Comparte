@@ -73,8 +73,10 @@ public class AdminActivity extends AppCompatActivity {
         */
         if (btnReservas != null) {
             btnReservas.setOnClickListener(view -> {
-                Intent intent = new Intent(AdminActivity.this, ReservasActivity.class);
+                Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+                intent.putExtra("fragmento_destino", "reservas");
                 startActivity(intent);
+                finish(); // opcional: cerrar AdminActivity para no volver atrás
             });
         }
     }

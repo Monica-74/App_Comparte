@@ -58,8 +58,8 @@
                 android:padding="16dp">
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:contentDescription="@string/todo"
                     android:paddingTop="16dp"
                     android:src="@drawable/ciudad" />
@@ -99,8 +99,8 @@
                 android:padding="16dp">
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:contentDescription="@string/todo"
                     android:paddingTop="16dp"
                     android:src="@drawable/chat" />
@@ -112,7 +112,7 @@
                     android:gravity="center"
                     android:paddingTop="16dp"
                     android:paddingBottom="16dp"
-                    android:text="@string/chatear_propietario"
+                    android:text="@string/mensajes"
                     android:textColor="@color/color_text"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -141,11 +141,11 @@
                 android:padding="16dp">
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:contentDescription="@string/todo"
                     android:paddingTop="16dp"
-                    android:src="@drawable/valorar" />
+                    android:src="@drawable/reserva" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                     android:gravity="center"
                     android:paddingTop="16dp"
                     android:paddingBottom="16dp"
-                    android:text="@string/valorar_experiencia"
+                    android:text="@string/ver_reserva"
                     android:textColor="@color/color_text"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorSecundario"
-                    android:text="@string/valorar"
+                    android:text="@string/prueba"
                     android:textColor="@color/colorAccent"
                     android:textSize="10sp"
                     android:textStyle="bold" />
