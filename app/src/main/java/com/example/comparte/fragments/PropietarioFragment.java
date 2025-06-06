@@ -30,7 +30,6 @@ public class PropietarioFragment extends Fragment {
             );
             Button btnVerAnuncios = view.findViewById(R.id.btnVerAnuncio);
             btnVerAnuncios.setOnClickListener(v -> {
-                //Navigation.findNavController(view).navigate(R.id.action_propietarioFragment_to_habitacionesPropietarioFragment);
                 Navigation.findNavController(view).navigate(R.id.habitacionFragment);
 
             });

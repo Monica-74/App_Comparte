@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
+    tools:context=".fragments.FormularioFragment"
     android:fillViewport="true">
 
     <LinearLayout
@@ -41,22 +42,26 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:hint="@string/titulo"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
         <EditText
             android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:hint="@string/descripcionGeneral" />
+            android:hint="@string/descripcionGeneral"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
         <EditText
             android:id="@+id/etDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:hint="@string/direccion" />
+            android:hint="@string/direccion"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
         <EditText
             android:id="@+id/etPrecio"
@@ -64,16 +69,16 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:hint="@string/precio"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
 
         <EditText
             android:id="@+id/etCaracteristicaCama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:hint="@string/tipo_cama" />
 
         <EditText
@@ -81,8 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:hint="@string/tipo_de_bano" />
 
         <EditText
@@ -91,17 +96,26 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:hint="@string/tamano_habitacion"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
 
         <EditText
             android:id="@+id/etTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:hint="@string/tipo_habitacion_genero" />
+        <EditText
+            android:id="@+id/etTelefonoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:hint="@string/telefono_de_contacto" />
+
 
         <Button
             android:id="@+id/btnSeleccionarImagen"

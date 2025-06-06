@@ -51,16 +51,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        DatabaseManager.init(this);
-//        SQLiteDatabase db = DatabaseManager.getDatabase();
-
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 //        setSupportActionBar(binding.toolbar);
-//        binding.toolbar.setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//        });
 
         drawerLayout = binding.drawerLayout;
         navView = binding.navView;
@@ -69,19 +62,19 @@ public class MainActivity extends AppCompatActivity {
                 .findFragmentById(R.id.nav_host_fragment_content_main);
         navController = navHostFragment.getNavController();
 
-
-        preferences = getSharedPreferences("compArtePrefs", MODE_PRIVATE);
-        prefEditor = preferences.edit();
-
-        sessionManager = new SessionManager(this);
-
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.inquilinoFragment, R.id.adminFragment, R.id.propietarioFragment)
+                R.id.inquilinoFragment, R.id.adminFragment, R.id.propietarioFragment,R.id.loginFragment,R.id.registroFragment)
                 .setOpenableLayout(drawerLayout)
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
+        preferences = getSharedPreferences("compArtePrefs", MODE_PRIVATE);
+        prefEditor = preferences.edit();
+
+        sessionManager = new SessionManager(this);
 
         setupSession();
         setupNavigation();
@@ -105,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if ("admin".equals(rol)) {
-            menu.findItem(R.id.adminFragment).setVisible(true);
+            menu.findItem(R.id.adminFragment).setVisible("admin".equals(rol));
         }
 
         Toast.makeText(this, "Usuario con éxito: " + rol, Toast.LENGTH_LONG).show();
@@ -149,58 +142,21 @@ public class MainActivity extends AppCompatActivity {
                 sessionManager.logout();
                 drawerLayout.closeDrawers();
                 return true;
+            } else if (itemId == R.id.nav_login_activity) {
+                // Ir manualmente a LoginActivity para reiniciar el flujo
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish(); // opcional: cerrar MainActivity
+                return true;
             } else {
-                NavigationUI.onNavDestinationSelected(menuItem,
-                        navController);
+                NavigationUI.onNavDestinationSelected(menuItem, navController);
                 drawerLayout.closeDrawers();
                 return true;
             }
         });
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        if (mostrarMenu) {
-//            getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
-//
-//            String role = sessionManager.getUserRol();
-//            MenuItem adminItem = menu.findItem(R.id.adminFragment);
-//            if (adminItem != null) {
-//                adminItem.setVisible("admin".equals(role));
-//            }
-//
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean onPrepareOptionsMenu(Menu menu) {
-//        for (int i = 0; i < menu.size(); i++) {
-//            MenuItem item = menu.getItem(i);
-//            Drawable icon = item.getIcon();
-//            if (icon != null) {
-//                icon.mutate();
-//                icon.setColorFilter(ContextCompat.getColor(this, R.color.colorSecundario), PorterDuff.Mode.SRC_IN);
-//                item.setIcon(icon);
-//            }
-//
-//            SpannableString spanString = new SpannableString(item.getTitle());
-//            spanString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(this, R.color.color_text)),
-//                    0, spanString.length(), 0);
-//            item.setTitle(spanString);
-//        }
-//        return super.onPrepareOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.action_logout) {
-//            sessionManager.logout();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @Override
     public boolean onSupportNavigateUp() {

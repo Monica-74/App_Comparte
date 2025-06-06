@@ -5,6 +5,7 @@ public class Usuario {
     private String nombreUsuario;
 
     private String password;
+    private String contrasenaHash;
     private int telefono;
     private String genero;
     private String email;
@@ -14,7 +15,15 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String nombreUsuario, String password, int telefono, String genero, String email, int edad, String rol) {
+    public String getContrasenaHash() {
+        return contrasenaHash;
+    }
+
+    public void setContrasenaHash(String contrasenaHash) {
+        this.contrasenaHash = contrasenaHash;
+    }
+
+    public Usuario(int id_usuario, String nombreUsuario, String password, int telefono, String genero, String email, int edad, String rol, String contrasena_hash) {
         this.id_usuario = id_usuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
@@ -23,6 +32,7 @@ public class Usuario {
         this.email = email;
         this.edad = edad;
         this.rol = rol;
+        this.contrasenaHash = contrasena_hash;
     }
 
     public int getId_usuario() {
@@ -89,6 +99,7 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
 
 }
 

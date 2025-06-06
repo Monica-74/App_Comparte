@@ -2,6 +2,7 @@ package com.example.comparte.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.fragment.NavHostFragment;
@@ -48,6 +50,7 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     @Override
     public void onViewCreated(@NonNull View view,
@@ -95,7 +98,9 @@ public class LoginFragment extends Fragment {
                 startActivity(intent);
                 requireActivity().finish();
             } else {
-                Usuario usuario = loginController.login(email, password);
+                //Usuario usuario = loginController.login(email, password);
+                Usuario usuario = loginController.loginYObtenerUsuario(email, password);
+
 
                 if (usuario != null) {
                     String rol = usuario.getRol().toLowerCase().trim();
@@ -106,6 +111,10 @@ public class LoginFragment extends Fragment {
                     if ("propietario".equals(rol)) {
                         int idPropietario = loginController.obtenerIdPropietarioPorUsuario(usuario.getId_usuario());
                         sessionManager.savePropietarioId(idPropietario);
+
+                        Log.d("DEBUG", "ID del propietario guardado en sesión: " + idPropietario);
+                        Toast.makeText(getContext(), "Propietario ID: " + idPropietario, Toast.LENGTH_SHORT).show();
+
 
                         Intent intent = new Intent(getContext(), MainActivity.class);
                         intent.putExtra("rol", "propietario");

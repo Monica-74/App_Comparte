@@ -42,6 +42,7 @@ public class FormularioFragment extends Fragment {
     private DBComparte db;
     private SessionManager sessionManager;
 
+
     private final ActivityResultLauncher<Intent> imagenPickerLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
@@ -138,7 +139,8 @@ public class FormularioFragment extends Fragment {
             h.setCaracteristicaBano(bano);
             h.setCaracteristicaTamano(tamano);
             h.setImagen(imagenEnBytes);
-            h.setIdPropietario(sessionManager.getPropietarioId());
+            int idPropietario = sessionManager.getPropietarioId();
+            h.setIdPropietario(idPropietario);
 
             if (habitacionExistente != null) {
                 h.setId(habitacionExistente.getId());

@@ -6,17 +6,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.comparte.entities.Habitacion;
 import com.example.comparte.entities.Usuario;
+import com.example.comparte.utils.CifradoContrasena;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class DBComparte extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comparte.db";
-    private static final int DATABASE_VERSION = 16;
+    private static final int DATABASE_VERSION = 24;
 
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_HABITACIONES = "habitaciones";
@@ -42,7 +47,8 @@ public class DBComparte extends SQLiteOpenHelper {
                 "telefono TEXT," +
                 "genero TEXT," +
                 "email TEXT," +
-                "edad TEXT" +
+                "edad TEXT," +
+                "contrasena_hash TEXT" +
                 ")");
 
         // Tabla admin (información extra)
@@ -66,8 +72,9 @@ public class DBComparte extends SQLiteOpenHelper {
                 "sexo TEXT," +
                 "id_propietario INTEGER ,"+
                 "id_habitacion  INTEGER ,"+
-                "FOREIGN KEY(id_habitacion) REFERENCES habitaciones (id_habitacion)," +
-                "FOREIGN KEY(id_propietario) REFERENCES propietarios (id_propietario)" +
+                "id_usuario INTEGER," +
+                "FOREIGN KEY(id_usuario) REFERENCES usuarios(id), " +
+                "FOREIGN KEY(id_habitacion) REFERENCES habitaciones (id_habitacion)" +
                 ")");
 
         // Tabla propietario (información extra)
@@ -81,7 +88,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_inquilino INTEGER ,"+
                 "id_habitacion  INTEGER ,"+
                 "id_usuario INTEGER ,"+
-                "FOREIGN KEY(id_inquilino) REFERENCES inquilinos(id_inquilino)," +
+                "FOREIGN KEY(id_usuario) REFERENCES usuarios(id), " +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones(id_habitacion)" +
                 ")");
 
@@ -170,6 +177,7 @@ public class DBComparte extends SQLiteOpenHelper {
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean insertarUsuario(Usuario usuario) {
         SQLiteDatabase db = null;
         try {
@@ -177,35 +185,41 @@ public class DBComparte extends SQLiteOpenHelper {
             if (db != null) {
                 db.beginTransaction();
 
-                String sql = "INSERT INTO " + TABLE_USUARIOS + " (nombre_usuario, password, rol, telefono, genero, email, edad) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                // 1. Generar hashear contraseña
+                String hashedPassword = CifradoContrasena.hashPassword(usuario.getPassword());
 
-                db.execSQL(sql, new Object[]{
-                        usuario.getNombreUsuario(),
-                        usuario.getPassword(),
-                        usuario.getRol(),
-                        usuario.getTelefono(),
-                        usuario.getGenero(),
-                        usuario.getEmail(),
-                        usuario.getEdad()
-                });
+                // 2. Insertar en la tabla usuarios
+                ContentValues valuesUsuario = new ContentValues();
+                valuesUsuario.put("nombre_usuario", usuario.getNombreUsuario());
+                valuesUsuario.put("password", hashedPassword);  // contraseña cifrada
+                valuesUsuario.put("rol", usuario.getRol());
+                valuesUsuario.put("telefono", usuario.getTelefono());
+                valuesUsuario.put("genero", usuario.getGenero());
+                valuesUsuario.put("email", usuario.getEmail());
+                valuesUsuario.put("edad", usuario.getEdad());
 
+                long usuarioId = db.insert(TABLE_USUARIOS, null, valuesUsuario);
+                if (usuarioId == -1) return false;
+
+                // 3. Insertar en tabla según rol
                 String rol = usuario.getRol().toLowerCase();
+                ContentValues valuesRol = new ContentValues();
+                valuesRol.put("nombre_apellidos", usuario.getNombreUsuario());
+                valuesRol.put("email", usuario.getEmail());
+                valuesRol.put("edad", usuario.getEdad());
+                valuesRol.put("telefono", usuario.getTelefono());
+                valuesRol.put("sexo", usuario.getGenero());
+                valuesRol.put("id_usuario", (int) usuarioId);
+
                 if (rol.equals("propietario")) {
-                    sql = "INSERT INTO " + TABLE_PROPIETARIO + " (nombre_apellidos, email, edad, telefono, sexo) VALUES (?, ?, ?, ?, ?)";
-                    db.execSQL(sql, new Object[]{
-                            usuario.getNombreUsuario(), usuario.getEmail(), usuario.getEdad(), usuario.getTelefono(), usuario.getGenero()
-                    });
+                    db.insert(TABLE_PROPIETARIO, null, valuesRol);
                 } else if (rol.equals("inquilino")) {
-                    sql = "INSERT INTO " + TABLE_INQUILINO + " (nombre_apellidos, edad, email, telefono, sexo) VALUES (?, ?, ?, ?, ?)";
-                    db.execSQL(sql, new Object[]{
-                            usuario.getNombreUsuario(), usuario.getEdad(), usuario.getEmail(), usuario.getTelefono(), usuario.getGenero()
-                    });
+                    db.insert(TABLE_INQUILINO, null, valuesRol);
                 } else if (rol.equals("admin")) {
-                    sql = "INSERT INTO " + TABLE_ADMIN + " (nombre_apellidos, email) VALUES (?, ?)";
-                    db.execSQL(sql, new Object[]{
-                            usuario.getNombreUsuario(), usuario.getEmail()
-                    });
+                    ContentValues valuesAdmin = new ContentValues();
+                    valuesAdmin.put("nombre_apellidos", usuario.getNombreUsuario());
+                    valuesAdmin.put("email", usuario.getEmail());
+                    db.insert(TABLE_ADMIN, null, valuesAdmin);
                 }
 
                 db.setTransactionSuccessful();
@@ -222,6 +236,7 @@ public class DBComparte extends SQLiteOpenHelper {
             }
         }
     }
+
 
 
     public int obtenerIdPropietarioPorUsuario(int idUsuario) {
@@ -274,7 +289,10 @@ public class DBComparte extends SQLiteOpenHelper {
                 h.setCaracteristicaBano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_bano")));
                 h.setCaracteristicaTamano(cursor.getString(cursor.getColumnIndexOrThrow("caracteristica_tamano")));
                 h.setImagen(cursor.getBlob(cursor.getColumnIndexOrThrow("imagen")));
-                // Puedes cargar otras características si las tienes en columnas separadas
+
+                String telefono = obtenerTelefonoPropietario(idPropietario);
+                h.setTelefonoContacto(telefono);
+
                 lista.add(h);
             } while (cursor.moveToNext());
         }
@@ -352,6 +370,21 @@ public class DBComparte extends SQLiteOpenHelper {
         cursor.close();
         return lista;
     }
+    public String obtenerTelefonoPropietario(int idPropietario) {
+        String telefono = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT telefono FROM propietario WHERE id_propietario = ?",
+                new String[]{String.valueOf(idPropietario)}
+        );
+        if (cursor.moveToFirst()) {
+            telefono = cursor.getString(0);
+        }
+        cursor.close();
+        //db.close();
+        return telefono;
+    }
+
 
 
 }

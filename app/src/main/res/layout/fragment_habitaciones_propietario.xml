@@ -1,107 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:fillViewport="true"
+    tools:context=".fragments.HabitacionesPropietarioFragment"
     android:gravity="center_horizontal"
     android:padding="0dp">
-
-    <!-- ENCABEZADO -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/logo_principal"
-            android:contentDescription="@string/logo"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/comparte_listado"
-            android:textStyle="bold"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <!-- LISTA DE HABITACIONES -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPropietario"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        tools:listitem="@layout/item_habitacion" />
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tlf_902_666_999"
-            android:textSize="12sp"
-            android:textColor="@color/color_text"
-            android:textStyle="bold"
-            android:paddingBottom="4dp"/>
-
+        android:padding="16dp">
+        <!-- ENCABEZADO -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:padding="16dp"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/logo_principal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/politica_privacidad"
-                android:textSize="12sp"
-                android:textColor="@color/color_text"
-                android:textStyle="bold"
-                android:paddingEnd="12dp"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/politica_cookies"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text"/>
+                android:text="@string/comparte_listado"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:src="@drawable/logo_principal"
-            android:contentDescription="@drawable/logo_principal"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp" />
+        <!-- LISTA DE HABITACIONES -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPropietario"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            tools:listitem="@layout/item_habitacion" />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/email_contacto_hola_comparte_es"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/color_text"/>
-    </LinearLayout>
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:text="@string/tlf_902_666_999"
+                android:textColor="@color/color_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="12dp"
+                    android:text="@string/politica_privacidad"
+                    android:textColor="@color/color_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/politica_cookies"
+                    android:textColor="@color/color_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@drawable/logo_principal"
+                android:src="@drawable/logo_principal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_contacto_hola_comparte_es"
+                android:textColor="@color/color_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

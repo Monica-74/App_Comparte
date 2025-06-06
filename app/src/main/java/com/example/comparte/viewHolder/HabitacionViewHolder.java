@@ -1,6 +1,7 @@
 package com.example.comparte.viewHolder;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,9 @@ public class HabitacionViewHolder extends RecyclerView.ViewHolder {
     private TextView caracteristicaTamano;
     private TextView precioHabitacion;
     private TextView descripcionHabitacion;
+    private TextView telefonoContacto;
+    private Button btnModificar;
+    private Button btnEliminar;
 
 
     public HabitacionViewHolder(View item_habitacion_view) {
@@ -30,12 +34,23 @@ public class HabitacionViewHolder extends RecyclerView.ViewHolder {
         this.caracteristicaTamano = itemView.findViewById(R.id.caracteristicaTamano);
         this.precioHabitacion = itemView.findViewById(R.id.precioHabitacion);
         this.descripcionHabitacion = itemView.findViewById(R.id.descripcionHabitacion);
+        this.telefonoContacto = itemView.findViewById(R.id.telefonoContacto);
+        this.btnModificar = itemView.findViewById(R.id.btnModificar);
+        this.btnEliminar = itemView.findViewById(R.id.btnEliminar);
     }
 
 
 
     public ImageView getImageHabitacion() {
         return imageHabitacion;
+    }
+
+    public TextView getTelefonoContacto() {
+        return telefonoContacto;
+    }
+
+    public void setTelefonoContacto(TextView telefonoContacto) {
+        this.telefonoContacto = telefonoContacto;
     }
 
     public void setImageHabitacion(ImageView imageHabitacion) {
@@ -96,5 +111,23 @@ public class HabitacionViewHolder extends RecyclerView.ViewHolder {
 
     public void setDescripcionHabitacion(TextView descripcionHabitacion) {
         this.descripcionHabitacion = descripcionHabitacion;
+    }
+
+
+    public View getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(Button btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public void setBtnEliminar(Button btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
+    public View getBtnEliminar() {
+        return btnEliminar;
+
     }
 }

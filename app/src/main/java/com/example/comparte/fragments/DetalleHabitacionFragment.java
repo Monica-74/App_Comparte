@@ -84,6 +84,17 @@ public class DetalleHabitacionFragment extends Fragment {
             habitacion = (Habitacion) args.getSerializable("habitacion");
         }
 
+        // Mostrar teléfono del propietario si existe
+        int idPropietario = args.getInt("idPropietario", -1);
+        if (idPropietario != -1) {
+            DBComparte db = new DBComparte(requireContext());
+            String telefono = db.obtenerTelefonoPropietario(idPropietario);
+
+            TextView txtTelefono = view.findViewById(R.id.tvTelefonoContacto);
+            txtTelefono.setText("Teléfono de contacto: " + telefono);
+        }
+
+
         // Obtener rol del usuario
         sessionManager = new SessionManager(requireContext());
         String rol = sessionManager.getRol();

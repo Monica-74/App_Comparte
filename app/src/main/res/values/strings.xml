@@ -109,8 +109,8 @@
     <string name="titulo">Título</string>
     <string name="descripcionGeneral">Descripción</string>
     <string name="direccion">Dirección</string>
-    <string name="tipo_cama">Tipo de cama</string>
-    <string name="tipo_de_bano">Tipo de baño</string>
+    <string name="tipo_cama">Tipo de cama: individual, matrimonio...</string>
+    <string name="tipo_de_bano">Tipo de baño: individual, compartido.</string>
     <string name="tamano_habitacion">Tamaño (m²)</string>
     <string name="tipo_habitacion_genero">Tipo de habitación (femenina, masculina, mixta...)</string>
     <string name="seleccionar_imagen">Seleccionar Imagen</string>
@@ -120,4 +120,14 @@
     <string name="no_has_publicado_ningun_anuncio_todavia">NO HAS PUBLICADO NINGÚN ANUNCIO.</string>
     <string name="crear_anuncio">Crear anuncio</string>
     <string name="volver">Volver</string>
+    <string name="descripcionAnuncio">Descripción</string>
+    <string name="precioAnuncio">Precio</string>
+    <string name="camaAnuncio">Cama</string>
+    <string name="bano">Baño</string>
+    <string name="tamanoHabitacion">Tamaño</string>
+    <string name="tipo">Tipo</string>
+    <string name="telefono">Teléfono</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">ELIMINAR</string>
+    <string name="mensajes">Mensajes</string>
 </resources>

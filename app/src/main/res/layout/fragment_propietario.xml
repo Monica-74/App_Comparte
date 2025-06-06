@@ -169,26 +169,26 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/valorar"
+                    android:src="@drawable/chat"
                     android:contentDescription="@string/todo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/valorar_experiencia"
+                    android:text="@string/mensajes"
                     android:textColor="@color/color_text"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:layout_marginTop="8dp" />
 
                 <Button
-                    android:id="@+id/btnValorar"
+                    android:id="@+id/btnChatearPropietario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:backgroundTint="@color/colorSecundario"
                     android:textStyle="bold"
-                    android:text="@string/valorar"
+                    android:text="@string/chat"
                     android:layout_marginTop="8dp" />
             </LinearLayout>
         </GridLayout>

@@ -18,6 +18,7 @@ public class Habitacion implements Serializable {
     private String tipo; // tipo de vivienda o habitación femenino o masculino
     private byte[] imagen;
     private int idPropietario;
+    private String telefonoContacto;
 
     public Habitacion(String descripcion, int id, String titulo, String precio, String direccion, String caracteristicaCama, String caracteristicaBano, String caracteristicaTamano, String tipo, byte[] imagen, int idPropietario) {
         this.descripcion = descripcion;
@@ -132,5 +133,11 @@ public class Habitacion implements Serializable {
         this.caracteristicaTamano = tamano;
     }
 
+    public void setTelefonoContacto(String telefonoContacto) {
+        this.telefonoContacto = telefonoContacto;
+    }
 
+    public String getTelefonoContacto() {
+        return telefonoContacto;
+    }
 }

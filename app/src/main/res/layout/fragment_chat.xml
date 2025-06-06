@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    tools:context=".fragments.ChatFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,180 +16,180 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/colorSecundario"
-            android:layout_marginBottom="14dp"
             android:layout_gravity="start"
-            android:elevation="2dp">
+            android:layout_marginBottom="14dp"
+            android:background="@color/colorSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/tvMensaje1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hola_cmo_estas_soy_lola_como_propietario_de_la_habitacion_podrias_decirme_si_es_soleada"
+                android:textColor="@color/color_text"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_10_45"
-                android:textSize="14sp"
                 android:textColor="@color/color_text"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- Segundo mensaje -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:background="@color/colorAccentSecundario"
             android:layout_gravity="end"
             android:layout_marginBottom="12dp"
-            android:elevation="2dp">
+            android:background="@color/colorAccentSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/tvMensaje2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/muy_bien_gracias_la_habitacion_da_a_un_patio_interior_pero_s_es_soleada"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_10_46"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
-<!--        tercer mensaje-->
+        <!--        tercer mensaje-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/colorSecundario"
-            android:layout_marginBottom="14dp"
             android:layout_gravity="start"
-            android:elevation="2dp">
+            android:layout_marginBottom="14dp"
+            android:background="@color/colorSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/tvMensaje3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/perfecto_es_que_necesito_sol_para_unos_peces_que_tengo_como_mascotas"
+                android:textColor="@color/color_text"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_10_50"
-                android:textSize="14sp"
                 android:textColor="@color/color_text"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
-<!--        cuarto mensaje-->
+        <!--        cuarto mensaje-->
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:background="@color/colorAccentSecundario"
             android:layout_gravity="end"
             android:layout_marginBottom="12dp"
-            android:elevation="2dp">
+            android:background="@color/colorAccentSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/tvMensaje4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/seguro_que_se_van_a_encontrar_muy_agusto_porque_ademas_no_da_el_sol_directamente"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_15_06"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
         <!-- quinto  mensaje-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@color/colorSecundario"
-            android:layout_marginBottom="14dp"
             android:layout_gravity="start"
-            android:elevation="2dp">
+            android:layout_marginBottom="14dp"
+            android:background="@color/colorSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/tvMensaje5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/entonces_voy_a_reservar_la_habitacion_creo_que_vamos_a_vivir_juntas_un_buen_tiempo"
+                android:textColor="@color/color_text"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_20_30"
-                android:textSize="14sp"
                 android:textColor="@color/color_text"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
         <!--        sexto  mensaje-->
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:background="@color/colorAccentSecundario"
             android:layout_gravity="end"
             android:layout_marginBottom="12dp"
-            android:elevation="2dp">
+            android:background="@color/colorAccentSecundario"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/tvMensaje6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/genial_haz_la_reserva_y_si_quieres_seguimos_hablando_por_telefono_saludos"
+                android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFecha6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/_14_mayo_2025_20_46"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
