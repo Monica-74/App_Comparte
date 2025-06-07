@@ -56,7 +56,8 @@ public class Reserva implements Serializable {
     }
 
     // Constructor vacío
-    public Reserva() {}
+    public Reserva() {
+    }
 
     // Getters y Setters
     public int getIdReserva() {
@@ -104,13 +105,14 @@ public class Reserva implements Serializable {
     }
 
 
-    public EstadoReserva getEstadoEnum() {
+    public EstadoReserva getEstado() {
         return estado;
     }
 
-    public String getEstado() {
+    public String getEstadoString() {
         return estado != null ? estado.name() : null;
     }
-
-
 }
+
+
+

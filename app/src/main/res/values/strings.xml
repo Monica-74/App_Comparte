@@ -138,4 +138,6 @@
     <string name="rechazar">rechazar</string>
     <string name="reservar_esta_habitacion">Reservar esta habitación</string>
     <string name="prueba">prueba</string>
+    <string name="email">Email de contacto</string>
+    <string name="reservas_recibidas">Reservas Recibidas</string>
 </resources>

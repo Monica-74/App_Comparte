@@ -61,7 +61,7 @@ public class SessionManager {
     }
 
     // Guardar ID del propietario
-    public void savePropietarioId(int propietarioId) {
+    public void guardarPropietarioId(int propietarioId) {
         editor.putInt(KEY_PROPIETARIO_ID, propietarioId);
         editor.apply();
     }

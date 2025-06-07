@@ -23,6 +23,7 @@ import java.util.Calendar;
 public class ReservaInquilinoFragment extends Fragment {
 
     private EditText etNombre, etDescripcion, etFecha, etTelefono, etEmail;
+    private EditText etFechaInicio, etFechaFin;
     private DBComparte db;
     private SessionManager sessionManager;
     private Button btnConfirmarReserva;
@@ -37,41 +38,51 @@ public class ReservaInquilinoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_reserva_inquilino, container, false);
 
+        // Enlazar campos
         etNombre = view.findViewById(R.id.nombreReserva);
         etDescripcion = view.findViewById(R.id.descripcionReserva);
         etFecha = view.findViewById(R.id.fechaReserva);
         etTelefono = view.findViewById(R.id.telefonoReserva);
         etEmail = view.findViewById(R.id.emailReserva);
+        etFechaInicio = view.findViewById(R.id.fechaInicioReserva);
+        etFechaFin = view.findViewById(R.id.fechaFinReserva);
         btnConfirmarReserva = view.findViewById(R.id.btnConfirmarReserva);
 
         db = new DBComparte(getContext());
         sessionManager = new SessionManager(getContext());
 
-        // Abrir calendario al hacer clic en fecha
-        etFecha.setOnClickListener(v -> mostrarDatePicker());
+        // Mostrar date pickers
+        etFecha.setOnClickListener(v -> mostrarDatePicker(etFecha));
+        etFechaInicio.setOnClickListener(v -> mostrarDatePicker(etFechaInicio));
+        etFechaFin.setOnClickListener(v -> mostrarDatePicker(etFechaFin));
 
-        Button btnConfirmarReserva = view.findViewById(R.id.btnConfirmarReserva);
-
+        // Botón confirmar reserva
         btnConfirmarReserva.setOnClickListener(v -> {
             String nombre = etNombre.getText().toString().trim();
             String descripcion = etDescripcion.getText().toString().trim();
             String fecha = etFecha.getText().toString().trim();
             String telefono = etTelefono.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
+            String fechaInicio = etFechaInicio.getText().toString().trim();
+            String fechaFin = etFechaFin.getText().toString().trim();
 
-            if (nombre.isEmpty() || descripcion.isEmpty() || fecha.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
+            // Validación
+            if (nombre.isEmpty() || descripcion.isEmpty() || fecha.isEmpty() ||
+                    telefono.isEmpty() || email.isEmpty() ||
+                    fechaInicio.isEmpty() || fechaFin.isEmpty()) {
                 Toast.makeText(getContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            int idInquilino = sessionManager.getInquilinoId(); // Asegúrate de tener este método en SessionManager
-            int idHabitacion = getArguments().getInt("idHabitacion", -1); // Recibido al navegar
+            int idInquilino = sessionManager.getInquilinoId();
+            int idHabitacion = getArguments().getInt("idHabitacion", -1);
 
             if (idHabitacion == -1) {
                 Toast.makeText(getContext(), "Error: no se recibió el ID de la habitación", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // Crear reserva
             Reserva reserva = new Reserva();
             reserva.setNombreInquilino(nombre);
             reserva.setDescripcionHabitacion(descripcion);
@@ -80,24 +91,23 @@ public class ReservaInquilinoFragment extends Fragment {
             reserva.setEmailInquilino(email);
             reserva.setIdInquilino(idInquilino);
             reserva.setIdHabitacion(idHabitacion);
+            reserva.setFechaInicio(fechaInicio);
+            reserva.setFechaFin(fechaFin);
             reserva.setEstado(EstadoReserva.PENDIENTE);
-
-            DBComparte db = new DBComparte(requireContext());
 
             if (db.insertarReserva(reserva)) {
                 Toast.makeText(getContext(), "Reserva realizada correctamente", Toast.LENGTH_SHORT).show();
-                Navigation.findNavController(v).popBackStack(); // volver atrás
+                Navigation.findNavController(v).popBackStack();
             } else {
                 Toast.makeText(getContext(), "Error al guardar reserva", Toast.LENGTH_SHORT).show();
             }
         });
 
-        
-
         return view;
     }
 
-    private void mostrarDatePicker() {
+    // Método genérico para mostrar el DatePicker y rellenar el campo correspondiente
+    private void mostrarDatePicker(EditText campo) {
         final Calendar calendario = Calendar.getInstance();
         int anio = calendario.get(Calendar.YEAR);
         int mes = calendario.get(Calendar.MONTH);
@@ -107,7 +117,7 @@ public class ReservaInquilinoFragment extends Fragment {
                 getContext(),
                 (view, year, month, dayOfMonth) -> {
                     String fechaSeleccionada = dayOfMonth + "/" + (month + 1) + "/" + year;
-                    etFecha.setText(fechaSeleccionada);
+                    campo.setText(fechaSeleccionada);
                 },
                 anio, mes, dia
         );

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.comparte.R;
@@ -33,6 +34,12 @@ public class PropietarioFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.habitacionFragment);
 
             });
+
+            Button btnReserva = view.findViewById(R.id.btnAceptar);
+            btnReserva.setOnClickListener(v -> {
+                Navigation.findNavController(v).navigate(R.id.listadoReservasFragment);
+            });
+
 
             return view;
         } catch (Exception e) {

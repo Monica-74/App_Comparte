@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp"
+    tools:context=".fragments.ListadoReservasFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@null"
+        android:padding="16dp">
+
+        <!-- ENCABEZADO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logo_principal"
+                android:contentDescription="@string/logo"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reservas_recibidas"
+                android:textStyle="bold"
+                android:textColor="@color/color_text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <!-- LISTADO DE RESERVAS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerReservas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="250dp"
+            android:paddingBottom="200dp"
+            />
+
+        <!-- PIE DE PÁGINA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tlf_902_666_999"
+                android:textSize="12sp"
+                android:textColor="@color/color_text"
+                android:textStyle="bold"
+                android:paddingBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/politica_privacidad"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_text"
+                    android:textStyle="bold"
+                    android:paddingEnd="12dp"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/politica_cookies"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/logo_principal"
+                android:contentDescription="@drawable/logo_principal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_contacto_hola_comparte_es"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

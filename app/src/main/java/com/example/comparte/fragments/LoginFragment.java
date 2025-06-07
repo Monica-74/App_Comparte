@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
                     // Si el usuario es propietario, guardar id_propietario
                     if ("propietario".equals(rol)) {
                         int idPropietario = loginController.obtenerIdPropietarioPorUsuario(usuario.getId_usuario());
-                        sessionManager.savePropietarioId(idPropietario);
+                        sessionManager.guardarPropietarioId(idPropietario);
 
                         Log.d("DEBUG", "ID del propietario guardado en sesión: " + idPropietario);
                         Toast.makeText(getContext(), "Propietario ID: " + idPropietario, Toast.LENGTH_SHORT).show();

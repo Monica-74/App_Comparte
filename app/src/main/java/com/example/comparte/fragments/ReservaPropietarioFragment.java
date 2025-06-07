@@ -1,6 +1,5 @@
 package com.example.comparte.fragments;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +17,10 @@ import com.example.comparte.entities.EstadoReserva;
 import com.example.comparte.entities.Reserva;
 import com.example.comparte.utils.SessionManager;
 
-import java.util.Calendar;
-
 public class ReservaPropietarioFragment extends Fragment {
 
-    private EditText etNombre, etDescripcion, etFecha, etTelefono, etEmail, etFechaInicio, etFechaFin;
-    private Button btnConfirmar;
-    private Button btnRechazar;
+    private TextView tvNombre, tvDescripcion, tvFecha, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin;
+    private Button btnConfirmar, btnRechazar;
     private DBComparte db;
     private SessionManager sessionManager;
 
@@ -36,115 +32,56 @@ public class ReservaPropietarioFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_reserva_inquilino, container, false);
+        View view = inflater.inflate(R.layout.item_reserva_propietario, container, false);
 
         // Inicializar vistas
-        etNombre = view.findViewById(R.id.nombreReserva);
-        etDescripcion = view.findViewById(R.id.descripcionReserva);
-        etFecha = view.findViewById(R.id.fechaReserva);
-        etTelefono = view.findViewById(R.id.telefonoReserva);
-        etEmail = view.findViewById(R.id.emailReserva);
-        etFechaInicio = view.findViewById(R.id.fechaInicioReserva);
-        etFechaFin = view.findViewById(R.id.fechaFinReserva);
-        btnConfirmar = view.findViewById(R.id.btnConfirmarReserva);
+        tvNombre = view.findViewById(R.id.tvNombreInquilino);
+        tvDescripcion = view.findViewById(R.id.tvDescripcionHabitacion);
+        tvFecha = view.findViewById(R.id.tvFechaReserva);
+        tvTelefono = view.findViewById(R.id.tvTelefonoContacto);
+        tvEmail = view.findViewById(R.id.tvemailContacto);
+        tvFechaInicio = view.findViewById(R.id.tvFechaInicio);
+        tvFechaFin = view.findViewById(R.id.tvFechaFin);
+        btnConfirmar = view.findViewById(R.id.btnConfirmar);
+        btnRechazar = view.findViewById(R.id.btnRechazar);
 
         db = new DBComparte(requireContext());
-        sessionManager = new SessionManager(requireContext());
 
-        // DatePicker para campos de fecha
-        etFecha.setOnClickListener(v -> mostrarDatePicker(etFecha));
-        etFechaInicio.setOnClickListener(v -> mostrarDatePicker(etFechaInicio));
-        etFechaFin.setOnClickListener(v -> mostrarDatePicker(etFechaFin));
+        // 🔹 Obtener la reserva enviada por el adapter
+        Reserva reserva = (Reserva) getArguments().getSerializable("reserva");
 
+        if (reserva != null) {
+            // Mostrar los datos en los campos
+            tvNombre.setText(reserva.getNombreInquilino());
+            tvDescripcion.setText(reserva.getDescripcionHabitacion());
+            tvFecha.setText(reserva.getFechaReserva());
+            tvTelefono.setText(reserva.getTelefonoInquilino());
+            tvEmail.setText(reserva.getEmailInquilino());
+            tvFechaInicio.setText(reserva.getFechaInicio());
+            tvFechaFin.setText(reserva.getFechaFin());
+        }
+
+        // 🔹 Confirmar reserva
         btnConfirmar.setOnClickListener(v -> {
-            String nombre = etNombre.getText().toString().trim();
-            String descripcion = etDescripcion.getText().toString().trim();
-            String fecha = etFecha.getText().toString().trim();
-            String telefono = etTelefono.getText().toString().trim();
-            String email = etEmail.getText().toString().trim();
-            String fechaInicio = etFechaInicio.getText().toString().trim();
-            String fechaFin = etFechaFin.getText().toString().trim();
-
-            if (nombre.isEmpty() || descripcion.isEmpty() || fecha.isEmpty() || telefono.isEmpty() || email.isEmpty()
-                    || fechaInicio.isEmpty() || fechaFin.isEmpty()) {
-                Toast.makeText(getContext(), "Completa todos los campos", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            int idInquilino = sessionManager.getInquilinoId(); // Asegúrate de que esté bien definido
-            int idHabitacion = sessionManager.getHabitacionIdSeleccionada();
-
-            Reserva reserva = new Reserva();
-            reserva.setNombreInquilino(nombre);
-            reserva.setDescripcionHabitacion(descripcion);
-            reserva.setFechaReserva(fecha);
-            reserva.setTelefonoInquilino(telefono);
-            reserva.setEmailInquilino(email);
-            reserva.setIdInquilino(idInquilino);
-            reserva.setIdHabitacion(idHabitacion);
-            reserva.setEstado(EstadoReserva.valueOf("CONFIRMADA")); // Aquí el propietario confirma la reserva
-
-            if (db.actualizarEstadoReserva(idInquilino, idHabitacion, "confirmada")) {
+            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdInquilino(), reserva.getIdHabitacion(), "CONFIRMADA")) {
                 Toast.makeText(getContext(), "Reserva confirmada", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).popBackStack();
             } else {
                 Toast.makeText(getContext(), "Error al confirmar la reserva", Toast.LENGTH_SHORT).show();
             }
         });
+
+        // 🔹 Rechazar reserva
         btnRechazar.setOnClickListener(v -> {
-            String nombre = etNombre.getText().toString().trim();
-            String descripcion = etDescripcion.getText().toString().trim();
-            String fecha = etFecha.getText().toString().trim();
-            String telefono = etTelefono.getText().toString().trim();
-            String email = etEmail.getText().toString().trim();
-
-            if (nombre.isEmpty() || descripcion.isEmpty() || fecha.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-                Toast.makeText(getContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            int idInquilino = sessionManager.getInquilinoId(); // Asegúrate de tener este método
-            int idHabitacion = sessionManager.getHabitacionIdSeleccionada(); // También necesitas guardar este dato
-
-            Reserva reserva = new Reserva();
-            reserva.setNombreInquilino(nombre);
-            reserva.setDescripcionHabitacion(descripcion);
-            reserva.setFechaReserva(fecha);
-            reserva.setTelefonoInquilino(telefono);
-            reserva.setEmailInquilino(email);
-            reserva.setIdInquilino(idInquilino);
-            reserva.setIdHabitacion(idHabitacion);
-            reserva.setEstado(EstadoReserva.valueOf("pendiente"));
-
-            db.insertarReserva(reserva);
-
-            if (db.insertarReserva(reserva)) {
+            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdInquilino(), reserva.getIdHabitacion(), "RECHAZADA")) {
                 Toast.makeText(getContext(), "Reserva rechazada", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).popBackStack();
             } else {
                 Toast.makeText(getContext(), "Error al rechazar la reserva", Toast.LENGTH_SHORT).show();
             }
-
-
-            Navigation.findNavController(view).popBackStack();
         });
 
         return view;
     }
 
-    private void mostrarDatePicker(EditText campoFecha) {
-        final Calendar calendario = Calendar.getInstance();
-        int anio = calendario.get(Calendar.YEAR);
-        int mes = calendario.get(Calendar.MONTH);
-        int dia = calendario.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                getContext(),
-                (view, year, month, dayOfMonth) -> {
-                    String fechaSeleccionada = dayOfMonth + "/" + (month + 1) + "/" + year;
-                    campoFecha.setText(fechaSeleccionada);
-                },
-                anio, mes, dia
-        );
-        datePickerDialog.show();
-    }
 }

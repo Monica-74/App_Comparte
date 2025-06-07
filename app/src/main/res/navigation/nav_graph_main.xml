@@ -45,6 +45,10 @@
         <action
             android:id="@+id/action_propietarioFragment_to_habitacionesPropietarioFragment"
             app:destination="@id/habitacionesPropietarioFragment" />
+        <action
+            android:id="@+id/action_propietarioFragment_to_reservaPropietarioFragment"
+            app:destination="@id/reservaPropietarioFragment" />
+
     </fragment>
 
 
@@ -63,6 +67,16 @@
     <fragment
         android:id="@+id/reservaFragment"
         android:name="com.example.comparte.fragments.ReservaInquilinoFragment"
+        android:label="Reserva Anuncio"/>
+
+    <fragment
+        android:id="@+id/reservaInquilinoFragment"
+        android:name="com.example.comparte.fragments.ReservaInquilinoFragment"
+        android:label="Reserva Anuncio" />
+
+    <fragment
+        android:id="@+id/reservaPropietarioFragment"
+        android:name="com.example.comparte.fragments.ReservaPropietarioFragment"
         android:label="Reserva Anuncio" />
 
 
@@ -104,4 +118,15 @@
             app:destination="@id/reservaFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/listadoReservasFragment"
+        android:name="com.example.comparte.fragments.ListadoReservasFragment"
+        android:label="Reservas Recibidas"
+        tools:layout="@layout/fragment_listado_reservas">
+
+        <action
+            android:id="@+id/action_listadoReservasFragment_to_reservaPropietarioFragment"
+            app:destination="@id/reservaPropietarioFragment" />
+    </fragment>
+
 </navigation>

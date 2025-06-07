@@ -10,6 +10,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.comparte.entities.EstadoReserva;
 import com.example.comparte.entities.Habitacion;
 import com.example.comparte.entities.Reserva;
 import com.example.comparte.entities.Usuario;
@@ -21,7 +22,7 @@ import java.util.List;
 public class DBComparte extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comparte.db";
-    private static final int DATABASE_VERSION = 24;
+    private static final int DATABASE_VERSION = 29;
 
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_HABITACIONES = "habitaciones";
@@ -136,9 +137,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_habitacion INTEGER," +
                 "fecha_inicio TEXT," +
                 "fecha_fin TEXT," +
-                "fecha_inicio TEXT," +
-                "fecha_fin TEXT," +
-                "estado TEXT DEFAULT 'pendiente'," +
+                "estado TEXT DEFAULT 'PENDIENTE'," +
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilino(id_inquilino)," +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones(id_habitacion)" +
                 ")");
@@ -152,6 +151,8 @@ public class DBComparte extends SQLiteOpenHelper {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_INQUILINO);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_PROPIETARIO);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESERVA);
+
         onCreate(database);
     }
 
@@ -403,16 +404,12 @@ public class DBComparte extends SQLiteOpenHelper {
         values.put("id_habitacion", reserva.getIdHabitacion());
         values.put("fecha_inicio", reserva.getFechaInicio());
         values.put("fecha_fin", reserva.getFechaFin());
-        values.put("estado", reserva.getEstado()); // Guarda "PENDIENTE", "CONFIRMADA", etc.
+        values.put("estado", reserva.getEstadoString()); // Guarda "PENDIENTE", "CONFIRMADA", etc.
 
         long resultado= db.insert("reserva", null, values);
 
-
-
         db.close();
         return resultado != -1; // Devuelve true si se insertó correctamente
-
-
     }
     public boolean actualizarEstadoReserva(int idReserva, int idHabitacion, String nuevoEstado) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -422,4 +419,43 @@ public class DBComparte extends SQLiteOpenHelper {
         return rows > 0;
     }
 
+    public List<Reserva> getReservasDePropietario(int idPropietario) {
+        List<Reserva> reservas = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT r.* FROM reserva r " +
+                "JOIN habitaciones h ON r.id_habitacion = h.id_habitacion " +
+                "WHERE h.id_propietario = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(idPropietario)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                Reserva reserva = new Reserva();
+                reserva.setIdReserva(cursor.getInt(cursor.getColumnIndexOrThrow("id_reserva")));
+                reserva.setIdInquilino(cursor.getInt(cursor.getColumnIndexOrThrow("id_inquilino")));
+                reserva.setIdHabitacion(cursor.getInt(cursor.getColumnIndexOrThrow("id_habitacion")));
+                reserva.setNombreInquilino(cursor.getString(cursor.getColumnIndexOrThrow("nombre_inquilino")));
+                reserva.setDescripcionHabitacion(cursor.getString(cursor.getColumnIndexOrThrow("descripcion_habitacion")));
+                reserva.setFechaReserva(cursor.getString(cursor.getColumnIndexOrThrow("fecha_reserva")));
+                reserva.setTelefonoInquilino(cursor.getString(cursor.getColumnIndexOrThrow("telefono_inquilino")));
+                reserva.setEmailInquilino(cursor.getString(cursor.getColumnIndexOrThrow("email_inquilino")));
+                reserva.setFechaInicio(cursor.getString(cursor.getColumnIndexOrThrow("fecha_inicio")));
+                reserva.setFechaFin(cursor.getString(cursor.getColumnIndexOrThrow("fecha_fin")));
+
+                String estadoStr = cursor.getString(cursor.getColumnIndexOrThrow("estado"));
+                reserva.setEstado(EstadoReserva.valueOf(estadoStr)); // Enum
+
+                reservas.add(reserva);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return reservas;
+    }
+
+
+    public List<Reserva> obtenerReservasPorPropietario(int idPropietario) {
+    }
 }

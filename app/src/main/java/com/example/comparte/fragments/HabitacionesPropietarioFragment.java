@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.comparte.R;
 import com.example.comparte.adapters.HabitacionAdapter;
+import com.example.comparte.adapters.ReservaAdapter;
 import com.example.comparte.database.DBComparte;
 import com.example.comparte.entities.Habitacion;
 import com.example.comparte.utils.SessionManager;
@@ -64,6 +65,8 @@ public class HabitacionesPropietarioFragment extends Fragment {
                 navController.navigate(R.id.action_habitacionesPropietarioFragment_to_propietarioFragment);
             }
         }, true);
+
+
         recyclerView.setAdapter(adapter);
 
         return view;

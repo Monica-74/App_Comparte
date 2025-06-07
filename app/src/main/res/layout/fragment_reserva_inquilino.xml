@@ -38,9 +38,6 @@
 
                 android:textSize="24sp" />
         </LinearLayout>
-
-
-
         <EditText
             android:id="@+id/nombreReserva"
             android:layout_width="match_parent"

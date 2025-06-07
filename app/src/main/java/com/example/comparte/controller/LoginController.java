@@ -31,24 +31,11 @@ public class LoginController {
     public boolean esAdministrador(String email, String password) {
         return email.equals("admin@comparte.com") && password.equals("admin"); // Verificar credenciales de administrador, sólo ese.
     }
-//    public Usuario login(String email, String password) {
-//        if (email == null || password == null) return null;
-//
-//        // Normaliza para evitar errores por espacios o mayúsculas
-//        email = email.trim().toLowerCase();
-//        password = password.trim();
-//
-//        Usuario usuario = dbComparte.obtenerUsuarioPorEmail(email);
-//
-//        if (usuario != null && usuario.getPassword().trim().equals(password)) {
-//            return usuario;
-//        }
-//        return null;
-//    }
 
     public int obtenerIdPropietarioPorUsuario(int idUsuario) {
         return dbComparte.obtenerIdPropietarioPorUsuario(idUsuario);
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean login(String email, String password) {
         SQLiteDatabase db = dbComparte.getReadableDatabase();
@@ -75,6 +62,7 @@ public class LoginController {
             db.close();
         }
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Usuario loginYObtenerUsuario(String email, String password) {
         if (login(email, password)) {
