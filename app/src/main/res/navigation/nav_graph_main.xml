@@ -9,7 +9,7 @@
         android:id="@+id/habitacionFragment"
         android:name="com.example.comparte.fragments.HabitacionFragment"
         android:label="@string/habitaciones"
-        tools:layout="@layout/fragment_habitacion" >
+        tools:layout="@layout/fragment_habitacion">
         <action
             android:id="@+id/action_habitacionFragment_to_propietarioFragment"
             app:destination="@id/propietarioFragment" />
@@ -27,10 +27,13 @@
         android:id="@+id/inquilinoFragment"
         android:name="com.example.comparte.fragments.InquilinoFragment"
         android:label="@string/inquilino"
-        tools:layout="@layout/fragment_inquilino" >
+        tools:layout="@layout/fragment_inquilino">
         <action
             android:id="@+id/action_inquilinoFragment_to_reservaFragment"
             app:destination="@id/reservaFragment" />
+        <action
+            android:id="@+id/action_inquilinoFragment_to_misReservasFragment"
+            app:destination="@id/misReservasFragment" />
     </fragment>
 
 
@@ -38,7 +41,7 @@
         android:id="@+id/propietarioFragment"
         android:name="com.example.comparte.fragments.PropietarioFragment"
         android:label="@string/propietario"
-        tools:layout="@layout/fragment_propietario" >
+        tools:layout="@layout/fragment_propietario">
         <action
             android:id="@+id/action_propietarioFragment_to_formularioFragment"
             app:destination="@id/formularioFragment" />
@@ -67,7 +70,7 @@
     <fragment
         android:id="@+id/reservaFragment"
         android:name="com.example.comparte.fragments.ReservaInquilinoFragment"
-        android:label="Reserva Anuncio"/>
+        android:label="Reserva Anuncio" />
 
     <fragment
         android:id="@+id/reservaInquilinoFragment"
@@ -78,7 +81,6 @@
         android:id="@+id/reservaPropietarioFragment"
         android:name="com.example.comparte.fragments.ReservaPropietarioFragment"
         android:label="Reserva Anuncio" />
-
 
 
     <fragment
@@ -92,7 +94,7 @@
         android:id="@+id/habitacionesPropietarioFragment"
         android:name="com.example.comparte.fragments.HabitacionesPropietarioFragment"
         android:label="Mis Anuncios"
-        tools:layout="@layout/fragment_habitaciones_propietario" >
+        tools:layout="@layout/fragment_habitaciones_propietario">
         <action
             android:id="@+id/action_habitacionesPropietarioFragment_to_propietarioFragment"
             app:destination="@id/propietarioFragment" />
@@ -106,7 +108,7 @@
         android:id="@+id/detalleHabitacionFragment"
         android:name="com.example.comparte.fragments.DetalleHabitacionFragment"
         android:label="Detalle habitaciones"
-        tools:layout="@layout/fragment_detalle_habitacion" >
+        tools:layout="@layout/fragment_detalle_habitacion">
         <action
             android:id="@+id/action_habitacionesDisponiblesFragment_to_detalleHabitacionFragment"
             app:destination="@id/detalleHabitacionFragment" />
@@ -128,5 +130,12 @@
             android:id="@+id/action_listadoReservasFragment_to_reservaPropietarioFragment"
             app:destination="@id/reservaPropietarioFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/misReservasFragment"
+        android:name="com.example.comparte.fragments.MisReservasFragment"
+        android:label="Mis Reservas"
+        tools:layout="@layout/fragment_mis_reservas"/>
+
 
 </navigation>

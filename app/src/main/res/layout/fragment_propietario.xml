@@ -3,37 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:padding="16dp">
 
         <!-- CABECERA -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:padding="16dp">
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/logo_principal"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@string/logo"
-                android:layout_marginEnd="16dp" />
+                android:src="@drawable/logo_principal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/comparte_propietario"
-                android:textStyle="bold"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- CUADRÍCULA -->
@@ -41,8 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:useDefaultMargins="true"
-            android:paddingTop="16dp">
+            android:paddingTop="16dp"
+            android:useDefaultMargins="true">
 
             <!-- TARJETA 1 -->
             <LinearLayout
@@ -50,35 +50,35 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/bordes_redondeados"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/habitacion"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/habitacion" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/publicar_habitacion"
                     android:textColor="@color/color_text"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnPublicidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="@color/colorSecundario"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
                     android:text="@string/publicar"
-                    android:layout_marginTop="8dp" />
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- TARJETA 2 -->
@@ -87,35 +87,35 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/bordes_redondeados"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/editar_anuncio"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/editar_anuncio" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/editar_anuncio"
                     android:textColor="@color/color_text"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnVerAnuncio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="@color/colorSecundario"
-                    android:textStyle="bold"
                     android:text="@string/ver_anuncio"
-                    android:layout_marginTop="8dp" />
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- TARJETA 3 -->
@@ -124,35 +124,35 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/bordes_redondeados"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/reserva"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/reserva" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/ver_reserva"
                     android:textColor="@color/color_text"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnAceptar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="@color/colorSecundario"
-                    android:textStyle="bold"
                     android:text="@string/aceptar"
-                    android:layout_marginTop="8dp" />
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- TARJETA 4 -->
@@ -161,35 +161,35 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/bordes_redondeados"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/chat"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/chat" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/mensajes"
                     android:textColor="@color/color_text"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnChatearPropietario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="@color/colorSecundario"
-                    android:textStyle="bold"
                     android:text="@string/chat"
-                    android:layout_marginTop="8dp" />
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
             </LinearLayout>
         </GridLayout>
 
@@ -197,59 +197,59 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal">
+            android:paddingBottom="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
                 android:text="@string/tlf_902_666_999"
-                android:textSize="12sp"
                 android:textColor="@color/color_text"
-                android:textStyle="bold"
-                android:paddingBottom="4dp"/>
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingEnd="12dp"
                     android:text="@string/politica_privacidad"
-                    android:textSize="12sp"
                     android:textColor="@color/color_text"
-                    android:textStyle="bold"
-                    android:paddingEnd="12dp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/politica_cookies"
+                    android:textColor="@color/color_text"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_text"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@drawable/logo_principal"
-                android:contentDescription="@string/logo"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/logo_principal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_contacto_hola_comparte_es"
+                android:textColor="@color/color_text"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

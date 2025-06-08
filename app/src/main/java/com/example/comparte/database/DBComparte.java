@@ -22,7 +22,7 @@ import java.util.List;
 public class DBComparte extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comparte.db";
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 32;
 
     public static final String TABLE_USUARIOS = "usuarios";
     public static final String TABLE_HABITACIONES = "habitaciones";
@@ -58,8 +58,8 @@ public class DBComparte extends SQLiteOpenHelper {
                 "id_admin INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre_apellidos TEXT," +
                 "email TEXT," +
-                "id_inquilino INTEGER ,"+
-                "id_propietario INTEGER ,"+
+                "id_inquilino INTEGER ," +
+                "id_propietario INTEGER ," +
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilinos(id_inquilino)," +
                 "FOREIGN KEY(id_propietario) REFERENCES propietarios(id_propietario)" +
                 ")");
@@ -72,8 +72,8 @@ public class DBComparte extends SQLiteOpenHelper {
                 "email TEXT," +
                 "telefono TEXT," +
                 "sexo TEXT," +
-                "id_propietario INTEGER ,"+
-                "id_habitacion  INTEGER ,"+
+                "id_propietario INTEGER ," +
+                "id_habitacion  INTEGER ," +
                 "id_usuario INTEGER," +
                 "FOREIGN KEY(id_usuario) REFERENCES usuarios(id), " +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones (id_habitacion)" +
@@ -87,9 +87,9 @@ public class DBComparte extends SQLiteOpenHelper {
                 "edad TEXT," +
                 "telefono TEXT," +
                 "sexo TEXT," +
-                "id_inquilino INTEGER ,"+
-                "id_habitacion  INTEGER ,"+
-                "id_usuario INTEGER ,"+
+                "id_inquilino INTEGER ," +
+                "id_habitacion  INTEGER ," +
+                "id_usuario INTEGER ," +
                 "FOREIGN KEY(id_usuario) REFERENCES usuarios(id), " +
                 "FOREIGN KEY(id_habitacion) REFERENCES habitaciones(id_habitacion)" +
                 ")");
@@ -107,7 +107,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 "caracteristica_bano TEXT," +
                 "caracteristica_tamano TEXT," +
                 "id_propietario INTEGER," +
-                "id_inquilino INTEGER ,"+
+                "id_inquilino INTEGER ," +
                 "FOREIGN KEY(id_propietario) REFERENCES propietario(id_propietario)," +
                 "FOREIGN KEY(id_inquilino) REFERENCES inquilinos(id_inquilino)" +
                 ")");
@@ -126,7 +126,7 @@ public class DBComparte extends SQLiteOpenHelper {
                 ")");
 
         //Tabla reservas
-        db.execSQL("CREATE TABLE IF NOT EXISTS " +  TABLE_RESERVA + "(" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_RESERVA + "(" +
                 "id_reserva INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre_inquilino TEXT," +
                 "descripcion_habitacion TEXT," +
@@ -243,7 +243,6 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
 
-
     public int obtenerIdPropietarioPorUsuario(int idUsuario) {
         SQLiteDatabase db = null;
         Cursor cursor = null;
@@ -273,7 +272,6 @@ public class DBComparte extends SQLiteOpenHelper {
 
         return idPropietario;
     }
-
 
 
     public List<Habitacion> getHabitacionesPorPropietario(int idPropietario) {
@@ -328,8 +326,6 @@ public class DBComparte extends SQLiteOpenHelper {
     }
 
 
-
-
     public void insertarHabitacion(Habitacion h) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -375,6 +371,7 @@ public class DBComparte extends SQLiteOpenHelper {
         cursor.close();
         return lista;
     }
+
     public String obtenerTelefonoPropietario(int idPropietario) {
         String telefono = "";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -406,16 +403,17 @@ public class DBComparte extends SQLiteOpenHelper {
         values.put("fecha_fin", reserva.getFechaFin());
         values.put("estado", reserva.getEstadoString()); // Guarda "PENDIENTE", "CONFIRMADA", etc.
 
-        long resultado= db.insert("reserva", null, values);
+        long resultado = db.insert("reserva", null, values);
 
         db.close();
         return resultado != -1; // Devuelve true si se insertó correctamente
     }
+
     public boolean actualizarEstadoReserva(int idReserva, int idHabitacion, String nuevoEstado) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("estado", nuevoEstado);
-        int rows = db.update("reserva", values, "id = ?", new String[]{String.valueOf(idReserva)});
+        int rows = db.update("reserva", values, "id_reserva = ?", new String[]{String.valueOf(idReserva)});
         return rows > 0;
     }
 
@@ -457,5 +455,74 @@ public class DBComparte extends SQLiteOpenHelper {
 
 
     public List<Reserva> obtenerReservasPorPropietario(int idPropietario) {
+        List<Reserva> lista = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT r.id_reserva, r.nombre_inquilino, r.descripcion_habitacion, r.fecha_reserva, " +
+                "r.telefono_inquilino, r.email_inquilino, r.id_inquilino, r.id_habitacion, " +
+                "r.fecha_inicio, r.fecha_fin, r.estado " +
+                "FROM reserva r JOIN habitaciones h ON r.id_habitacion = h.id_habitacion " +
+                "WHERE h.id_propietario = ?";
+
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(idPropietario)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                Reserva reserva = new Reserva();
+                reserva.setIdReserva(cursor.getInt(cursor.getColumnIndexOrThrow("id_reserva")));
+                reserva.setNombreInquilino(cursor.getString(cursor.getColumnIndexOrThrow("nombre_inquilino")));
+                reserva.setDescripcionHabitacion(cursor.getString(cursor.getColumnIndexOrThrow("descripcion_habitacion")));
+                reserva.setFechaReserva(cursor.getString(cursor.getColumnIndexOrThrow("fecha_reserva")));
+                reserva.setTelefonoInquilino(cursor.getString(cursor.getColumnIndexOrThrow("telefono_inquilino")));
+                reserva.setEmailInquilino(cursor.getString(cursor.getColumnIndexOrThrow("email_inquilino")));
+                reserva.setIdInquilino(cursor.getInt(cursor.getColumnIndexOrThrow("id_inquilino")));
+                reserva.setIdHabitacion(cursor.getInt(cursor.getColumnIndexOrThrow("id_habitacion")));
+                reserva.setFechaInicio(cursor.getString(cursor.getColumnIndexOrThrow("fecha_inicio")));
+                reserva.setFechaFin(cursor.getString(cursor.getColumnIndexOrThrow("fecha_fin")));
+                reserva.setEstado(EstadoReserva.valueOf(cursor.getString(cursor.getColumnIndexOrThrow("estado"))));
+
+                lista.add(reserva);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return lista;
     }
+
+    public List<Reserva> obtenerReservasPorInquilino(int idInquilino) {
+        List<Reserva> reservas = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM reserva WHERE id_inquilino = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(idInquilino)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                Reserva reserva = new Reserva();
+                reserva.setIdReserva(cursor.getInt(cursor.getColumnIndexOrThrow("id_reserva")));
+                reserva.setIdInquilino(cursor.getInt(cursor.getColumnIndexOrThrow("id_inquilino")));
+                reserva.setIdHabitacion(cursor.getInt(cursor.getColumnIndexOrThrow("id_habitacion")));
+                reserva.setNombreInquilino(cursor.getString(cursor.getColumnIndexOrThrow("nombre_inquilino")));
+                reserva.setDescripcionHabitacion(cursor.getString(cursor.getColumnIndexOrThrow("descripcion_habitacion")));
+                reserva.setFechaReserva(cursor.getString(cursor.getColumnIndexOrThrow("fecha_reserva")));
+                reserva.setTelefonoInquilino(cursor.getString(cursor.getColumnIndexOrThrow("telefono_inquilino")));
+                reserva.setEmailInquilino(cursor.getString(cursor.getColumnIndexOrThrow("email_inquilino")));
+                reserva.setFechaInicio(cursor.getString(cursor.getColumnIndexOrThrow("fecha_inicio")));
+                reserva.setFechaFin(cursor.getString(cursor.getColumnIndexOrThrow("fecha_fin")));
+
+                String estadoStr = cursor.getString(cursor.getColumnIndexOrThrow("estado"));
+                reserva.setEstado(EstadoReserva.valueOf(estadoStr));
+
+                reservas.add(reserva);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return reservas;
+    }
+
 }
+

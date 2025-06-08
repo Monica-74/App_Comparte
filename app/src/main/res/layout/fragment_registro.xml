@@ -2,19 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:padding="32dp">
 
     <TextView
-        android:gravity="top|center_horizontal"
         android:id="@+id/bienvenido"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:gravity="top|center_horizontal"
         android:text="@string/bienvenido_a_comparte"
+        android:textColor="@color/colorPrimary"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="150dp"
@@ -29,26 +29,28 @@
         android:layout_height="wrap_content"
         android:hint="@string/nombre_y_apellidos"
         android:importantForAutofill="no"
-        android:textColor="@color/colorAccent"
         android:inputType="text"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/edad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edad"
         android:importantForAutofill="no"
-        android:textColor="@color/colorAccent"
         android:inputType="text"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/correo_electronico"
         android:importantForAutofill="no"
-        android:textColor="@color/colorAccent"
         android:inputType="text"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
         tools:ignore="TextFields" />
 
@@ -61,6 +63,7 @@
         android:inputType="textPassword"
         android:textColor="@color/colorAccent"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/genero"
         android:layout_width="match_parent"
@@ -70,6 +73,7 @@
         android:inputType="text"
         android:textColor="@color/colorAccent"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/telefono"
         android:layout_width="match_parent"
@@ -79,31 +83,32 @@
         android:inputType="text"
         android:textColor="@color/colorAccent"
         android:textSize="24sp" />
+
     <RadioGroup
         android:id="@+id/radioGroupRol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="18dp"
-        android:gravity="center">
+        android:paddingTop="18dp">
 
         <RadioButton
             android:id="@+id/radioInquilino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/inquilino"
-            android:textSize="20sp"
             android:textColor="@color/color_text"
-            android:checked="true" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioPropietario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/propietario"
-            android:textSize="20sp"
             android:textColor="@color/color_text"
-            android:layout_marginStart="32dp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <Button

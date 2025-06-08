@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginBottom="12dp"
+    android:backgroundTint="@android:color/white"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="6dp">
 
@@ -14,21 +15,16 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Nombre del Inquilino -->
-        <TextView
-            android:id="@+id/tvNombreInquilino"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_inquilino"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <!-- Descripción de la habitación -->
         <TextView
             android:id="@+id/tvDescripcionHabitacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/descripcion_de_la_habitacion"
-            android:textSize="18sp"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tvTelefonoContacto"
             android:layout_width="match_parent"
@@ -36,6 +32,7 @@
             android:layout_marginTop="4dp"
             android:text="@string/telefono_de_contacto"
             android:textSize="14sp" />
+
         <TextView
             android:id="@+id/tvemailContacto"
             android:layout_width="match_parent"
@@ -43,6 +40,8 @@
             android:layout_marginTop="4dp"
             android:text="@string/email"
             android:textSize="14sp" />
+
+        <!-- Fechas de inicio y fin -->
         <TextView
             android:id="@+id/tvFechaInicio"
             android:layout_width="match_parent"
@@ -58,13 +57,12 @@
             android:layout_marginTop="2dp"
             android:text="@string/fecha_de_fin"
             android:textSize="14sp" />
-
-        <!-- Fecha de reserva -->
+        <!-- Fecha de la reserva -->
         <TextView
             android:id="@+id/tvFechaReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:text="@string/fecha_de_la_reserva"
             android:textSize="14sp" />
 
@@ -73,10 +71,10 @@
             android:id="@+id/tvEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/estado_pendiente"
             android:textColor="@color/colorAccent"
-            android:textSize="14sp" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 

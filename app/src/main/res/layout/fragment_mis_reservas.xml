@@ -3,23 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:fillViewport="true"
-    android:gravity="center_horizontal"
-    android:padding="0dp"
-    tools:context=".fragments.HabitacionesPropietarioFragment">
+    android:padding="16dp"
+    tools:context=".fragments.MisReservasFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
+
         <!-- ENCABEZADO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:padding="10dp"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
@@ -32,29 +32,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/comparte_listado"
-                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/reserva_de_habitacion"
+                android:textColor="@color/color_text"
+                android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- LISTA DE HABITACIONES -->
+        <!-- LISTADO DE RESERVAS DEL INQUILINO -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPropietario"
+            android:id="@+id/recyclerMisReservas"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:padding="16dp"
-            tools:listitem="@layout/item_habitacion" />
+            android:layout_height="wrap_content"
+            android:paddingTop="230dp"
+            android:paddingBottom="230dp" />
 
-
+        <!-- PIE DE PÁGINA -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +96,7 @@
                 android:layout_height="42dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:contentDescription="@drawable/logo_principal"
+                android:contentDescription="@string/logo"
                 android:src="@drawable/logo_principal" />
 
             <TextView
@@ -106,5 +107,6 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

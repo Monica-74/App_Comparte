@@ -70,12 +70,12 @@
     <string name="fecha_de_la_reserva">Fecha de la reserva</string>
 
     <!-- Mensajes de ejemplo de chat -->
-    <string name="hola_cmo_estas_soy_lola_como_propietario_de_la_habitacion_podrias_decirme_si_es_soleada">Hola, ¿cómo estás? Soy Lola como posible inquilina de la habitación podrías decirme si es soleada?</string>
-    <string name="muy_bien_gracias_la_habitacion_da_a_un_patio_interior_pero_s_es_soleada">Hola Lola, encantada. La habitación da a un patio interior, pero sí es soleada.</string>
-    <string name="perfecto_es_que_necesito_sol_para_unos_peces_que_tengo_como_mascotas">Perfecto, es que necesito sol para unos peces que tengo como mascotas.</string>
-    <string name="seguro_que_se_van_a_encontrar_muy_agusto_porque_ademas_no_da_el_sol_directamente">Seguro que se van a encontrar muy agusto, porque además no da el sol directamente.</string>
-    <string name="entonces_voy_a_reservar_la_habitacion_creo_que_vamos_a_vivir_juntas_un_buen_tiempo">Entonces voy a reservar la habitación. Creo que vamos a vivir juntas un buen tiempo.</string>
-    <string name="genial_haz_la_reserva_y_si_quieres_seguimos_hablando_por_telefono_saludos">Genial, haz la reserva y si quieres seguimos hablando por teléfono. Saludos.</string>
+    <string name="hola_como_estas">Hola, ¿cómo estás? Soy Lola como posible inquilina de la habitación podrías decirme si es soleada?</string>
+    <string name="muy_bien_gracias">Hola Lola, encantada. La habitación da a un patio interior, pero sí es soleada.</string>
+    <string name="perfecto">Perfecto, es que necesito sol para unos peces que tengo como mascotas.</string>
+    <string name="seguro_que_se_van">Seguro que se van a encontrar muy agusto, porque además no da el sol directamente.</string>
+    <string name="entonces_voy_a_reservar">Entonces voy a reservar la habitación. Creo que vamos a vivir juntas un buen tiempo.</string>
+    <string name="genial_haz_la_reserva">Genial, haz la reserva y si quieres seguimos hablando por teléfono. Saludos.</string>
 
     <!-- Fechas de ejemplo de chat -->
     <string name="_14_mayo_2025_10_45">14 mayo 2025 – 10:45</string>
@@ -132,7 +132,7 @@
     <string name="mensajes">Mensajes</string>
     <string name="fecha_de_fin">Fecha de fin</string>
     <string name="fecha_de_inicio">Fecha de inicio</string>
-    <string name="estado">Estado</string>
+    <string name="estado">Estado:</string>
     <string name="fecha">Fecha de la reserva</string>
     <string name="confirmar">confirmar</string>
     <string name="rechazar">rechazar</string>
@@ -140,4 +140,8 @@
     <string name="prueba">prueba</string>
     <string name="email">Email de contacto</string>
     <string name="reservas_recibidas">Reservas Recibidas</string>
+    <string name="mis_reservas">Mis reservas</string>
+    <string name="ver">Ver</string>
+    <string name="estado_pendiente">Estado: PENDIENTE</string>
+    <string name="nombre_inquilino">Nombre del inquilino</string>
 </resources>

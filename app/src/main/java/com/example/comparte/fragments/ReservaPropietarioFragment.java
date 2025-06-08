@@ -13,13 +13,12 @@ import androidx.navigation.Navigation;
 
 import com.example.comparte.R;
 import com.example.comparte.database.DBComparte;
-import com.example.comparte.entities.EstadoReserva;
 import com.example.comparte.entities.Reserva;
 import com.example.comparte.utils.SessionManager;
 
 public class ReservaPropietarioFragment extends Fragment {
 
-    private TextView tvNombre, tvDescripcion, tvFecha, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin;
+    private TextView tvNombre, tvDescripcion, tvFecha, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin, tvEstado;
     private Button btnConfirmar, btnRechazar;
     private DBComparte db;
     private SessionManager sessionManager;
@@ -32,7 +31,7 @@ public class ReservaPropietarioFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.item_reserva_propietario, container, false);
+        View view = inflater.inflate(R.layout.fragment_reserva_propietario, container, false);
 
         // Inicializar vistas
         tvNombre = view.findViewById(R.id.tvNombreInquilino);
@@ -44,6 +43,7 @@ public class ReservaPropietarioFragment extends Fragment {
         tvFechaFin = view.findViewById(R.id.tvFechaFin);
         btnConfirmar = view.findViewById(R.id.btnConfirmar);
         btnRechazar = view.findViewById(R.id.btnRechazar);
+        tvEstado = view.findViewById(R.id.tvEstado);
 
         db = new DBComparte(requireContext());
 
@@ -59,11 +59,12 @@ public class ReservaPropietarioFragment extends Fragment {
             tvEmail.setText(reserva.getEmailInquilino());
             tvFechaInicio.setText(reserva.getFechaInicio());
             tvFechaFin.setText(reserva.getFechaFin());
+            tvEstado.setText("Estado: " + reserva.getEstadoString());
         }
 
-        // 🔹 Confirmar reserva
+        // Confirmar reserva
         btnConfirmar.setOnClickListener(v -> {
-            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdInquilino(), reserva.getIdHabitacion(), "CONFIRMADA")) {
+            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdReserva(), reserva.getIdHabitacion(), "CONFIRMADA")) {
                 Toast.makeText(getContext(), "Reserva confirmada", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).popBackStack();
             } else {
@@ -71,9 +72,9 @@ public class ReservaPropietarioFragment extends Fragment {
             }
         });
 
-        // 🔹 Rechazar reserva
+        // Rechazar reserva
         btnRechazar.setOnClickListener(v -> {
-            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdInquilino(), reserva.getIdHabitacion(), "RECHAZADA")) {
+            if (reserva != null && db.actualizarEstadoReserva(reserva.getIdReserva(), reserva.getIdHabitacion(), "RECHAZADA")) {
                 Toast.makeText(getContext(), "Reserva rechazada", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).popBackStack();
             } else {

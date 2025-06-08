@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/bienvenido"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bienvenido_a_comparte"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
         android:gravity="center"
-        android:paddingBottom="16dp" />
+        android:orientation="vertical"
+        android:padding="32dp">
 
-    <ImageView
-        android:id="@+id/logoComparte"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:src="@drawable/logo_comparte"
-        android:layout_marginBottom="16dp" />
+            <TextView
+                android:id="@+id/bienvenido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="@string/bienvenido_a_comparte"
+                android:textColor="@color/colorPrimary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/correo_electronico"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:inputType="textEmailAddress" />
+            <ImageView
+                android:id="@+id/logoComparte"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/logo_comparte" />
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/contrasena"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:inputType="textPassword"
-        android:layout_marginBottom="16dp" />
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/correo_electronico"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLoginIniciar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/iniciar_sesion"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:textSize="24sp"
-        style="@style/Widget.MaterialComponents.Button" />
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/contrasena"
+                android:inputType="textPassword"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/btnRegistroNuevo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_tienes_cuenta_registrate"
-        android:textColor="@color/colorAccent"
-        android:layout_marginTop="24dp"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true" />
-</LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLoginIniciar"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="@string/iniciar_sesion"
+                android:textSize="24sp" />
 
-
+            <TextView
+                android:id="@+id/btnRegistroNuevo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/no_tienes_cuenta_registrate"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+        </LinearLayout>
+</ScrollView>

@@ -15,6 +15,22 @@ public class Reserva implements Serializable {
     private String telefonoInquilino;
     private String emailInquilino;
 
+    public Reserva(int idReserva, int idHabitacion, int idInquilino, String fechaInicio, String fechaFin, EstadoReserva estado,
+                   String nombreInquilino, String descripcionHabitacion, String fechaReserva, String telefonoInquilino,
+                   String emailInquilino) {
+        this.idReserva = idReserva;
+        this.idHabitacion = idHabitacion;
+        this.idInquilino = idInquilino;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.estado = estado;
+        this.nombreInquilino = nombreInquilino;
+        this.descripcionHabitacion = descripcionHabitacion;
+        this.fechaReserva = fechaReserva;
+        this.telefonoInquilino = telefonoInquilino;
+        this.emailInquilino = emailInquilino;
+    }
+
     public String getNombreInquilino() {
         return nombreInquilino;
     }

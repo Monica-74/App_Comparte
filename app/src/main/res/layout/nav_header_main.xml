@@ -11,12 +11,12 @@
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:fontFamily="sans-serif-medium"
         android:text="@string/bienvenido_a_comparte"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@android:color/white"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

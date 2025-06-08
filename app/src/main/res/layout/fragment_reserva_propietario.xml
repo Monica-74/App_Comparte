@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_reserva"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:padding="16dp">
+    android:padding="2dp"
+    tools:context=".fragments.ReservaInquilinoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@null"
+        android:background="@android:color/white"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="22dp">
 
+        <!-- ENCABEZADO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp"
-            tools:ignore="UseCompoundDrawables">
+            android:padding="16dp">
 
             <ImageView
                 android:layout_width="48dp"
@@ -31,137 +33,129 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:text="@string/reserva_de_habitacion"
-                android:textColor="@color/color_text"
-                android:textSize="24sp"
-
+                android:text="@string/comparte_habitacion"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/nombreReserva"
+        <!-- CONTENIDO PRINCIPAL DE RESERVA -->
+        <TextView
+            android:id="@+id/tvNombreInquilino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nombre_del_inquilino"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/nombre_del_inquilino"
             android:textColor="@color/color_text"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/descripcionReserva"
+        <TextView
+            android:id="@+id/tvDescripcionHabitacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="top"
-            android:hint="@string/descripcion_de_la_habitacion"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:minLines="2"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/descripcion_de_la_habitacion" />
 
-        <EditText
-            android:id="@+id/fechaReserva"
+        <TextView
+            android:id="@+id/tvFechaReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/fecha_de_la_reserva"
-            android:importantForAutofill="no"
-            android:inputType="date"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/fecha" />
 
-        <EditText
-            android:id="@+id/telefonoReserva"
+        <TextView
+            android:id="@+id/tvEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/telefono_del_inquilino"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/estado"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/emailReserva"
+        <TextView
+            android:id="@+id/tvTelefonoContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/email_del_inquilino"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/telefono_de_contacto"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/fechaInicioReserva"
+        <TextView
+            android:id="@+id/tvemailContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/fecha_de_inicio"
-            android:inputType="date"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/email"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/fechaFinReserva"
+        <TextView
+            android:id="@+id/tvFechaInicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/fecha_de_fin"
-            android:inputType="date"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/color_text"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/fecha_de_inicio"
             android:textStyle="bold" />
 
-
-        <Button
-            android:id="@+id/btnConfirmarReserva"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tvFechaFin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorSecundario"
-            android:text="@string/confirmar_reserva"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/fecha_de_fin"
             android:textStyle="bold" />
 
+
+        <!-- Botones -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnConfirmar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="@string/confirmar"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnRechazar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/rechazar"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <!-- PIE DE PÁGINA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginBottom="150dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:paddingTop="26dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp"
                 android:text="@string/tlf_902_666_999"
                 android:textColor="@color/color_text"
                 android:textSize="12sp"
@@ -180,8 +174,7 @@
                     android:text="@string/politica_privacidad"
                     android:textColor="@color/color_text"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -197,7 +190,7 @@
                 android:layout_height="42dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:contentDescription="@drawable/logo_principal"
+                android:contentDescription="@string/logo"
                 android:src="@drawable/logo_principal" />
 
             <TextView
@@ -208,6 +201,6 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
-

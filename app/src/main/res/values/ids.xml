@@ -16,5 +16,6 @@
     <item name="action_detalleHabitacionFragment_to_reservaFragment" type="id"/>
     <item name="reservaPropietarioFragment" type="id"/>
     <item name="action_listadoReservasFragment_to_reservaPropietarioFragment" type="id"/>
+    <item name="action_inquilinoFragment_to_misReservasFragment" type="id"/>
 
 </resources>

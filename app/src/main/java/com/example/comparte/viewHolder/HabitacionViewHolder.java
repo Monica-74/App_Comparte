@@ -11,14 +11,8 @@ import com.example.comparte.R;
 
 public class HabitacionViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageHabitacion;
-    private TextView tituloHabitacion;
-    private TextView direccionHabitacion;
-    private TextView caracteristicaCama;
-    private TextView caracteristicaBano;
-    private TextView caracteristicaTamano;
-    private TextView precioHabitacion;
-    private TextView descripcionHabitacion;
-    private TextView telefonoContacto;
+    private TextView tituloHabitacion, direccionHabitacion, caracteristicaCama, caracteristicaBano, caracteristicaTamano, precioHabitacion;
+    private TextView descripcionHabitacion, telefonoContacto;
     private Button btnModificar;
     private Button btnEliminar;
 

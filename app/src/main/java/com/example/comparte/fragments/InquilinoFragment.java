@@ -33,13 +33,12 @@ public class InquilinoFragment extends Fragment {
             navController.navigate(R.id.habitacionesDisponiblesFragment);
         });
 
-//        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
-//        Button btnPrueba = view.findViewById(R.id.btnConfirmarReserva);
-//
-//        btnPrueba.setOnClickListener(v -> {
-//            NavController navController = Navigation.findNavController(view);
-//            navController.navigate(R.id.action_inquilinoFragment_to_reservaFragment);
-//        });
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button btnMisReservas = view.findViewById(R.id.btnMisReservas);
+
+        btnMisReservas.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_inquilinoFragment_to_misReservasFragment);
+        });
 
         return view;
     }

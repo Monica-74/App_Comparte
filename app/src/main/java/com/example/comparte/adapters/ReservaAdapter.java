@@ -54,27 +54,27 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
         holder.tvFechaFin.setText(reserva.getFechaFin());
         holder.tvEstado.setText(reserva.getEstado().toString());
 
-        holder.btnConfirmar.setOnClickListener(v -> {
-            boolean actualizado = db.actualizarEstadoReserva(
-                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.CONFIRMADA.name()
-            );
-            if (actualizado) {
-                reserva.setEstado(EstadoReserva.CONFIRMADA);
-                notifyItemChanged(position);
-                Toast.makeText(context, "Reserva confirmada", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        holder.btnRechazar.setOnClickListener(v -> {
-            boolean actualizado = db.actualizarEstadoReserva(
-                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.RECHAZADA.name()
-            );
-            if (actualizado) {
-                reserva.setEstado(EstadoReserva.RECHAZADA);
-                notifyItemChanged(position);
-                Toast.makeText(context, "Reserva rechazada", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        holder.btnConfirmar.setOnClickListener(v -> {
+//            boolean actualizado = db.actualizarEstadoReserva(
+//                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.CONFIRMADA.name()
+//            );
+//            if (actualizado) {
+//                reserva.setEstado(EstadoReserva.CONFIRMADA);
+//                notifyItemChanged(position);
+//                Toast.makeText(context, "Reserva confirmada", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        holder.btnRechazar.setOnClickListener(v -> {
+//            boolean actualizado = db.actualizarEstadoReserva(
+//                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.RECHAZADA.name()
+//            );
+//            if (actualizado) {
+//                reserva.setEstado(EstadoReserva.RECHAZADA);
+//                notifyItemChanged(position);
+//                Toast.makeText(context, "Reserva rechazada", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onReservaClick(reserva);
@@ -89,7 +89,7 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
 
     public static class ReservaViewHolder extends RecyclerView.ViewHolder {
         TextView tvNombre, tvDescripcion, tvFechaReserva, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin, tvEstado;
-        Button btnConfirmar, btnRechazar;
+//        Button btnConfirmar, btnRechazar;
 
         public ReservaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -101,8 +101,8 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
             tvFechaInicio = itemView.findViewById(R.id.tvFechaInicio);
             tvFechaFin = itemView.findViewById(R.id.tvFechaFin);
             tvEstado = itemView.findViewById(R.id.tvEstado);
-            btnConfirmar = itemView.findViewById(R.id.btnConfirmar);
-            btnRechazar = itemView.findViewById(R.id.btnRechazar);
+//            btnConfirmar = itemView.findViewById(R.id.btnConfirmar);
+//            btnRechazar = itemView.findViewById(R.id.btnRechazar);
         }
     }
 }
