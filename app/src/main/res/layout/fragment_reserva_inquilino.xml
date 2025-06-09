@@ -11,34 +11,34 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="56dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            tools:ignore="UseCompoundDrawables">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp"-->
+<!--            tools:ignore="UseCompoundDrawables">-->
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/logo_principal" />
+<!--            <ImageView-->
+<!--                android:layout_width="48dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:contentDescription="@string/logo"-->
+<!--                android:src="@drawable/logo_principal" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:text="@string/reserva_de_habitacion"
-                android:textColor="@color/color_text"
-                android:textSize="24sp"
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="16dp"-->
+<!--                android:paddingBottom="16dp"-->
+<!--                android:text="@string/reserva_de_habitacion"-->
+<!--                android:textColor="@color/color_text"-->
+<!--                android:textSize="24sp"-->
 
-                android:textStyle="bold" />
-        </LinearLayout>
+<!--                android:textStyle="bold" />-->
+<!--        </LinearLayout>-->
 
         <EditText
             android:id="@+id/nombreReserva"
@@ -58,11 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="top"
             android:hint="@string/descripcion_de_la_habitacion"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:minLines="2"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:textColor="@color/color_text"
@@ -143,10 +141,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorSecundario"
+            android:layout_marginTop="26dp"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/confirmar_reserva"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -155,8 +153,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     android:fillViewport="true"
     tools:context=".fragments.DetalleHabitacionFragment">
 
-<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
-                android:text="@string/tipo"/>
+                android:text="@string/tipo" />
 
             <TextView
                 android:id="@+id/tvTelefonoContacto"
@@ -144,87 +144,30 @@
                 android:visibility="gone" />
 
             <Button
-                android:id="@+id/btnVolver"
+                android:id="@+id/btnReservar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/colorPrimaryDark"
+                android:padding="16dp"
+                android:text="@string/reservar_esta_habitacion"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
                 android:text="@string/volver"
                 android:textColor="@android:color/white"
-                android:textSize="26sp" />
-            <Button
-                android:id="@+id/btnReservar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reservar_esta_habitacion"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-
-
-
-        </LinearLayout>
-
-        <!-- PIE DE PÁGINA -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingTop="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="4dp"
-                android:text="@string/tlf_902_666_999"
-                android:textColor="@color/color_text"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="12dp"
-                    android:text="@string/politica_privacidad"
-                    android:textColor="@color/color_text"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/politica_cookies"
-                    android:textColor="@color/color_text"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/logo_principal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email_contacto_hola_comparte_es"
-                android:textColor="@color/color_text"
-                android:textSize="12sp"
-                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
