@@ -16,9 +16,9 @@ import com.example.comparte.entities.Reserva;
 
 import java.util.List;
 
-public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaViewHolder> {
-    public interface OnReservaClickListener {
-        void onReservaClick(Reserva reserva);
+public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaViewHolder> { // Clase para el rol de inquilino y propietario y administrador de la lista de reservas realizadas por el usuario en la interfaz de la aplicación
+    public interface OnReservaClickListener { // Interfaz para comunicar acciones de modificación y eliminación al fragmento o actividad que contiene el adaptador
+        void onReservaClick(Reserva reserva); // Método para modificar una habitación o eliminar una habitación
     }
 
     private final List<Reserva> listaReservas;
@@ -26,7 +26,7 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
     private final DBComparte db;
     private final OnReservaClickListener listener;
 
-    public ReservaAdapter(Context context, List<Reserva> reservas, DBComparte db, OnReservaClickListener listener) {
+    public ReservaAdapter(Context context, List<Reserva> reservas, DBComparte db, OnReservaClickListener listener) { // Constructor de la clase ReservaAdapter que recibe una lista de reservas y el contexto de la aplicación y la base de datos
         this.context = context;
         this.listaReservas = reservas;
         this.db = db;
@@ -36,48 +36,28 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
 
     @NonNull
     @Override
-    public ReservaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_reserva_propietario, parent, false);
-        return new ReservaViewHolder(view);
+    public ReservaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // Método que se ejecuta al crear la vista de cada elemento de la lista de reservas y devuelve un objeto ReservaViewHolder con la vista inflada
+        View view = LayoutInflater.from(context).inflate(R.layout.item_reserva_propietario, parent, false); // Infla el layout item_reserva_propietario para cada elemento de la lista de reservas
+        return new ReservaViewHolder(view); // Devuelve un objeto ReservaViewHolder con la vista inflada
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReservaViewHolder holder, int position) {
-        Reserva reserva = listaReservas.get(position);
+    public void onBindViewHolder(@NonNull ReservaViewHolder holder, int position) { // Método que se ejecuta al enlazar los datos de cada reserva con su vista correspondiente
+        Reserva reserva = listaReservas.get(position); // Obtiene la reserva en la posición actual de la lista de reservas
 
-        holder.tvNombre.setText(reserva.getNombreInquilino());
-        holder.tvDescripcion.setText(reserva.getDescripcionHabitacion());
-        holder.tvFechaReserva.setText(reserva.getFechaReserva());
-        holder.tvTelefono.setText(reserva.getTelefonoInquilino());
-        holder.tvEmail.setText(reserva.getEmailInquilino());
-        holder.tvFechaInicio.setText(reserva.getFechaInicio());
-        holder.tvFechaFin.setText(reserva.getFechaFin());
-        holder.tvEstado.setText(reserva.getEstado().toString());
+        holder.tvNombre.setText(reserva.getNombreInquilino()); // Establece el nombre del inquilino en el TextView correspondiente
+        holder.tvDescripcion.setText(reserva.getDescripcionHabitacion()); // Establece la descripción de la habitación en el TextView correspondiente
+        holder.tvFechaReserva.setText(reserva.getFechaReserva()); // Establece la fecha de reserva en el TextView correspondiente
+        holder.tvTelefono.setText(reserva.getTelefonoInquilino()); // Establece el teléfono del inquilino en el TextView correspondiente
+        holder.tvEmail.setText(reserva.getEmailInquilino()); // Establece el email del inquilino en el TextView correspondiente
+        holder.tvFechaInicio.setText(reserva.getFechaInicio()); // Establece la fecha de inicio en el TextView correspondiente
+        holder.tvFechaFin.setText(reserva.getFechaFin()); // Establece la fecha de fin en el TextView correspondiente
+        holder.tvEstado.setText(reserva.getEstado().toString()); // Establece el estado de la reserva en el TextView correspondiente
 
-//        holder.btnConfirmar.setOnClickListener(v -> {
-//            boolean actualizado = db.actualizarEstadoReserva(
-//                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.CONFIRMADA.name()
-//            );
-//            if (actualizado) {
-//                reserva.setEstado(EstadoReserva.CONFIRMADA);
-//                notifyItemChanged(position);
-//                Toast.makeText(context, "Reserva confirmada", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        holder.btnRechazar.setOnClickListener(v -> {
-//            boolean actualizado = db.actualizarEstadoReserva(
-//                    reserva.getIdInquilino(), reserva.getIdHabitacion(), EstadoReserva.RECHAZADA.name()
-//            );
-//            if (actualizado) {
-//                reserva.setEstado(EstadoReserva.RECHAZADA);
-//                notifyItemChanged(position);
-//                Toast.makeText(context, "Reserva rechazada", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onReservaClick(reserva);
+
+        holder.itemView.setOnClickListener(v -> { // Configura el evento de clic en la vista completa de la reserva
+            if (listener != null) { // Comprueba si el listener no es nulo
+                listener.onReservaClick(reserva); // Llama al método onReservaClick del listener
             }
         });
     }
@@ -85,14 +65,13 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
     @Override
     public int getItemCount() {
         return listaReservas.size();
-    }
+    } // Método que devuelve el número de elementos en la lista de reservas
 
-    public static class ReservaViewHolder extends RecyclerView.ViewHolder {
+    public static class ReservaViewHolder extends RecyclerView.ViewHolder { // Clase para el rol de inquilino y propietario y administrador de la vista de cada elemento de la lista de reservas
         TextView tvNombre, tvDescripcion, tvFechaReserva, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin, tvEstado;
-//        Button btnConfirmar, btnRechazar;
 
-        public ReservaViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public ReservaViewHolder(@NonNull View itemView) { // Constructor de la clase ReservaViewHolder que recibe la vista de cada elemento de la lista de reservas
+            super(itemView); // Llama al constructor de la clase padre RecyclerView.ViewHolder con la vista recibida
             tvNombre = itemView.findViewById(R.id.tvNombreInquilino);
             tvDescripcion = itemView.findViewById(R.id.tvDescripcionHabitacion);
             tvFechaReserva = itemView.findViewById(R.id.tvFechaReserva);
@@ -101,8 +80,6 @@ public class ReservaAdapter extends RecyclerView.Adapter<ReservaAdapter.ReservaV
             tvFechaInicio = itemView.findViewById(R.id.tvFechaInicio);
             tvFechaFin = itemView.findViewById(R.id.tvFechaFin);
             tvEstado = itemView.findViewById(R.id.tvEstado);
-//            btnConfirmar = itemView.findViewById(R.id.btnConfirmar);
-//            btnRechazar = itemView.findViewById(R.id.btnRechazar);
         }
     }
 }

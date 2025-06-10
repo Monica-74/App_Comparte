@@ -1,4 +1,19 @@
 package com.example.comparte.entities;
+/**
+ * Clase Admin
+ *
+ * Representa a un usuario con rol de administrador dentro de la aplicación CompArte.
+ * Esta clase actúa como entidad del modelo de datos, encapsulando la información
+ * relevante de un administrador, como su identificador y posibles atributos adicionales.
+ *
+ * Aunque puede parecer simple, esta clase permite organizar el código de forma estructurada
+ * y facilita la implementación de funcionalidades específicas para este tipo de usuario,
+ * como la gestión de usuarios, validaciones o mantenimiento general de la plataforma.
+ *
+ * Puede ser utilizada junto con la base de datos local para almacenar o recuperar información
+ * relacionada con administradores registrados.
+ */
+
 
 public class Admin {
     private int id_admin ;

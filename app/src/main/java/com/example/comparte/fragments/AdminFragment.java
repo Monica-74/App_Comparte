@@ -1,4 +1,17 @@
 package com.example.comparte.fragments;
+/*
+ * Clase AdminFragment
+ *
+ * Fragmento principal destinado al rol de administrador dentro de la aplicación CompArte.
+ * Este fragmento se muestra tras el inicio de sesión del usuario con rol "admin" y sirve como panel de control
+ * para gestionar aspectos clave de la plataforma, como el control de usuarios, revisión de datos o tareas administrativas.
+ *
+ * Puede incluir botones o accesos directos a funcionalidades específicas, como visualizar estadísticas,
+ * modificar datos de usuarios, eliminar cuentas o acceder a configuraciones del sistema.
+ *
+ * Forma parte de la estructura de navegación de la app, y se gestiona mediante el NavController desde la actividad principal.
+ */
+
 
 import android.content.Intent;
 import android.os.Bundle;

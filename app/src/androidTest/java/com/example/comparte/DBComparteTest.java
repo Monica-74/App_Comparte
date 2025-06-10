@@ -30,12 +30,13 @@ import org.junit.runner.RunWith;
 public class DBComparteTest {
 
     @Test
-    public void pruebaReserva() {
-        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        DBComparte db = new DBComparte(context);
+    public void pruebaReserva() { // Método de prueba para insertar 100 reservas en la base de datos
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext(); // Obtiene el contexto de la aplicación de prueba
+        DBComparte db = new DBComparte(context); // Crea una instancia de la clase DBComparte con el contexto de la prueba
 
         long start = System.currentTimeMillis(); // tiempo de inicio
 
+    // Inserta 100 reservas en la base de datos
         for (int i = 0; i < 100; i++) {
             Reserva reserva = new Reserva();
             reserva.setNombreInquilino("Inquilino " + i);
@@ -54,6 +55,6 @@ public class DBComparteTest {
 
         long end = System.currentTimeMillis();// para obtener el tiempo de ejecución total del proceso.
 
-        System.out.println("Tiempo total para insertar 100 reservas: " + (end - start) + " ms");
+        System.out.println("Tiempo total para insertar 100 reservas: " + (end - start) + " ms"); // Muestra el tiempo total en milisegundos
     }
 }

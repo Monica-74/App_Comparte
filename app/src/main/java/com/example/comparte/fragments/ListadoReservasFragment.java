@@ -1,5 +1,22 @@
 package com.example.comparte.fragments;
 
+/*
+ * Clase ListadoReservasFragment
+ *
+ * Fragmento destinado a mostrar al propietario la lista de reservas que ha recibido en sus habitaciones publicadas.
+ * Utiliza un RecyclerView para presentar cada reserva de forma resumida, permitiendo visualizar datos como:
+ * - Nombre del inquilino
+ * - Fechas de la reserva
+ * - Estado actual (pendiente, confirmada, rechazada)
+ *
+ * Al pulsar sobre una reserva, se puede navegar a un fragmento detallado (ReservaPropietarioFragment)
+ * donde el propietario podrá confirmar o rechazar la solicitud.
+ *
+ * Este fragmento permite al propietario tener un control organizado y claro de las solicitudes de alojamiento
+ * que ha recibido a través de la plataforma.
+ */
+
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,7 +42,7 @@ import com.example.comparte.utils.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListadoReservasFragment extends Fragment {
+public class ListadoReservasFragment extends Fragment { // Clase ListadoReservasFragment que hereda de Fragment para mostrar las habitaciones disponibles.
 
     private RecyclerView recyclerView;
     private DBComparte db;
@@ -34,42 +51,42 @@ public class ListadoReservasFragment extends Fragment {
     private List<Reserva> listaReservas;
     private NavController navController;
 
-    public ListadoReservasFragment() {}
+    public ListadoReservasFragment() {} // Constructor vacío.
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) { // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
 
-        View view = inflater.inflate(R.layout.fragment_listado_reservas, container, false);
-        navController = NavHostFragment.findNavController(this);
+        View view = inflater.inflate(R.layout.fragment_listado_reservas, container, false); // Inflar el layout del fragmento.
+        navController = NavHostFragment.findNavController(this); // Obtener el controlador de navegación.
 
-        recyclerView = view.findViewById(R.id.recyclerReservas);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView = view.findViewById(R.id.recyclerReservas); // Enlazar el RecyclerView a la vista.
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext())); // Configurar el LinearLayoutManager para el RecyclerView.
 
-        db = new DBComparte(requireContext());
-        sessionManager = new SessionManager(requireContext());
+        db = new DBComparte(requireContext()); // Crear una instancia de DBComparte para interactuar con la base de datos.
+        sessionManager = new SessionManager(requireContext()); // Crear una instancia de SessionManager para gestionar la sesión del usuario.
 
-        listaReservas = new ArrayList<>();
+        listaReservas = new ArrayList<>(); // Crear una lista de reservas vacía.
 
-        adapter = new ReservaAdapter(requireContext(), listaReservas, db, reserva -> {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("reserva", reserva);
-            navController.navigate(R.id.action_listadoReservasFragment_to_reservaPropietarioFragment, bundle);
+        adapter = new ReservaAdapter(requireContext(), listaReservas, db, reserva -> { // Crear un adaptador personalizado para el RecyclerView.
+            Bundle bundle = new Bundle(); // Crear un objeto Bundle para pasar datos entre fragmentos.
+            bundle.putSerializable("reserva", reserva); // tu clase Habitacion debe implementar Serializable
+            navController.navigate(R.id.action_listadoReservasFragment_to_reservaPropietarioFragment, bundle); // Navegar al fragmento de formulario para modificar la habitación.
         });
 
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter); // Asignar el adaptador al RecyclerView.
 
         return view;
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        int idPropietario = sessionManager.getPropietarioId();
-        listaReservas.clear();
-        listaReservas.addAll(db.obtenerReservasPorPropietario(idPropietario));
-        adapter.notifyDataSetChanged();
+    public void onResume() { // Método que se ejecuta al volver a la vista del fragmento.
+        super.onResume(); // Llamar al método de la clase padre.
+        int idPropietario = sessionManager.getPropietarioId(); // Obtener el ID del propietario actual de la sesión.
+        listaReservas.clear(); // Limpiar la lista de reservas.
+        listaReservas.addAll(db.obtenerReservasPorPropietario(idPropietario)); // Obtener la lista de reservas del propietario desde la base de datos.
+        adapter.notifyDataSetChanged(); // Notificar al adaptador que los datos han cambiado.
     }
 }

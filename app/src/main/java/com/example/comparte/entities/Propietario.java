@@ -1,9 +1,21 @@
 package com.example.comparte.entities;
+/*
+ * Clase Propietario
+ *
+ * Representa a un usuario con rol de propietario dentro de la aplicación CompArte.
+ * Esta clase forma parte del modelo de datos y encapsula la información específica de los propietarios,
+ * como su identificador u otros posibles datos asociados (nombre, contacto, etc.).
+ *
+ * Su principal función es permitir la gestión de anuncios de habitaciones,
+ * así como el control de reservas recibidas y la interacción con los inquilinos interesados.
+ *
+ * Se utiliza junto a la base de datos local para guardar y acceder a los datos relacionados
+ * con cada propietario registrado en la plataforma.
+ */
+
 
 public class Propietario {
-    /*
-    atributos de los usuarios como nombre, edad, correo, sexo...
-     */
+
         private int id_propietario;
         private int id_usuario;
         private int id_habitacion;

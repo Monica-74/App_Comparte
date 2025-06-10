@@ -1,5 +1,24 @@
 package com.example.comparte.fragments;
 
+/*
+ * Clase ReservaPropietarioFragment
+ *
+ * Fragmento destinado a mostrar al propietario los detalles completos de una reserva recibida sobre una de sus habitaciones.
+ * Presenta todos los datos relevantes de la solicitud realizada por un inquilino, incluyendo:
+ * - Nombre del inquilino
+ * - Descripción de la habitación
+ * - Fechas de la reserva (inicio y fin)
+ * - Fecha de solicitud
+ * - Datos de contacto del inquilino (teléfono y correo)
+ * - Estado actual de la reserva
+ *
+ * Además, permite al propietario **confirmar o rechazar la reserva** mediante botones de acción.
+ * Al seleccionar una opción, se actualiza el estado en la base de datos y se notifica al usuario con un mensaje de confirmación.
+ *
+ * Este fragmento forma parte del flujo de gestión de reservas y es clave en el proceso de validación por parte del propietario.
+ */
+
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +35,7 @@ import com.example.comparte.database.DBComparte;
 import com.example.comparte.entities.Reserva;
 import com.example.comparte.utils.SessionManager;
 
-public class ReservaPropietarioFragment extends Fragment {
+public class ReservaPropietarioFragment extends Fragment { // Clase ReservaPropietarioFragment que hereda de Fragment para mostrar las habitaciones disponibles.
 
     private TextView tvNombre, tvDescripcion, tvFecha, tvTelefono, tvEmail, tvFechaInicio, tvFechaFin, tvEstado;
     private Button btnConfirmar, btnRechazar;
@@ -29,9 +48,9 @@ public class ReservaPropietarioFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) { // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
 
-        View view = inflater.inflate(R.layout.fragment_reserva_propietario, container, false);
+        View view = inflater.inflate(R.layout.fragment_reserva_propietario, container, false); // Inflar el layout del fragmento.
 
         // Inicializar vistas
         tvNombre = view.findViewById(R.id.tvNombreInquilino);
@@ -48,9 +67,9 @@ public class ReservaPropietarioFragment extends Fragment {
         db = new DBComparte(requireContext());
 
         // 🔹 Obtener la reserva enviada por el adapter
-        Reserva reserva = (Reserva) getArguments().getSerializable("reserva");
+        Reserva reserva = (Reserva) getArguments().getSerializable("reserva"); // Obtener la reserva enviada por el adapter.
 
-        if (reserva != null) {
+        if (reserva != null) { // Si la reserva no es nula.
             // Mostrar los datos en los campos
             tvNombre.setText(reserva.getNombreInquilino());
             tvDescripcion.setText(reserva.getDescripcionHabitacion());

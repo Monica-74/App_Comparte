@@ -1,5 +1,24 @@
 package com.example.comparte.fragments;
 
+/*
+ * Clase DetalleFragment
+ *
+ * Fragmento encargado de mostrar la información detallada de una habitación seleccionada por el inquilino.
+ * Proporciona una vista ampliada del anuncio con todos sus atributos relevantes, como:
+ * - Título y descripción
+ * - Imagen ilustrativa
+ * - Dirección y tipo de habitación
+ * - Precio, características y tipo de convivencia
+ * - Datos de contacto del propietario (teléfono, email, etc.)
+ *
+ * Además, puede incluir botones de acción como:
+ * - "Volver": para regresar al listado de habitaciones disponibles.
+ * - "Reservar esta habitación": para iniciar el proceso de reserva desde este fragmento.
+ *
+ * Este fragmento permite al usuario tomar una decisión informada antes de realizar una solicitud de reserva.
+ */
+
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -22,7 +41,7 @@ import com.example.comparte.database.DBComparte;
 import com.example.comparte.entities.Habitacion;
 import com.example.comparte.utils.SessionManager;
 
-public class DetalleHabitacionFragment extends Fragment {
+public class DetalleHabitacionFragment extends Fragment { // Clase DetalleFragment que hereda de Fragment para mostrar el detalle de una habitación seleccionada.
 
     private TextView tvTitulo, tvDescripcion, tvDireccion, tvPrecio,
             tvCaracteristicaCama, tvCaracteristicaBano, tvCaracteristicaTamano, tvTipo;
@@ -38,9 +57,9 @@ public class DetalleHabitacionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) {  // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
 
-        View view = inflater.inflate(R.layout.fragment_detalle_habitacion, container, false);
+        View view = inflater.inflate(R.layout.fragment_detalle_habitacion, container, false); // Inflar el layout del fragmento.
 
         // Enlazar vistas
         ivDetalleImagen = view.findViewById(R.id.ivDetalleImagen);
@@ -103,11 +122,11 @@ public class DetalleHabitacionFragment extends Fragment {
         Toast.makeText(getContext(), "ROL: " + rol, Toast.LENGTH_SHORT).show();
 
         // Si es propietario, mostrar botones
-        if ("propietario".equalsIgnoreCase(rol)) {
+        if ("propietario".equalsIgnoreCase(rol)) { // Si el rol es propietario, mostrar botones de modificación y eliminación de habitación
             btnModificar.setVisibility(View.VISIBLE);
             btnEliminar.setVisibility(View.VISIBLE);
 
-            btnModificar.setOnClickListener(v -> {
+            btnModificar.setOnClickListener(v -> { // Acción botón modificar habitación
                 if (habitacion != null) {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("habitacion", habitacion);
@@ -115,7 +134,7 @@ public class DetalleHabitacionFragment extends Fragment {
                 }
             });
 
-            btnEliminar.setOnClickListener(v -> {
+            btnEliminar.setOnClickListener(v -> { // Acción botón eliminar habitación
                 if (habitacion != null) {
                     DBComparte db = new DBComparte(requireContext());
                     db.eliminarHabitacion(habitacion.getId());
@@ -128,9 +147,9 @@ public class DetalleHabitacionFragment extends Fragment {
         // Acción botón volver
         btnVolver.setOnClickListener(v -> Navigation.findNavController(v).popBackStack());
 
-        Button btnReservar = view.findViewById(R.id.btnReservar);
+        Button btnReservar = view.findViewById(R.id.btnReservar); // Botón para reservar habitación en detalle de habitación
 
-        btnReservar.setOnClickListener(v -> {
+        btnReservar.setOnClickListener(v -> { // Acción botón reservar habitación
                 if (habitacion != null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("idHabitacion", habitacion.getId());

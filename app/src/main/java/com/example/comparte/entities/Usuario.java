@@ -1,5 +1,22 @@
 package com.example.comparte.entities;
 
+/*
+ * Clase Usuario
+ *
+ * Modelo base que representa a un usuario dentro de la aplicación CompArte, independientemente de su rol (administrador, propietario o inquilino).
+ * Esta clase encapsula los atributos comunes necesarios para la identificación y autenticación del usuario.
+ *
+ * Atributos típicos incluyen:
+ * - idUsuario: identificador único del usuario.
+ * - nombre: nombre completo del usuario.
+ * - email: correo electrónico utilizado para el inicio de sesión.
+ * - contraseña: contraseña cifrada para autenticar al usuario.
+ * - rol: tipo de usuario (por ejemplo, "admin", "propietario" o "inquilino").
+ *
+ * Esta clase se utiliza tanto en el registro como en el login, y permite diferenciar el comportamiento del sistema según el tipo de usuario.
+ * También facilita la gestión de sesiones y el control de acceso a funcionalidades específicas.
+ */
+
 public class Usuario {
     private int id_usuario;
     private String nombreUsuario;

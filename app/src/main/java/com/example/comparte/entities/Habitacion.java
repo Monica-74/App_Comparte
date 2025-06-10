@@ -1,10 +1,21 @@
 package com.example.comparte.entities;
+/*
+ * Clase Habitacion
+ *
+ * Representa una habitación publicada en la aplicación CompArte por parte de un propietario.
+ * Esta clase actúa como modelo de datos y contiene toda la información relevante de una habitación,
+ * incluyendo título, descripción, dirección, precio, tipo, características, imagen, y el ID del propietario.
+ *
+ * Es utilizada para crear, mostrar, modificar o eliminar anuncios de habitaciones,
+ * tanto en la interfaz de usuario como en la base de datos.
+ *
+ * Esta clase puede ser serializada para facilitar su paso entre fragmentos o actividades
+ * y es clave en operaciones como reservas, listados y filtrados.
+ */
+
 
 import java.io.Serializable;
 
-/*
-atributos de la vivienda o habitación compartida
- */
 public class Habitacion implements Serializable {
     private int id;
     private String titulo;

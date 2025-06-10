@@ -1,4 +1,21 @@
 package com.example.comparte.fragments;
+/*
+ * Clase ReservaInquilinoFragment
+ *
+ * Fragmento utilizado por los inquilinos para completar el proceso de solicitud de reserva de una habitación.
+ * Presenta un formulario donde el usuario puede introducir o confirmar datos como:
+ * - Nombre del inquilino
+ * - Descripción de la habitación
+ * - Fecha de inicio y fin de la reserva (mediante selectores de fecha)
+ * - Información de contacto (teléfono y correo electrónico)
+ *
+ * Una vez rellenado el formulario, los datos se almacenan en la base de datos local (SQLite)
+ * como una nueva reserva con estado "pendiente".
+ *
+ * Este fragmento actúa como puente entre el interés del inquilino y la gestión del propietario,
+ * iniciando el flujo de validación y respuesta de la reserva.
+ */
+
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -18,9 +35,11 @@ import com.example.comparte.entities.EstadoReserva;
 import com.example.comparte.entities.Reserva;
 import com.example.comparte.utils.SessionManager;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
-public class ReservaInquilinoFragment extends Fragment {
+public class ReservaInquilinoFragment extends Fragment { // Clase ReservaInquilinoFragment que hereda de Fragment para mostrar las habitaciones disponibles.
 
     private EditText etNombre, etDescripcion, etFecha, etTelefono, etEmail;
     private EditText etFechaInicio, etFechaFin;
@@ -34,9 +53,9 @@ public class ReservaInquilinoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) { // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
 
-        View view = inflater.inflate(R.layout.fragment_reserva_inquilino, container, false);
+        View view = inflater.inflate(R.layout.fragment_reserva_inquilino, container, false); // Inflar el layout del fragmento.
 
         // Enlazar campos
         etNombre = view.findViewById(R.id.nombreReserva);
@@ -48,10 +67,10 @@ public class ReservaInquilinoFragment extends Fragment {
         etFechaFin = view.findViewById(R.id.fechaFinReserva);
         btnConfirmarReserva = view.findViewById(R.id.btnConfirmarReserva);
 
-        db = new DBComparte(getContext());
-        sessionManager = new SessionManager(getContext());
+        db = new DBComparte(getContext()); // Crear una instancia de DBComparte para interactuar con la base de datos.
+        sessionManager = new SessionManager(getContext()); // Crear una instancia de SessionManager para gestionar la sesión del usuario.
 
-        // Mostrar date pickers
+      // Configurar listeners para los campos de fecha
         etFecha.setOnClickListener(v -> mostrarDatePicker(etFecha));
         etFechaInicio.setOnClickListener(v -> mostrarDatePicker(etFechaInicio));
         etFechaFin.setOnClickListener(v -> mostrarDatePicker(etFechaFin));
@@ -106,8 +125,8 @@ public class ReservaInquilinoFragment extends Fragment {
         return view;
     }
 
-    // Método genérico para mostrar el DatePicker y rellenar el campo correspondiente
-    private void mostrarDatePicker(EditText campo) {
+    // Método genérico para mostrar el DatePicker y rellenar el campo correspondiente, vamos el calendario para las reservas.
+    private void mostrarDatePicker(EditText campo) { // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
         final Calendar calendario = Calendar.getInstance();
         int anio = calendario.get(Calendar.YEAR);
         int mes = calendario.get(Calendar.MONTH);
@@ -116,7 +135,10 @@ public class ReservaInquilinoFragment extends Fragment {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 getContext(),
                 (view, year, month, dayOfMonth) -> {
-                    String fechaSeleccionada = dayOfMonth + "/" + (month + 1) + "/" + year;
+                    Calendar seleccion = Calendar.getInstance();
+                    seleccion.set(year, month, dayOfMonth);
+                    SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "ES"));
+                    String fechaSeleccionada = formatoFecha.format(seleccion.getTime());
                     campo.setText(fechaSeleccionada);
                 },
                 anio, mes, dia

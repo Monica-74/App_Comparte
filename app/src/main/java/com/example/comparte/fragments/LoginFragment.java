@@ -90,7 +90,7 @@ public class LoginFragment extends Fragment {
 
             //sessionManager = new SessionManager(getContext());
 
-            if (loginController.esAdministrador(email, password)) {
+            if (loginController.esAdministrador(email, password)) { // Si es administrador
                 sessionManager.setUserRol("admin");
 
                 Intent intent = new Intent(getContext(), MainActivity.class);

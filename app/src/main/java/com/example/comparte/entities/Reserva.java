@@ -1,4 +1,24 @@
 package com.example.comparte.entities;
+/*
+ * Clase Reserva
+ *
+ * Representa una solicitud de reserva realizada por un inquilino sobre una habitación publicada en la aplicación CompArte.
+ * Esta clase forma parte del modelo de datos y contiene toda la información necesaria para gestionar el ciclo de vida de una reserva.
+ *
+ * Incluye atributos como:
+ * - ID de la reserva
+ * - ID de la habitación e ID del inquilino
+ * - Fechas de inicio y fin de la estancia
+ * - Estado de la reserva (pendiente, confirmada, rechazada)
+ * - Información de contacto del inquilino (nombre, teléfono, email)
+ * - Fecha de la solicitud y descripción de la habitación reservada
+ *
+ * Esta clase permite almacenar, mostrar y modificar reservas tanto desde el punto de vista del inquilino como del propietario,
+ * facilitando la gestión de alojamientos dentro de la app.
+ *
+ * Es serializable para permitir su paso entre fragmentos, vistas o actividades.
+ */
+
 
 import java.io.Serializable;
 

@@ -1,4 +1,16 @@
 package com.example.comparte.entities;
+/*
+ * Clase Registro
+ *
+ * Esta clase gestiona el proceso de registro de nuevos usuarios en la aplicación CompArte.
+ * Se encarga de recoger los datos introducidos por el usuario (nombre, email, contraseña, rol, etc.),
+ * validarlos y almacenarlos en la base de datos local mediante una inserción segura.
+ *
+ * También puede incluir lógica para comprobar si el usuario ya existe, aplicar cifrado a la contraseña,
+ * y redirigir a la pantalla de login una vez registrado correctamente.
+ *
+ * Su finalidad es garantizar un alta correcta del usuario y preparar su acceso personalizado según el rol (inquilino, propietario o administrador).
+ */
 
 public class Registro {
     private String nombre;

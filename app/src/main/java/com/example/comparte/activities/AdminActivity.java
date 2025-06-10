@@ -1,6 +1,9 @@
 package com.example.comparte.activities;
 
+/*
+Clase Admin Activity: creada para el rol de administrador.
 
+ */
 
 
 import android.content.Intent;
@@ -16,16 +19,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.comparte.R;
 
 
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity { // Clase para el rol de administrador
 
 
     Button btnPublicidad, btnUsuarios, btnContenidos, btnReservas;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_admin);
+    protected void onCreate(Bundle savedInstanceState) { // Método que se ejecuta al crear la actividad
+        super.onCreate(savedInstanceState); // Llama al método onCreate de la clase padre
+        setContentView(R.layout.fragment_admin); // Establece el layout de la actividad
 
 
         // Asociamos los botones con sus ids para poder acceder a ellos

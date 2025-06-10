@@ -1,5 +1,24 @@
 package com.example.comparte.fragments;
 
+/*
+ * Clase FormularioFragment
+ *
+ * Fragmento encargado de gestionar el formulario para la creación o modificación de anuncios de habitaciones
+ * por parte de los propietarios en la aplicación CompArte.
+ *
+ * Este fragmento permite al usuario introducir todos los datos necesarios para publicar una habitación, incluyendo:
+ * - Título y descripción del anuncio
+ * - Dirección, tipo de habitación y características (cama, baño, tamaño, etc.)
+ * - Precio mensual
+ * - Imagen ilustrativa de la habitación (seleccionada desde galería)
+ *
+ * También se encarga de validar los datos introducidos y almacenarlos en la base de datos SQLite,
+ * relacionando la habitación con el ID del propietario correspondiente.
+ *
+ * Este formulario es esencial para permitir a los propietarios gestionar sus anuncios de forma sencilla y eficiente.
+ */
+
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -29,7 +48,7 @@ import com.example.comparte.utils.SessionManager;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class FormularioFragment extends Fragment {
+public class FormularioFragment extends Fragment { // Clase FormularioFragment que hereda de Fragment para gestionar el formulario de creación o modificación de habitaciones.
 
     private EditText etTitulo, etDescripcion, etDireccion, etPrecio,
             etCaracteristicaCama, etCaracteristicaBano, etCaracteristicaTamano, etTipo;
@@ -44,7 +63,7 @@ public class FormularioFragment extends Fragment {
 
 
     private final ActivityResultLauncher<Intent> imagenPickerLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> { // Manejador para la selección de imagen desde la galería.
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
                     Uri uri = result.getData().getData();
                     try {
@@ -66,10 +85,10 @@ public class FormularioFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) { // Método que se ejecuta al crear la vista del fragmento. Crea y devuelve la vista del fragmento.
 
-        View view = inflater.inflate(R.layout.fragment_formulario, container, false);
-        progressBar = view.findViewById(R.id.progressBar);
+        View view = inflater.inflate(R.layout.fragment_formulario, container, false); // Inflar el layout del fragmento.
+        progressBar = view.findViewById(R.id.progressBar); // Inicialización de ProgressBar
 
         // Inicialización de vistas
         etTitulo = view.findViewById(R.id.etTitulo);

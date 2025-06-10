@@ -1,7 +1,20 @@
 package com.example.comparte.entities;
+
 /*
-atributos de los usuarios como nombre, edad, correo, sexo...
+ * Clase Inquilino
+ *
+ * Representa a un usuario con rol de inquilino dentro de la aplicación CompArte.
+ * Esta clase forma parte del modelo de datos y puede contener atributos específicos
+ * de los inquilinos, como su identificador, información personal o preferencias de búsqueda.
+ *
+ * Su función principal es identificar y diferenciar a los usuarios que buscan alojamiento,
+ * permitiendo la gestión de funcionalidades asociadas como realizar reservas,
+ * ver habitaciones disponibles o acceder a sus solicitudes.
+ *
+ * Se utiliza en combinación con la base de datos local para almacenar y recuperar
+ * información específica del inquilino.
  */
+
 public class Inquilino {
     private int id_inquilino;
     private int id_usuario;

@@ -25,14 +25,14 @@ import org.junit.runner.RunWith;
  */
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class LoginSistemaTest {
+public class LoginSistemaTest {  // Clase de prueba para el login
 
     @Rule
     public ActivityScenarioRule<LoginActivity> activityRule =
-            new ActivityScenarioRule<>(LoginActivity.class);
+            new ActivityScenarioRule<>(LoginActivity.class); // Regla para lanzar la actividad de prueba
 
     @Test
-    public void loginExitoso_navegaAMainActivity() {
+    public void loginExitoso_navegaAMainActivity() { // Método de prueba para el login exitoso
         // Introducir email válido
         onView(withId(R.id.emailEditText))
                 .perform(typeText("a@gmail.com"), closeSoftKeyboard());
