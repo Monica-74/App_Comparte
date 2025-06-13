@@ -178,6 +178,7 @@ public class FormularioFragment extends Fragment { // Clase FormularioFragment q
         return view;
     }
 
+
     private byte[] convertirBitmapABytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);

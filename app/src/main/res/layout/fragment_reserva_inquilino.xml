@@ -47,7 +47,7 @@
             android:hint="@string/nombre_del_inquilino"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:paddingTop="8dp"
+            android:paddingTop="28dp"
             android:paddingBottom="8dp"
             android:textColor="@color/color_text"
             android:textSize="20sp"

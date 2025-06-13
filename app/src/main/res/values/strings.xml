@@ -52,7 +52,7 @@
     <string name="correo_electronico">Correo electrónico</string>
     <string name="contrasena">Contraseña</string>
     <string name="genero">Género</string>
-    <string name="telefono_de_contacto">Teléfono de Contacto</string>
+    <string name="telefono_de_contacto">Teléfono de Contacto:</string>
     <string name="telefono_del_inquilino">Teléfono de contacto</string>
     <string name="email_del_inquilino">Email</string>
 
@@ -61,7 +61,7 @@
     <string name="calle_sirio_madrid">Calle Sirio, Madrid</string>
     <string name="cama_individual">Cama individual</string>
     <string name="bano_privado">Baño privado</string>
-    <string name="metros">10 m²</string>
+    <string name="metros">Metros habitación</string>
     <string name="precio">200.00 €</string>
     <string name="descripcion">Hola, soy una mujer limpia y ordenada que quiere compartir una habitación…</string>
     <string name="reserva_de_habitacion">Reserva de habitación</string>
@@ -106,12 +106,12 @@
     <string name="modificarAnuncio">modificar anuncio</string>
     <string name="eliminarAnuncio">Eliminar Anuncio</string>
     <string name="comparte_listado">COMPARTE HABITACIONES DISPONIBLES</string>
-    <string name="titulo">Título</string>
-    <string name="descripcionGeneral">Descripción</string>
-    <string name="direccion">Dirección</string>
+    <string name="titulo">Título:</string>
+    <string name="descripcionGeneral">Descripción:</string>
+    <string name="direccion">Dirección:</string>
     <string name="tipo_cama">Tipo de cama: individual, matrimonio...</string>
     <string name="tipo_de_bano">Tipo de baño: individual, compartido.</string>
-    <string name="tamano_habitacion">Tamaño (m²)</string>
+    <string name="tamano_habitacion">Tamaño (m²):</string>
     <string name="tipo_habitacion_genero">Tipo de habitación (femenina, masculina, mixta...)</string>
     <string name="seleccionar_imagen">Seleccionar Imagen</string>
     <string name="guardar">Guardar</string>

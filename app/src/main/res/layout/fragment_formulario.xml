@@ -1,120 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
     android:padding="16dp"
-    tools:context=".fragments.FormularioFragment"
-    android:fillViewport="true">
+    tools:context=".fragments.FormularioFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="6dp"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:src="@drawable/logo_principal"
-                android:contentDescription="@string/logo"
-                android:layout_marginEnd="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comparte_propietario"
-                android:textStyle="bold"
-                android:textSize="20sp" />
-        </LinearLayout>
 
         <EditText
             android:id="@+id/etTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:hint="@string/titulo"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:hint="@string/descripcionGeneral"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:hint="@string/direccion"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:hint="@string/precio"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etCaracteristicaCama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:hint="@string/tipo_cama"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:hint="@string/tipo_cama" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etCaracteristicaBano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:hint="@string/tipo_de_bano"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:hint="@string/tipo_de_bano" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etCaracteristicaTamano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:hint="@string/tamano_habitacion"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:hint="@string/tipo_habitacion_genero"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:hint="@string/tipo_habitacion_genero" />
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/etTelefonoContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:hint="@string/telefono_de_contacto"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:hint="@string/telefono_de_contacto" />
+            android:textStyle="bold" />
 
 
         <Button
@@ -122,10 +101,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorSecundario"
+            android:text="@string/seleccionar_imagen"
             android:textColor="@color/colorAccent"
-            android:textStyle="bold"
             android:textSize="20dp"
-            android:text="@string/seleccionar_imagen" />
+            android:textStyle="bold" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -145,68 +124,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorSecundario"
-            android:textColor="@color/colorAccent"
             android:text="@string/guardar"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal">
+            android:paddingBottom="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
                 android:text="@string/tlf_902_666_999"
-                android:textSize="12sp"
                 android:textColor="@color/color_text"
-                android:textStyle="bold"
-                android:paddingBottom="4dp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/politica_privacidad"
-                    android:textSize="12sp"
-                    android:textColor="@color/color_text"
-                    android:textStyle="bold"
                     android:paddingEnd="12dp"
+                    android:text="@string/politica_privacidad"
+                    android:textColor="@color/color_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/politica_cookies"
+                    android:textColor="@color/color_text"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_text" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@drawable/logo_principal"
-                android:contentDescription="@drawable/logo_principal"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@drawable/logo_principal"
+                android:src="@drawable/logo_principal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_contacto_hola_comparte_es"
+                android:textColor="@color/color_text"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_text" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ProgressBar
@@ -215,8 +194,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:visibility="gone"
+            android:layout_marginTop="16dp"
             android:indeterminate="true"
-            android:layout_marginTop="16dp" />
+            android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

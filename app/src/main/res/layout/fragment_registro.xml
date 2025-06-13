@@ -1,121 +1,126 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="32dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/bienvenido"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:gravity="top|center_horizontal"
-        android:text="@string/bienvenido_a_comparte"
-        android:textColor="@color/colorPrimary"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:contentDescription="@string/todo"
-        android:gravity="center"
-        android:src="@drawable/logo_comparte" />
-
-    <EditText
-        android:id="@+id/nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nombre_y_apellidos"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/edad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edad"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/correo_electronico"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        tools:ignore="TextFields" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/contrasena"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/genero"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/genero"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/telefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/telefono_de_contacto"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupRol"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="18dp">
+        android:orientation="vertical"
+        android:padding="32dp">
 
-        <RadioButton
-            android:id="@+id/radioInquilino"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/bienvenido"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:gravity="top|center_horizontal"
+            android:text="@string/bienvenido_a_comparte"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/todo"
+            android:gravity="center"
+            android:src="@drawable/logo_comparte" />
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/inquilino"
-            android:textColor="@color/color_text"
-            android:textSize="20sp" />
+            android:hint="@string/nombre_y_apellidos"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
-        <RadioButton
-            android:id="@+id/radioPropietario"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edad"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@string/propietario"
-            android:textColor="@color/color_text"
-            android:textSize="20sp" />
-    </RadioGroup>
+            android:hint="@string/edad"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="@string/registrarse"
-        android:textSize="24sp" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/emailEditText"
+            tools:ignore="TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/correo_electronico"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contrasena"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/genero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/genero"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/telefono_de_contacto"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="18dp">
+
+            <RadioButton
+                android:id="@+id/radioInquilino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/inquilino"
+                android:textColor="@color/color_text"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radioPropietario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/propietario"
+                android:textColor="@color/color_text"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/registrarse"
+            android:textSize="24sp" />
+    </LinearLayout>
+</ScrollView>

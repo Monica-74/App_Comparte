@@ -15,30 +15,6 @@
         android:padding="16dp">
 
 
-        <!-- ENCABEZADO FIJO -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="Logo"
-                android:src="@drawable/logo_principal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COMPARTE HABITACIONES DISPONIBLES"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
         <!-- CONTENIDO SCROLLABLE -->
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

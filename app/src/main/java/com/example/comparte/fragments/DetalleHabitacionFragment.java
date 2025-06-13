@@ -80,19 +80,26 @@ public class DetalleHabitacionFragment extends Fragment { // Clase DetalleFragme
         btnEliminar.setVisibility(View.GONE);
 
         // Obtener datos del Bundle
+
+
         Bundle args = getArguments();
         if (args != null) {
-            // Llenar los campos de texto
-            tvTitulo.setText(args.getString("titulo", ""));
-            tvDescripcion.setText(args.getString("descripcion", ""));
-            tvDireccion.setText(args.getString("direccion", ""));
-            tvPrecio.setText(args.getString("precio", ""));
-            tvCaracteristicaCama.setText(args.getString("caracteristicaCama", ""));
-            tvCaracteristicaBano.setText(args.getString("caracteristicaBano", ""));
-            tvCaracteristicaTamano.setText(args.getString("caracteristicaTamano", ""));
-            tvTipo.setText(args.getString("tipo", ""));
+            habitacion = (Habitacion) args.getSerializable("habitacion");
 
-            // Imagen desde ruta
+            if (habitacion != null) {
+                tvTitulo.setText(habitacion.getTitulo());
+                tvDescripcion.setText("Descripción: " + habitacion.getDescripcion());
+                tvDireccion.setText("Dirección: " + habitacion.getDireccion());
+                tvPrecio.setText(String.valueOf("Precio: " + habitacion.getPrecio()));
+                tvCaracteristicaCama.setText("Cama: " + habitacion.getCaracteristicaCama());
+                tvCaracteristicaBano.setText("Baño: " + habitacion.getCaracteristicaBano());
+                tvCaracteristicaTamano.setText("Tamaño: " + habitacion.getCaracteristicaTamano());
+                tvTipo.setText("Tipo: " + habitacion.getTipo());
+            }
+        }
+
+
+        // Imagen desde ruta
             String rutaImagen = args.getString("rutaImagen");
             if (rutaImagen != null) {
                 Bitmap bitmap = BitmapFactory.decodeFile(rutaImagen);
@@ -101,7 +108,7 @@ public class DetalleHabitacionFragment extends Fragment { // Clase DetalleFragme
 
             // También obtener el objeto completo si lo has pasado (para eliminar o modificar)
             habitacion = (Habitacion) args.getSerializable("habitacion");
-        }
+
 
         // Mostrar teléfono del propietario si existe
         int idPropietario = args.getInt("idPropietario", -1);
@@ -149,14 +156,18 @@ public class DetalleHabitacionFragment extends Fragment { // Clase DetalleFragme
 
         Button btnReservar = view.findViewById(R.id.btnReservar); // Botón para reservar habitación en detalle de habitación
 
-        btnReservar.setOnClickListener(v -> { // Acción botón reservar habitación
+        btnReservar.setVisibility(View.GONE); // oculto por defecto
+        if ("inquilino".equalsIgnoreCase(rol)) {
+            btnReservar.setVisibility(View.VISIBLE);
+
+            btnReservar.setOnClickListener(v -> {
                 if (habitacion != null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("idHabitacion", habitacion.getId());
                     Navigation.findNavController(v).navigate(R.id.action_detalleHabitacionFragment_to_reservaFragment, bundle);
                 }
             });
-
+        }
             return view;
     }
 }

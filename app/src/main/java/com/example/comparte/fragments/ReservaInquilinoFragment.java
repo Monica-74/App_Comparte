@@ -18,6 +18,8 @@ package com.example.comparte.fragments;
 
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,6 +133,12 @@ public class ReservaInquilinoFragment extends Fragment { // Clase ReservaInquili
         int anio = calendario.get(Calendar.YEAR);
         int mes = calendario.get(Calendar.MONTH);
         int dia = calendario.get(Calendar.DAY_OF_MONTH);
+
+        Locale locale = new Locale("es", "ES");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        Context contextoLocalizado = getContext().createConfigurationContext(config);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 getContext(),

@@ -66,12 +66,12 @@ public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionViewHolder
         Habitacion habitacion = lista.get(position); // Obtiene la habitación en la posición actual de la lista
 
         holder.getTituloHabitacion().setText(habitacion.getTitulo()); // Establece el título de la habitación en el TextView correspondiente
-        holder.getDireccionHabitacion().setText(habitacion.getDireccion()); // Establece la dirección de la habitación en el TextView correspondiente
-        holder.getPrecioHabitacion().setText(habitacion.getPrecio()); // Establece el precio de la habitación en el TextView correspondiente
-        holder.getDescripcionHabitacion().setText(habitacion.getDescripcion()); // Establece la descripción de la habitación en el TextView correspondiente
-        holder.getCaracteristicaCama().setText(habitacion.getCaracteristicaCama()); // Establece la característica de la cama de la habitación en el TextView correspondiente
-        holder.getCaracteristicaBano().setText(habitacion.getCaracteristicaBano()); // Establece la característica del baño de la habitación en el TextView correspondiente
-        holder.getCaracteristicaTamano().setText(habitacion.getCaracteristicaTamano()); // Establece la característica del tamaño de la habitación en el TextView correspondiente
+        holder.getDireccionHabitacion().setText("Dirección: " + habitacion.getDireccion()); // Establece la dirección de la habitación en el TextView correspondiente
+        holder.getPrecioHabitacion().setText(String.valueOf("Precio: " + habitacion.getPrecio())); // Establece el precio de la habitación en el TextView correspondiente
+        holder.getDescripcionHabitacion().setText("Descripción: " + habitacion.getDescripcion()); // Establece la descripción de la habitación en el TextView correspondiente
+        holder.getCaracteristicaCama().setText("Cama: " + habitacion.getCaracteristicaCama()); // Establece la característica de la cama de la habitación en el TextView correspondiente
+        holder.getCaracteristicaBano().setText("Baño: " + habitacion.getCaracteristicaBano()); // Establece la característica del baño de la habitación en el TextView correspondiente
+        holder.getCaracteristicaTamano().setText("Tamaño: " + habitacion.getCaracteristicaTamano()); // Establece la característica del tamaño de la habitación en el TextView correspondiente
 
         String telefono = habitacion.getTelefonoContacto(); // Obtiene el teléfono de contacto de la habitación
         if (telefono == null || telefono.trim().isEmpty()) { // Comprueba si el teléfono de contacto es nulo o vacío

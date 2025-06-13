@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:padding="16dp"
+    android:padding="6dp"
     tools:context=".fragments.ListadoReservasFragment">
 
     <LinearLayout
@@ -12,42 +12,16 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- ENCABEZADO -->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:padding="20dp"-->
-<!--            tools:ignore="UseCompoundDrawables">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:contentDescription="@string/logo"-->
-<!--                android:src="@drawable/logo_principal" />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingTop="16dp"-->
-<!--                android:paddingBottom="16dp"-->
-<!--                android:text="@string/reservas_recibidas"-->
-<!--                android:textColor="@color/color_text"-->
-<!--                android:textSize="24sp"-->
-<!--                android:textStyle="bold" />-->
-<!--        </LinearLayout>-->
+        android:paddingTop="80dp"
+        android:padding="6dp">
 
         <!-- LISTADO DE RESERVAS -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerReservas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="250dp"
-            android:paddingBottom="200dp" />
+            android:paddingTop="80dp"
+            android:paddingBottom="80dp" />
 
         <!-- PIE DE PÁGINA -->
         <LinearLayout

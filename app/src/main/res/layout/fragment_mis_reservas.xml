@@ -1,112 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:fillViewport="true"
-    android:padding="16dp"
+    android:orientation="vertical"
+    android:padding="6dp"
     tools:context=".fragments.MisReservasFragment">
 
+    <!--        &lt;!&ndash; ENCABEZADO &ndash;&gt;-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:gravity="center_vertical"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:padding="10dp"-->
+    <!--            tools:ignore="UseCompoundDrawables">-->
+
+    <!--            <ImageView-->
+    <!--                android:layout_width="48dp"-->
+    <!--                android:layout_height="48dp"-->
+    <!--                android:layout_marginEnd="16dp"-->
+    <!--                android:contentDescription="@string/logo"-->
+    <!--                android:src="@drawable/logo_principal" />-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingTop="16dp"-->
+    <!--                android:paddingBottom="16dp"-->
+    <!--                android:text="@string/reserva_de_habitacion"-->
+    <!--                android:textColor="@color/color_text"-->
+    <!--                android:textSize="24sp"-->
+    <!--                android:textStyle="bold" />-->
+    <!--        </LinearLayout>-->
+
+    <!-- LISTADO DE RESERVAS DEL INQUILINO -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMisReservas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- PIE DE PÁGINA -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp">
 
-        <!-- ENCABEZADO -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            tools:ignore="UseCompoundDrawables">
+            android:paddingBottom="4dp"
+            android:text="@string/tlf_902_666_999"
+            android:textColor="@color/color_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/logo_principal" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:text="@string/reserva_de_habitacion"
-                android:textColor="@color/color_text"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- LISTADO DE RESERVAS DEL INQUILINO -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerMisReservas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="230dp"
-            android:paddingBottom="230dp" />
-
-        <!-- PIE DE PÁGINA -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingTop="18dp"
-            android:paddingBottom="18dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="4dp"
-                android:text="@string/tlf_902_666_999"
+                android:paddingEnd="12dp"
+                android:text="@string/politica_privacidad"
                 android:textColor="@color/color_text"
                 android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="12dp"
-                    android:text="@string/politica_privacidad"
-                    android:textColor="@color/color_text"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/politica_cookies"
-                    android:textColor="@color/color_text"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/logo_principal" />
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/email_contacto_hola_comparte_es"
+                android:text="@string/politica_cookies"
                 android:textColor="@color/color_text"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/logo_principal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_contacto_hola_comparte_es"
+            android:textColor="@color/color_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
