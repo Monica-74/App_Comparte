@@ -52,6 +52,11 @@ app/build/
 /app/daemon/
 /app/kotlin-profile/
 
+# Ignorar cachés de Gradle Wrapper
+/app/wrapper/dists/
+/app/jdks/
+/app/native/
+
 
 
 
