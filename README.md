@@ -25,10 +25,10 @@ alquileres compartidos en entornos familiares.
 2. [Arquitectura](#arquitectura)
 3. [Estructura de carpetas](#estructura-de-carpetas)
 4. [Requisitos](#requisitos)
-5. [Instalación y ejecución](#instalación-y-ejecución)
-6. [Base de datos SQLite](#base-de-datos-sqlite)
-7. [Pruebas](#pruebas)
-8. [Autores](#autores)
+5. [Base de datos SQLite](#base-de-datos-sqlite)
+6. [Pruebas](#pruebas)
+7. [Roadmap](#roadmap)
+8. [Autor](#autor)
 
 ---
 
@@ -133,13 +133,12 @@ Ejecutar todas:
 
 ---
 
-## Autores
+## Autor
 
-| Nombre | Rol |
-| ------ |  |
-| Nombre | Mónica Blanco Martínez. |
-| Tutor A | Tutor Antonio  Ayala Tirado. |
-| Mentor B | UX/UI  Antonia María Heruzo Herruzo y Antonio Ayala Tirado.|
+Nombre : Mónica Blanco Martínez. 
+* Tutores :
+* Antonia María Heruzo Herruzo | Mentora técnica en el desarrollo de la aplicación Android.
+* Antonio  Ayala Tirado | Responsable del diseño UX/UI.   
 
 ---
  * Copyright © 2025 Proyecto CompArte
