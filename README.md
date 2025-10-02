@@ -142,7 +142,9 @@ Ejecutar todas:
 | Mentor B | UX/UI  Antonia María Heruzo Herruzo y Antonio Ayala Tirado.|
 
 ---
+ * Copyright © 2025 Proyecto CompArte
+ * Licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc/4.0/
 
-© 2025 – Proyecto CompArte. 
-Todos los derechos reservados.
-Este código fuente es solo para revisión.No se permite su uso, copia, modificación ni distribución sin permiso escrito del autor.
+
