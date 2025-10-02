@@ -1,3 +1,7 @@
+⚠️ Aviso: Este proyecto ha sido desarrollado por Mónica Blanco como parte del Proyecto Final de los estudios de Técnico Superior desarrollo Aplicaciones Multiplataforma. 
+No está permitido su uso comercial sin autorización expresa.
+
+
 # App_CompArte
 Aplicación móvil que gestiona alquiler de habitaciones exclusivo para personas mayores de 65 años.
 CompArte - Aplicación móvil (Android Studio)
